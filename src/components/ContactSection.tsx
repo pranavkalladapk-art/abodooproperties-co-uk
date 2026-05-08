@@ -69,8 +69,8 @@ export default function ContactSection() {
                   placeholder="Tell us about your property or investment goals..."
                   value={form.message} onChange={(e) => update('message', e.target.value)} />
                 <div onClick={submit} role="button" tabIndex={0}
-                  className="w-full bg-gold text-midnight rounded-md font-inter text-[15px] font-semibold text-center cursor-pointer transition hover:brightness-110 flex items-center justify-center"
-                  style={{ height: 48 }}>
+                  className="w-full bg-gold text-midnight font-inter text-[15px] font-semibold text-center cursor-pointer transition hover:brightness-110 flex items-center justify-center"
+                  style={{ height: 60, borderRadius: 8 }}>
                   Send My Enquiry
                 </div>
               </div>
