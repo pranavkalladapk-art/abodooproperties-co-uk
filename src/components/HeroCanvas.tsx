@@ -1,7 +1,6 @@
 import React, { Suspense, useMemo, useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
-import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
 const GOLD = '#C6A96B';
@@ -291,11 +290,18 @@ function CameraRig() {
   return null;
 }
 
+function SceneBackground() {
+  const { scene } = useThree();
+  useEffect(() => { scene.background = new THREE.Color('#0B1426'); }, [scene]);
+  return null;
+}
+
 function Scene() {
   const isMobile = useIsMobile();
   const [hovered, setHovered] = useState<string | null>(null);
   return (
     <>
+      <SceneBackground />
       <ambientLight intensity={0.3} />
       <directionalLight position={[5, 5, 5]} intensity={0.8} color={GOLD} />
       <pointLight position={[-5, -3, 2]} intensity={0.4} color="#E8D4A0" />
@@ -307,36 +313,39 @@ function Scene() {
       <HouseGroup hovered={hovered === 'house'} setHovered={setHovered} anyHovered={!!hovered} />
       <FlipGroup hovered={hovered === 'flip'} setHovered={setHovered} anyHovered={!!hovered} />
       <TowerGroup hovered={hovered === 'tower'} setHovered={setHovered} isMobile={isMobile} />
-      <EffectComposer>
-        <Bloom intensity={0.55} luminanceThreshold={0.2} luminanceSmoothing={0.9} />
-        <Vignette eskil={false} offset={0.2} darkness={0.85} />
-      </EffectComposer>
     </>
   );
 }
 
 const HeroCanvas = React.memo(function HeroCanvas() {
   const isMobile = useIsMobile();
+  const [mounted, setMounted] = useState(false);
   const [error, setError] = useState(false);
-  if (error) {
+  useEffect(() => { setMounted(true); }, []);
+
+  if (error || !mounted) {
     return <div style={{
       position: 'absolute', inset: 0, zIndex: 0,
       background: 'linear-gradient(135deg, #0B1426 0%, #1a2d4a 50%, #0d1829 100%)',
     }} />;
   }
   return (
-    <Canvas
-      dpr={[1, 1.5]}
-      frameloop="always"
-      camera={{ position: [0, 0, isMobile ? 13 : 10], fov: 55 }}
-      style={{ position: 'absolute', inset: 0, zIndex: 0 }}
-      gl={{ antialias: true }}
-      onError={() => setError(true)}
-    >
+    <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
       <Suspense fallback={null}>
-        <Scene />
+        <Canvas
+          dpr={[1, 1.5]}
+          frameloop="always"
+          camera={{ position: [0, 0, isMobile ? 13 : 10], fov: 55 }}
+          gl={{ antialias: true }}
+          onCreated={({ gl }) => { gl.setClearColor('#0B1426'); }}
+          onError={() => setError(true)}
+        >
+          <Suspense fallback={null}>
+            <Scene />
+          </Suspense>
+        </Canvas>
       </Suspense>
-    </Canvas>
+    </div>
   );
 });
 
