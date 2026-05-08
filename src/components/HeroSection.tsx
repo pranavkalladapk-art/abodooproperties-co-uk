@@ -24,10 +24,10 @@ export default function HeroSection() {
           PROPERTY INCOME SPECIALISTS · UNITED KINGDOM
         </motion.div>
         <motion.h1 variants={fadeUp}
-          className="font-playfair text-ivory font-normal max-w-4xl mx-auto"
-          style={{ fontSize: 'clamp(40px, 6vw, 78px)', lineHeight: 1.1, letterSpacing: '-0.01em', wordSpacing: '0.05em' }}>
+          className="font-playfair text-ivory font-normal mx-auto"
+          style={{ fontSize: 'clamp(38px, 5.4vw, 68px)', lineHeight: 1.08, letterSpacing: '-0.015em', maxWidth: '18ch', textWrap: 'balance' as any }}>
           {headline.split(' ').map((w, i) => (
-            <motion.span key={i} style={{ display: 'inline-block', marginRight: '0.28em' }}
+            <motion.span key={i} style={{ display: 'inline-block', marginRight: '0.25em' }}
               initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.6 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}>
               {w}
@@ -35,8 +35,8 @@ export default function HeroSection() {
           ))}
         </motion.h1>
         <motion.p variants={fadeUp}
-          className="font-inter text-[17px] max-w-2xl mx-auto mt-8 leading-relaxed"
-          style={{ color: 'rgba(248,246,242,0.70)' }}>
+          className="font-inter mx-auto mt-7 leading-relaxed"
+          style={{ color: 'rgba(248,246,242,0.68)', fontSize: 'clamp(15px, 1.15vw, 17px)', maxWidth: '58ch', textWrap: 'balance' as any }}>
           Abodoo Properties works with landlords and investors across the UK to unlock higher monthly income through serviced accommodation, strategic acquisitions, and expert property management.
         </motion.p>
         <motion.div variants={fadeUp} className="flex gap-4 mt-10 flex-wrap justify-center">
