@@ -13,7 +13,8 @@ export default function CTABanner() {
           Get a free income assessment in 48 hours. We'll show projected monthly returns across all three strategies so you can make a fully informed decision.
         </p>
         <a href="#contact"
-          className="inline-block bg-gold text-midnight px-12 py-4 rounded-md font-inter text-[16px] font-semibold tracking-wide transition-all duration-300 hover:brightness-110 hover:scale-[1.03]"
+          className="inline-flex items-center justify-center bg-gold text-midnight font-inter text-[15px] font-semibold tracking-wide transition-all duration-300 hover:brightness-110"
+          style={{ height: 60, minWidth: 280, padding: '0 40px', borderRadius: 8 }}
           onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 0 28px rgba(198,169,107,0.22)')}
           onMouseLeave={(e) => (e.currentTarget.style.boxShadow = 'none')}>
           Get My Free Assessment
