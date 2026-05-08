@@ -40,15 +40,16 @@ export default function HeroSection() {
           Abodoo Properties works with landlords and investors across the UK to unlock higher monthly income through serviced accommodation, strategic acquisitions, and expert property management.
         </motion.p>
         <motion.div variants={fadeUp} className="flex gap-4 mt-10 flex-wrap justify-center">
-          <a href="#services" className="bg-gold text-midnight px-8 py-3.5 rounded-md font-inter text-[14px] font-semibold tracking-wide transition-all duration-300 hover:brightness-110 hover:scale-[1.03]">
+          <a href="#services"
+            className="bg-gold text-midnight font-inter text-[14px] font-semibold tracking-wide transition-all duration-300 hover:brightness-110 inline-flex items-center justify-center"
+            style={{ height: 52, minWidth: 200, borderRadius: 8, padding: '0 28px' }}>
             Explore Our Services
           </a>
-          <a href="#contact" className="border border-gold text-gold px-8 py-3.5 rounded-md font-inter text-[14px] font-semibold tracking-wide transition-all duration-300 hover:bg-gold hover:text-midnight">
+          <a href="#contact"
+            className="border border-gold text-gold font-inter text-[14px] font-semibold tracking-wide transition-all duration-300 hover:bg-gold hover:text-midnight inline-flex items-center justify-center"
+            style={{ height: 52, minWidth: 200, borderRadius: 8, padding: '0 28px' }}>
             Book a Free Consultation
           </a>
-        </motion.div>
-        <motion.div variants={fadeUp} className="font-inter text-[13px] mt-6" style={{ color: 'rgba(248,246,242,0.45)' }}>
-          100+ Properties Managed&nbsp;&nbsp;·&nbsp;&nbsp;Guaranteed Rental Income&nbsp;&nbsp;·&nbsp;&nbsp;Zero Hassle Operations
         </motion.div>
       </motion.div>
       <motion.div
