@@ -76,22 +76,34 @@ export default function ContactSection() {
               </div>
             )}
           </div>
-          <div>
+          <div className="flex flex-col gap-4">
             {[
-              { Icon: Mail, text: 'hello@abodooproperties.co.uk' },
-              { Icon: Phone, text: '+44 (0) 121 000 0000' },
-              { Icon: Msg, text: <a href="https://wa.me/441210000000" className="text-gold hover:underline">Chat on WhatsApp</a> },
-              { Icon: Pin, text: 'Birmingham, United Kingdom' },
+              { Icon: Mail, label: 'EMAIL', value: 'hello@abodooproperties.co.uk' },
+              { Icon: Phone, label: 'PHONE', value: '+44 (0) 121 000 0000' },
+              { Icon: Msg, label: 'WHATSAPP', value: <a href="https://wa.me/441210000000" className="hover:underline">Chat with us</a> },
+              { Icon: Pin, label: 'ADDRESS', value: 'Birmingham, United Kingdom' },
             ].map((r, i) => (
-              <div key={i} className="flex items-start gap-3 mb-6">
-                <div className="mt-1"><r.Icon /></div>
-                <div className="font-inter text-[16px]" style={{ color: 'rgba(248,246,242,0.75)' }}>{r.text}</div>
+              <div key={i} className="flex items-center gap-4"
+                style={{
+                  background: 'rgba(20,28,46,0.55)',
+                  border: '1px solid rgba(198,169,107,0.10)',
+                  borderRadius: 12,
+                  padding: '18px 22px',
+                }}>
+                <div className="flex items-center justify-center shrink-0"
+                  style={{ width: 44, height: 44, border: '1px solid rgba(198,169,107,0.35)', borderRadius: 8 }}>
+                  <r.Icon />
+                </div>
+                <div className="min-w-0">
+                  <div className="font-inter text-[10px] tracking-widest text-gold" style={{ marginBottom: 4 }}>{r.label}</div>
+                  <div className="font-inter text-[15px] text-ivory truncate">{r.value}</div>
+                </div>
               </div>
             ))}
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 h-56"
-              style={{ background: 'rgba(42,47,54,0.4)', border: '1px solid rgba(198,169,107,0.12)', borderRadius: 12 }}>
+            <div className="flex flex-col items-center justify-center gap-3 mt-2"
+              style={{ background: 'rgba(20,28,46,0.55)', border: '1px solid rgba(198,169,107,0.10)', borderRadius: 12, height: 200 }}>
               <BigPin />
-              <div className="font-inter text-[14px]" style={{ color: 'rgba(248,246,242,0.5)' }}>Birmingham, UK</div>
+              <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.5)' }}>Birmingham, UK</div>
             </div>
           </div>
         </div>
