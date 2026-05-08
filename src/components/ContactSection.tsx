@@ -55,20 +55,22 @@ export default function ContactSection() {
                   placeholder="Property Location (e.g. Birmingham B1, Manchester M1)"
                   value={form.location} onChange={(e) => update('location', e.target.value)} />
                 <select value={form.setup} onChange={(e) => update('setup', e.target.value)}
-                  className="text-ivory font-inter text-[15px] rounded-md py-3 px-3 focus:outline-none"
-                  style={{ background: '#2A2F36', border: '1px solid rgba(198,169,107,0.15)' }}>
-                  <option value="">Select your situation</option>
-                  <option>Standard AST Tenancy</option>
-                  <option>Currently Vacant</option>
-                  <option>Already in SA</option>
-                  <option>Looking to Flip/Invest</option>
-                  <option>Other</option>
+                  className="w-full text-ivory font-inter text-[15px] focus:outline-none px-4"
+                  style={fieldStyle}>
+                  <option value="" style={{ background: '#0B1426' }}>Select your situation</option>
+                  <option style={{ background: '#0B1426' }}>Standard AST Tenancy</option>
+                  <option style={{ background: '#0B1426' }}>Currently Vacant</option>
+                  <option style={{ background: '#0B1426' }}>Already in SA</option>
+                  <option style={{ background: '#0B1426' }}>Looking to Flip/Invest</option>
+                  <option style={{ background: '#0B1426' }}>Other</option>
                 </select>
-                <textarea rows={4} className={inputCls + ' resize-none'} style={borderFor('message')}
+                <textarea rows={5} className={'w-full bg-transparent text-ivory font-inter text-[15px] focus:outline-none px-4 py-3 resize-none'}
+                  style={{ ...borderFor('message'), height: 'auto', minHeight: 120 }}
                   placeholder="Tell us about your property or investment goals..."
                   value={form.message} onChange={(e) => update('message', e.target.value)} />
                 <div onClick={submit} role="button" tabIndex={0}
-                  className="w-full bg-gold text-midnight py-4 rounded-md font-inter text-[15px] font-semibold text-center cursor-pointer transition hover:brightness-110">
+                  className="w-full bg-gold text-midnight rounded-md font-inter text-[15px] font-semibold text-center cursor-pointer transition hover:brightness-110 flex items-center justify-center"
+                  style={{ height: 48 }}>
                   Send My Enquiry
                 </div>
               </div>
