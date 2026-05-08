@@ -57,8 +57,8 @@ export default function ServicesSection() {
               transition={{ duration: 0.7, delay: i * 0.1 }}
               className="flex flex-col"
               style={{
-                background: 'rgba(42,47,54,0.55)',
-                border: '1px solid rgba(198,169,107,0.14)',
+                background: i === 1 ? 'rgba(198,169,107,0.06)' : 'rgba(42,47,54,0.55)',
+                border: i === 1 ? '1px solid rgba(198,169,107,0.45)' : '1px solid rgba(198,169,107,0.14)',
                 borderRadius: 18,
                 backdropFilter: 'blur(14px)',
                 padding: 'clamp(32px, 4vw, 44px) clamp(24px, 3vw, 36px)',
