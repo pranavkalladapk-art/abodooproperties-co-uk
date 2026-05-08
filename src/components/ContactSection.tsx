@@ -24,7 +24,8 @@ export default function ContactSection() {
   };
 
   const borderFor = (k: string) => ({
-    borderBottom: `1px solid ${errors[k] ? '#f87171' : 'rgba(248,246,242,0.14)'}`,
+    ...fieldStyle,
+    border: `1px solid ${errors[k] ? '#f87171' : 'rgba(198,169,107,0.18)'}`,
   });
 
   return (
