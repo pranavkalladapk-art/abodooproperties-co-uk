@@ -57,6 +57,8 @@ body {
   width: 100%;
 }
 .section-head { text-align: center; margin-bottom: 60px; }
+.section-head--left { text-align: left; margin-bottom: 56px; }
+.section-head--left .section-sub { margin-left: 0; max-width: 640px; }
 .section-label {
   display: block;
   font-family: 'Inter', sans-serif;
