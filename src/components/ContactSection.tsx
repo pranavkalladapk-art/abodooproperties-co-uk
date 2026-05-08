@@ -48,34 +48,34 @@ export default function ContactSection() {
           <p className="section-sub">Whether you have one property or ten, we'll give you an honest assessment of what it could earn under each of our three strategies.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10">
-          <div className="p-8 lg:p-10"
-            style={{ background: 'rgba(20,28,46,0.55)', border: '1px solid rgba(198,169,107,0.15)', borderRadius: 16 }}>
+          <div>
             {sent ? (
-              <div className="text-gold font-inter text-[18px] text-center py-12">
+              <div className="text-gold font-inter text-[18px] text-center py-12"
+                style={{ background: 'rgba(20,28,46,0.55)', border: '1px solid rgba(198,169,107,0.15)', borderRadius: 12 }}>
                 Thank you — we'll be in touch within 48 hours.
               </div>
             ) : (
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-4">
                 <Field label="Full Name" error={errors.name}>
-                  <input className={underlineBase} style={ulStyle(errors.name)}
+                  <input className={inputBase}
                     value={form.name} onChange={(e) => update('name', e.target.value)} />
                 </Field>
                 <Field label="Email Address" error={errors.email}>
-                  <input type="email" className={underlineBase} style={ulStyle(errors.email)}
+                  <input type="email" className={inputBase}
                     value={form.email} onChange={(e) => update('email', e.target.value)} />
                 </Field>
                 <Field label="Phone Number" error={errors.phone}>
-                  <input type="tel" className={underlineBase} style={ulStyle(errors.phone)}
+                  <input type="tel" className={inputBase}
                     value={form.phone} onChange={(e) => update('phone', e.target.value)} />
                 </Field>
                 <Field label="Property Location">
-                  <input className={underlineBase} style={ulStyle()}
+                  <input className={inputBase}
                     placeholder="e.g. Birmingham B1, Manchester M1"
                     value={form.location} onChange={(e) => update('location', e.target.value)} />
                 </Field>
                 <Field label="Your Situation">
                   <select value={form.setup} onChange={(e) => update('setup', e.target.value)}
-                    className={underlineBase} style={ulStyle()}>
+                    className={inputBase}>
                     <option value="" style={{ background: '#0B1426' }}>Select your situation</option>
                     <option style={{ background: '#0B1426' }}>Standard AST Tenancy</option>
                     <option style={{ background: '#0B1426' }}>Currently Vacant</option>
@@ -86,8 +86,7 @@ export default function ContactSection() {
                 </Field>
                 <Field label="Message">
                   <textarea rows={4}
-                    className={'w-full bg-transparent text-ivory font-inter text-[15px] focus:outline-none py-2 resize-none border-0 border-b'}
-                    style={ulStyle()}
+                    className={'w-full bg-transparent text-ivory font-inter text-[15px] focus:outline-none resize-none border-0 p-0'}
                     placeholder="Tell us about your property or investment goals..."
                     value={form.message} onChange={(e) => update('message', e.target.value)} />
                 </Field>
