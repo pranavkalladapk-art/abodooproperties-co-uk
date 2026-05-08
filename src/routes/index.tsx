@@ -1,26 +1,48 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import StatsSection from "@/components/StatsSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import ServicesSection from "@/components/ServicesSection";
+import WhyAbodooSection from "@/components/WhyAbodooSection";
+import PropertiesSection from "@/components/PropertiesSection";
+import AboutSection from "@/components/AboutSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
+import CTABanner from "@/components/CTABanner";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Abodoo Properties — UK Property Income Specialists" },
+      { name: "description", content: "Abodoo Properties turns UK homes into high-performing income assets through guaranteed Rent-to-SA, strategic flips, and full-service management." },
+      { property: "og:title", content: "Abodoo Properties — UK Property Income Specialists" },
+      { property: "og:description", content: "Guaranteed monthly income, expert management, and proven flip returns across the United Kingdom." },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="min-h-screen bg-midnight text-ivory">
+      <Navbar />
+      <HeroSection />
+      <StatsSection />
+      <HowItWorksSection />
+      <ServicesSection />
+      <WhyAbodooSection />
+      <PropertiesSection />
+      <AboutSection />
+      <TestimonialsSection />
+      <FAQSection />
+      <CTABanner />
+      <ContactSection />
+      <Footer />
+      <WhatsAppButton />
+    </main>
+  );
 }
