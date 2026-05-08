@@ -24,10 +24,10 @@ export default function HeroSection() {
           PROPERTY INCOME SPECIALISTS · UNITED KINGDOM
         </motion.div>
         <motion.h1 variants={fadeUp}
-          className="font-playfair text-ivory font-normal leading-tight max-w-4xl"
-          style={{ fontSize: 'clamp(40px, 6.5vw, 86px)' }}>
+          className="font-playfair text-ivory font-normal max-w-4xl mx-auto"
+          style={{ fontSize: 'clamp(40px, 6vw, 78px)', lineHeight: 1.1, letterSpacing: '-0.01em', wordSpacing: '0.05em' }}>
           {headline.split(' ').map((w, i) => (
-            <motion.span key={i} className="inline-block mr-[0.25em]"
+            <motion.span key={i} style={{ display: 'inline-block', marginRight: '0.28em' }}
               initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.6 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}>
               {w}
@@ -35,7 +35,7 @@ export default function HeroSection() {
           ))}
         </motion.h1>
         <motion.p variants={fadeUp}
-          className="font-inter text-[17px] max-w-2xl mx-auto mt-6 leading-relaxed"
+          className="font-inter text-[17px] max-w-2xl mx-auto mt-8 leading-relaxed"
           style={{ color: 'rgba(248,246,242,0.70)' }}>
           Abodoo Properties works with landlords and investors across the UK to unlock higher monthly income through serviced accommodation, strategic acquisitions, and expert property management.
         </motion.p>
