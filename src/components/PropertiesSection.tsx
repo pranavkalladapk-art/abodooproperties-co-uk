@@ -41,14 +41,14 @@ export default function PropertiesSection() {
               <div className="absolute inset-0" style={{
                 background: 'linear-gradient(to top, rgba(11,20,38,0.95) 0%, transparent 55%)',
               }} />
-              <div className="absolute top-4 right-4 rounded-lg px-3.5 py-2"
-                style={{ background: 'rgba(11,20,38,0.9)', border: '1px solid #C6A96B' }}>
-                <div className="font-playfair text-[18px] text-gold leading-none">{p.roi}</div>
-                <div className="font-inter text-[10px] mt-1" style={{ color: 'rgba(248,246,242,0.6)' }}>{p.roiLabel}</div>
+              <div className="absolute top-4 right-4 rounded-lg px-3 py-1.5 text-right whitespace-nowrap"
+                style={{ background: 'rgba(11,20,38,0.92)', border: '1px solid #C6A96B', minWidth: 78 }}>
+                <div className="font-playfair text-[16px] text-gold leading-tight">{p.roi}</div>
+                <div className="font-inter text-[9px] tracking-wider mt-0.5" style={{ color: 'rgba(248,246,242,0.65)' }}>{p.roiLabel}</div>
               </div>
-              <div className="absolute top-4 left-4 rounded-md px-3 py-1.5"
-                style={{ background: 'rgba(11,20,38,0.85)', border: '1px solid rgba(198,169,107,0.3)' }}>
-                <span className="font-inter text-[11px] tracking-widest text-gold">{p.tag}</span>
+              <div className="absolute top-4 left-4 rounded-md px-2.5 py-1.5 whitespace-nowrap"
+                style={{ background: 'rgba(11,20,38,0.92)', border: '1px solid rgba(198,169,107,0.35)' }}>
+                <span className="font-inter text-[10px] tracking-widest text-gold">{p.tag}</span>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <div className="font-inter text-[11px] uppercase tracking-wider text-gold mb-2">{p.location}</div>
