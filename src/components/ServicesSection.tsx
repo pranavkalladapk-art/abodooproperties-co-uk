@@ -70,7 +70,7 @@ export default function ServicesSection() {
                 e.currentTarget.style.boxShadow = '0 28px 56px rgba(0,0,0,0.45)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(198,169,107,0.14)';
+                e.currentTarget.style.borderColor = i === 1 ? 'rgba(198,169,107,0.45)' : 'rgba(198,169,107,0.14)';
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = 'none';
               }}>
