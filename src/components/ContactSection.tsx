@@ -37,14 +37,14 @@ export default function ContactSection() {
           <p className="section-sub">Whether you have one property or ten, we'll give you an honest assessment of what it could earn under each of our three strategies.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10">
-          <div className="p-12 lg:p-14"
-            style={{ background: 'rgba(42,47,54,0.5)', border: '1px solid rgba(198,169,107,0.15)', borderRadius: 20 }}>
+          <div className="p-6 lg:p-8"
+            style={{ background: 'rgba(42,47,54,0.5)', border: '1px solid rgba(198,169,107,0.15)', borderRadius: 16 }}>
             {sent ? (
               <div className="text-gold font-inter text-[18px] text-center py-12">
                 Thank you — we'll be in touch within 48 hours.
               </div>
             ) : (
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-3">
                 <input className={inputCls} style={borderFor('name')} placeholder="Full Name"
                   value={form.name} onChange={(e) => update('name', e.target.value)} />
                 <input type="email" className={inputCls} style={borderFor('email')} placeholder="Email Address"
