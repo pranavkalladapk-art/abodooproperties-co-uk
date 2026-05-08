@@ -25,12 +25,12 @@ const SocialX = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none
 
 export default function Footer() {
   return (
-    <footer className="pt-18 pb-10" style={{ background: '#060E1C', borderTop: '1px solid rgba(198,169,107,0.18)', paddingTop: 72 }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="section section--deep" style={{ paddingTop: 80, paddingBottom: 40, borderTop: '1px solid rgba(198,169,107,0.18)' }}>
+      <div className="section-inner">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: 48 }}>
           <div>
             <Logo />
-            <p className="font-inter text-[14px] mt-4 max-w-[220px] leading-relaxed" style={{ color: 'rgba(248,246,242,0.42)' }}>
+            <p className="font-inter text-[14px] mt-4 max-w-[220px]" style={{ color: 'rgba(248,246,242,0.42)', lineHeight: 1.8 }}>
               Maximising property income across the United Kingdom since 2019.
             </p>
             <div className="flex gap-4 mt-6" style={{ color: 'rgba(198,169,107,0.45)' }}>

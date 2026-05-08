@@ -27,16 +27,12 @@ export default function ContactSection() {
   });
 
   return (
-    <section id="contact" className="py-32" style={{ background: '#0B1426' }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-16">
-          <div className="font-inter text-[11px] tracking-[0.18em] text-gold mb-4">CONTACT</div>
-          <h2 className="font-playfair text-ivory" style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>
-            Let's talk about your property.
-          </h2>
-          <p className="font-inter text-[17px] max-w-2xl mx-auto mt-6" style={{ color: 'rgba(248,246,242,0.65)' }}>
-            Whether you have one property or ten, we'll give you an honest assessment of what it could earn under each of our three strategies.
-          </p>
+    <section id="contact" className="section section--blue section--divider">
+      <div className="section-inner">
+        <div className="section-head">
+          <span className="section-label">CONTACT</span>
+          <h2 className="section-h2">Let's talk about your property.</h2>
+          <p className="section-sub">Whether you have one property or ten, we'll give you an honest assessment of what it could earn under each of our three strategies.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="p-10 lg:p-12"

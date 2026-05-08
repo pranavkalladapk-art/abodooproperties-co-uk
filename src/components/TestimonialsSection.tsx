@@ -24,14 +24,12 @@ export default function TestimonialsSection() {
   }, [paused]);
 
   return (
-    <section className="py-32" style={{ background: '#0F1A2E' }}
+    <section className="section section--blue section--divider"
       onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-      <div className="max-w-3xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-12">
-          <div className="font-inter text-[11px] tracking-[0.18em] text-gold mb-4">TESTIMONIALS</div>
-          <h2 className="font-playfair text-ivory" style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>
-            What our landlords and investors say.
-          </h2>
+      <div className="section-inner max-w-3xl">
+        <div className="section-head">
+          <span className="section-label">TESTIMONIALS</span>
+          <h2 className="section-h2">What our landlords and investors say.</h2>
         </div>
         <div className="relative" style={{ minHeight: 320 }}>
           <AnimatePresence mode="wait">
@@ -41,11 +39,11 @@ export default function TestimonialsSection() {
               className="p-10"
               style={{ background: 'rgba(42,47,54,0.75)', border: '1px solid rgba(198,169,107,0.12)', borderRadius: 16 }}>
               <div className="flex gap-1">{[...Array(5)].map((_, i) => <Star key={i} />)}</div>
-              <p className="font-playfair italic text-[18px] leading-relaxed mt-4" style={{ color: 'rgba(248,246,242,0.9)' }}>
+              <p className="font-playfair italic text-[18px]" style={{ color: 'rgba(248,246,242,0.9)', lineHeight: 1.8, marginTop: 16 }}>
                 "{items[idx].quote}"
               </p>
-              <div className="font-inter text-[14px] font-medium text-ivory mt-6">{items[idx].name}</div>
-              <div className="font-inter text-[12px] text-gold mt-1">{items[idx].role}</div>
+              <div className="font-inter text-[14px] font-medium text-ivory" style={{ marginTop: 24 }}>{items[idx].name}</div>
+              <div className="font-inter text-[12px] text-gold" style={{ marginTop: 4 }}>{items[idx].role}</div>
             </motion.div>
           </AnimatePresence>
         </div>
