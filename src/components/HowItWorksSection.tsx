@@ -9,32 +9,31 @@ const steps = [
 ];
 
 export default function HowItWorksSection() {
-  const { ref, inView } = useScrollReveal();
+  const { ref, inView } = useScrollReveal({ threshold: 0.12 });
   return (
-    <section id="how" ref={ref} className="py-32" style={{ background: '#0F1A2E' }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-20">
-          <div className="font-inter text-[11px] tracking-[0.18em] text-gold mb-4">PROCESS</div>
-          <h2 className="font-playfair text-ivory" style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>
-            From your property to consistent income — in four steps
-          </h2>
+    <section id="how" ref={ref} className="section section--blue section--divider">
+      <div className="section-inner">
+        <div className="section-head">
+          <span className="section-label">PROCESS</span>
+          <h2 className="section-h2">From your property to consistent income — in four steps</h2>
         </div>
-        <div className="relative grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="relative grid grid-cols-1 lg:grid-cols-4" style={{ gap: 40 }}>
           <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-px"
             style={{ borderTop: '1px dashed rgba(198,169,107,0.22)' }} />
           {steps.map((s, i) => (
-            <motion.div key={s.n} className="relative pt-2"
+            <motion.div key={s.n} className="relative"
+              style={{ padding: '32px 24px' }}
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="absolute top-0 left-0 font-playfair pointer-events-none"
-                style={{ fontSize: 52, color: 'rgba(198,169,107,0.16)', lineHeight: 1 }}>
+              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}>
+              <div className="absolute font-playfair pointer-events-none select-none"
+                style={{ fontSize: 52, color: 'rgba(198,169,107,0.16)', lineHeight: 1, top: 16, left: 24 }}>
                 0{s.n}
               </div>
-              <div className="relative pt-12">
-                <div className="w-8 h-0.5 bg-gold mb-5" />
-                <h3 className="font-playfair text-[20px] text-ivory">{s.title}</h3>
-                <p className="font-inter text-[15px] leading-relaxed mt-3" style={{ color: 'rgba(248,246,242,0.65)' }}>
+              <div className="relative" style={{ paddingTop: 56 }}>
+                <div className="bg-gold" style={{ width: 32, height: 2, marginBottom: 20 }} />
+                <h3 className="font-playfair text-[20px] text-ivory" style={{ marginBottom: 12 }}>{s.title}</h3>
+                <p className="font-inter text-[15px]" style={{ color: 'rgba(248,246,242,0.65)', lineHeight: 1.8 }}>
                   {s.body}
                 </p>
               </div>

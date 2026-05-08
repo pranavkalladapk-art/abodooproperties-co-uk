@@ -1,27 +1,25 @@
 import useScrollReveal from '../hooks/useScrollReveal';
 
 export default function AboutSection() {
-  const { ref, inView } = useScrollReveal();
+  const { ref, inView } = useScrollReveal({ threshold: 0.12 });
   return (
-    <section ref={ref} className="py-32" style={{ background: '#0B1426' }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section ref={ref} className="section section--midnight section--divider">
+      <div className="section-inner grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
-          <div className="font-inter text-[11px] tracking-[0.18em] text-gold mb-4">OUR STORY</div>
-          <h2 className="font-playfair text-ivory" style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>
-            Built by investors, for property owners.
-          </h2>
-          <p className="font-inter text-[17px] leading-relaxed mt-6" style={{ color: 'rgba(248,246,242,0.68)' }}>
+          <span className="section-label">OUR STORY</span>
+          <h2 className="section-h2" style={{ textAlign: 'left' }}>Built by investors, for property owners.</h2>
+          <p className="font-inter text-[17px]" style={{ color: 'rgba(248,246,242,0.68)', lineHeight: 1.8, marginBottom: 16 }}>
             Abodoo Properties was founded with a single belief: that every UK property has the potential to earn significantly more than a standard buy-to-let. We started by building our own serviced accommodation portfolio — and when the model proved itself, we opened it to landlords who wanted the same results without the operational complexity.
           </p>
-          <p className="font-inter text-[17px] leading-relaxed mt-4" style={{ color: 'rgba(248,246,242,0.68)' }}>
+          <p className="font-inter text-[17px]" style={{ color: 'rgba(248,246,242,0.68)', lineHeight: 1.8, marginBottom: 24 }}>
             Today we manage properties across Birmingham, Manchester, Leeds, and beyond — using three specialist strategies tailored to each property's location, condition, and income potential.
           </p>
-          <div className="flex flex-wrap gap-2 mt-6 font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.45)' }}>
+          <div className="flex flex-wrap gap-2 font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.45)', marginBottom: 32 }}>
             <span>Est. 2019</span><span className="text-gold mx-2">·</span>
             <span>UK-Wide Coverage</span><span className="text-gold mx-2">·</span>
             <span>3 Specialist Strategies</span>
           </div>
-          <a href="#contact" className="inline-block mt-8 border border-gold text-gold px-6 py-2.5 rounded-md font-inter text-[14px] hover:bg-gold hover:text-midnight transition">
+          <a href="#contact" className="inline-block border border-gold text-gold px-6 py-2.5 rounded-md font-inter text-[14px] hover:bg-gold hover:text-midnight transition">
             Meet the team →
           </a>
         </div>

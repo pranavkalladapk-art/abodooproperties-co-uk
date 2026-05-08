@@ -13,19 +13,17 @@ const faqs = [
 export default function FAQSection() {
   const [active, setActive] = useState<number | null>(0);
   return (
-    <section id="faq" className="py-32" style={{ background: '#0B1426' }}>
-      <div className="max-w-3xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-12">
-          <div className="font-inter text-[11px] tracking-[0.18em] text-gold mb-4">FAQ</div>
-          <h2 className="font-playfair text-ivory" style={{ fontSize: 'clamp(28px, 3.6vw, 46px)' }}>
-            Answers to the questions landlords always ask.
-          </h2>
+    <section id="faq" className="section section--midnight section--divider">
+      <div className="section-inner max-w-3xl">
+        <div className="section-head">
+          <span className="section-label">FAQ</span>
+          <h2 className="section-h2">Answers to the questions landlords always ask.</h2>
         </div>
         <div>
           {faqs.map((f, i) => {
             const open = active === i;
             return (
-              <div key={i} className="py-6" style={{ borderBottom: '1px solid rgba(198,169,107,0.1)' }}>
+              <div key={i} style={{ borderBottom: '1px solid rgba(198,169,107,0.1)', padding: '24px 0' }}>
                 <button
                   onClick={() => setActive(open ? null : i)}
                   className="w-full flex justify-between items-center text-left transition-colors"
@@ -43,8 +41,8 @@ export default function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       style={{ overflow: 'hidden' }}>
-                      <div className="font-inter text-[16px] leading-relaxed pt-4 mt-4"
-                        style={{ color: 'rgba(248,246,242,0.65)', borderTop: '1px solid rgba(198,169,107,0.15)' }}>
+                      <div className="font-inter text-[16px]"
+                        style={{ color: 'rgba(248,246,242,0.65)', lineHeight: 1.8, paddingTop: 16, marginTop: 16, borderTop: '1px solid rgba(198,169,107,0.15)' }}>
                         {f.a}
                       </div>
                     </motion.div>

@@ -20,20 +20,20 @@ const props = [
 ];
 
 export default function PropertiesSection() {
-  const { ref, inView } = useScrollReveal();
+  const { ref, inView } = useScrollReveal({ threshold: 0.12 });
   return (
-    <section id="properties" ref={ref} className="py-32" style={{ background: '#0B1426' }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-16">
-          <div className="font-inter text-[11px] tracking-[0.18em] text-gold mb-4">PORTFOLIO</div>
-          <h2 className="font-playfair text-ivory" style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>Featured Properties</h2>
+    <section id="properties" ref={ref} className="section section--midnight section--divider">
+      <div className="section-inner">
+        <div className="section-head">
+          <span className="section-label">PORTFOLIO</span>
+          <h2 className="section-h2">Featured Properties</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {props.map((p, i) => (
             <motion.div key={i}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: i * 0.12 }}
+              transition={{ duration: 0.7, delay: i * 0.1 }}
               className="group relative overflow-hidden cursor-pointer"
               style={{ borderRadius: 14, aspectRatio: '3/4' }}>
               <img src={p.img} alt={p.name} loading="lazy"
