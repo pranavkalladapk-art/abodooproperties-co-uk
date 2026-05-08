@@ -1,13 +1,18 @@
 import { useState } from 'react';
 
 const labelCls = 'font-inter text-[11px] tracking-[0.18em] text-gold uppercase';
-const underlineBase = 'w-full bg-transparent text-ivory font-inter text-[15px] focus:outline-none transition-colors duration-300 py-2 border-0 border-b';
-const ulStyle = (err?: boolean) => ({ borderBottom: `1px solid ${err ? '#f87171' : 'rgba(198,169,107,0.35)'}`, borderRadius: 0 });
+const inputBase = 'w-full bg-transparent text-ivory font-inter text-[15px] focus:outline-none border-0 p-0';
+const boxStyle = (err?: boolean) => ({
+  background: 'rgba(20,28,46,0.55)',
+  border: `1px solid ${err ? '#f87171' : 'rgba(198,169,107,0.15)'}`,
+  borderRadius: 12,
+  padding: '14px 18px',
+});
 
 function Field({ label, error, children }: { label: string; error?: boolean; children: React.ReactNode }) {
   return (
-    <div className="flex flex-col gap-2">
-      <span className={labelCls}>{label}</span>
+    <div style={boxStyle(error)}>
+      <div className={labelCls} style={{ marginBottom: 6 }}>{label}</div>
       {children}
     </div>
   );
