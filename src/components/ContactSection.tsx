@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-const inputCls = 'w-full bg-transparent pb-3 pt-2 text-ivory font-inter text-[16px] focus:outline-none transition-colors duration-300';
+const inputCls = 'w-full bg-transparent text-ivory font-inter text-[15px] focus:outline-none transition-colors duration-300 px-4';
+const fieldStyle = { height: 48, background: 'rgba(11,20,38,0.45)', border: '1px solid rgba(198,169,107,0.18)', borderRadius: 6 };
 
 const Mail = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C6A96B" strokeWidth="1.5"><rect x="2" y="4" width="16" height="12" rx="1.5" /><path d="M2 6 L10 11 L18 6" /></svg>;
 const Phone = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C6A96B" strokeWidth="1.5"><path d="M4 3 H7 L8.5 7 L6.5 8.5 C7.5 11 9 12.5 11.5 13.5 L13 11.5 L17 13 V16 C17 17 16 18 15 18 C9 18 2 11 2 5 C2 4 3 3 4 3 Z" /></svg>;
