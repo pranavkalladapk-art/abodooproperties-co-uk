@@ -33,10 +33,6 @@ export default function ContactSection() {
     if (Object.keys(errs).length === 0) setSent(true);
   };
 
-  const borderFor = (k: string) => ({
-    ...fieldStyle,
-    border: `1px solid ${errors[k] ? '#f87171' : 'rgba(198,169,107,0.18)'}`,
-  });
 
   return (
     <section id="contact" className="section section--blue section--divider">
