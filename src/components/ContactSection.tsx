@@ -36,9 +36,9 @@ export default function ContactSection() {
           <h2 className="section-h2">Let's talk about your property.</h2>
           <p className="section-sub">Whether you have one property or ten, we'll give you an honest assessment of what it could earn under each of our three strategies.</p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="p-10 lg:p-12"
-            style={{ background: 'rgba(42,47,54,0.5)', border: '1px solid rgba(198,169,107,0.15)', borderRadius: 16 }}>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10">
+          <div className="p-12 lg:p-14"
+            style={{ background: 'rgba(42,47,54,0.5)', border: '1px solid rgba(198,169,107,0.15)', borderRadius: 20 }}>
             {sent ? (
               <div className="text-gold font-inter text-[18px] text-center py-12">
                 Thank you — we'll be in touch within 48 hours.
