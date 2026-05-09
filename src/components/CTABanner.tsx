@@ -6,10 +6,10 @@ export default function CTABanner() {
       borderBottom: '1px solid rgba(198,169,107,0.2)',
     }}>
       <div className="section-inner max-w-3xl">
-        <h2 className="font-playfair text-ivory" style={{ fontSize: 'clamp(28px, 3.6vw, 46px)', lineHeight: 1.2, marginBottom: 16 }}>
+        <h2 className="font-playfair text-ivory mx-auto" style={{ fontSize: 'clamp(30px, 3.6vw, 44px)', lineHeight: 1.15, letterSpacing: '-0.012em', marginBottom: 20, maxWidth: '22ch', textWrap: 'balance' as any }}>
           Ready to see what your property could earn?
         </h2>
-        <p className="font-inter text-[18px] max-w-xl mx-auto" style={{ color: 'rgba(248,246,242,0.65)', lineHeight: 1.8, marginBottom: 32 }}>
+        <p className="font-inter text-[17px] mx-auto" style={{ color: 'rgba(248,246,242,0.62)', lineHeight: 1.75, marginBottom: 36, maxWidth: '52ch', textWrap: 'balance' as any }}>
           Get a free income assessment in 48 hours. We'll show projected monthly returns across all three strategies so you can make a fully informed decision.
         </p>
         <a href="#contact"
