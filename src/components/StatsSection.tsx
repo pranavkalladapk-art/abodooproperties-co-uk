@@ -34,7 +34,7 @@ export default function StatsSection() {
         <rect width="100%" height="100%" fill="url(#dotgrid)" />
       </svg>
       <div className="section-inner relative">
-        <div className="section-head section-head--left">
+        <div className="section-head">
           <span className="section-label">WHY ABODOO</span>
           <h2 className="section-h2">The smarter way to invest in UK property</h2>
         </div>
