@@ -4,11 +4,11 @@ import useCountUp from '../hooks/useCountUp';
 function StatItem({ start, prefix = '', value, suffix = '', label, decimals = 0, raw }: any) {
   const display = useCountUp(value || 0, 1800, start, decimals);
   return (
-    <div style={{ padding: '24px 28px' }}>
-      <div className="font-playfair text-gold" style={{ fontSize: 'clamp(40px, 5vw, 64px)', lineHeight: 1, marginBottom: 12 }}>
+    <div style={{ padding: '28px 32px' }}>
+      <div className="font-playfair text-gold" style={{ fontSize: 'clamp(40px, 4.8vw, 60px)', lineHeight: 1, letterSpacing: '-0.02em', marginBottom: 14 }}>
         {raw ? raw : `${prefix}${display}${suffix}`}
       </div>
-      <div className="font-inter text-[14px]" style={{ color: 'rgba(248,246,242,0.55)' }}>
+      <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.55)', lineHeight: 1.5, letterSpacing: '0.01em' }}>
         {label}
       </div>
     </div>
