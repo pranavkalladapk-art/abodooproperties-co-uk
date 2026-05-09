@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import HeroCanvas from './HeroCanvas';
 
-const headline = 'We Turn Properties Into High-Performing Income Assets';
+const headline = 'Maximize Your Property Income With Zero Hassle';
 
 export default function HeroSection() {
   return (
@@ -18,16 +18,16 @@ export default function HeroSection() {
         initial="hidden" animate="show"
         variants={{ show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
       >
-        <motion.div variants={{ hidden: { opacity: 0, x: -20 }, show: { opacity: 1, x: 0, transition: { duration: 0.7 } } }}
-          className="w-16 h-px bg-gold mb-6" />
-        <motion.div variants={fadeUp} className="font-inter text-[11px] tracking-[0.18em] text-gold mb-8">
-          PROPERTY INCOME SPECIALISTS · UNITED KINGDOM
+        <motion.div variants={{ hidden: { opacity: 0, scaleX: 0 }, show: { opacity: 1, scaleX: 1, transition: { duration: 0.7 } } }}
+          className="w-14 h-px bg-gold mb-7" style={{ transformOrigin: 'center' }} />
+        <motion.div variants={fadeUp} className="font-inter text-[12px] tracking-[0.28em] text-gold mb-10 uppercase">
+          Premium Property Investment · United Kingdom
         </motion.div>
         <motion.h1 variants={fadeUp}
           className="font-playfair text-ivory font-normal mx-auto"
-          style={{ fontSize: 'clamp(38px, 5.4vw, 68px)', lineHeight: 1.08, letterSpacing: '-0.015em', maxWidth: '18ch', textWrap: 'balance' as any }}>
+          style={{ fontSize: 'clamp(44px, 7vw, 88px)', lineHeight: 1.05, letterSpacing: '-0.02em', maxWidth: '16ch', textWrap: 'balance' as any }}>
           {headline.split(' ').map((w, i) => (
-            <motion.span key={i} style={{ display: 'inline-block', marginRight: '0.25em' }}
+            <motion.span key={i} style={{ display: 'inline-block', marginRight: '0.28em' }}
               initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.6 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}>
               {w}
@@ -35,20 +35,20 @@ export default function HeroSection() {
           ))}
         </motion.h1>
         <motion.p variants={fadeUp}
-          className="font-inter mx-auto mt-7 leading-relaxed"
-          style={{ color: 'rgba(248,246,242,0.68)', fontSize: 'clamp(15px, 1.15vw, 17px)', maxWidth: '58ch', textWrap: 'balance' as any }}>
-          Abodoo Properties works with landlords and investors across the UK to unlock higher monthly income through serviced accommodation, strategic acquisitions, and expert property management.
+          className="font-inter mx-auto mt-8"
+          style={{ color: 'rgba(248,246,242,0.72)', fontSize: 'clamp(15px, 1.15vw, 17px)', lineHeight: 1.7, maxWidth: '52ch', textWrap: 'balance' as any }}>
+          We help property owners and investors generate higher returns through smart property solutions.
         </motion.p>
-        <motion.div variants={fadeUp} className="flex gap-4 mt-10 flex-wrap justify-center">
+        <motion.div variants={fadeUp} className="flex gap-4 mt-12 flex-wrap justify-center">
           <a href="#services"
             className="bg-gold text-midnight font-inter text-[14px] font-semibold tracking-wide transition-all duration-300 hover:brightness-110 inline-flex items-center justify-center"
-            style={{ height: 52, minWidth: 200, borderRadius: 8, padding: '0 28px' }}>
-            Explore Our Services
+            style={{ height: 54, minWidth: 200, borderRadius: 8, padding: '0 32px' }}>
+            Explore Services
           </a>
           <a href="#contact"
             className="border border-gold text-gold font-inter text-[14px] font-semibold tracking-wide transition-all duration-300 hover:bg-gold hover:text-midnight inline-flex items-center justify-center"
-            style={{ height: 52, minWidth: 200, borderRadius: 8, padding: '0 28px' }}>
-            Book a Free Consultation
+            style={{ height: 54, minWidth: 200, borderRadius: 8, padding: '0 32px' }}>
+            Book Consultation
           </a>
         </motion.div>
       </motion.div>
