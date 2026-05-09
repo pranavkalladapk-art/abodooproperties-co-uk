@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import HeroCanvas from './HeroCanvas';
 
-const headline = 'We Turn Properties Into High-Performing Income Assets';
+const headline = 'Maximize Your Property Income With Zero Hassle';
 
 export default function HeroSection() {
   return (
