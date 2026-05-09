@@ -56,6 +56,7 @@ export default function AboutSection() {
                 animation: `float-dot ${d.dur} ease-in-out infinite`, animationDelay: d.delay,
               }} />
           ))}
+          </div>
         </div>
       </div>
     </section>
