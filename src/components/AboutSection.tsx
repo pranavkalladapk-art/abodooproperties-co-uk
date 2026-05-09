@@ -7,11 +7,11 @@ export default function AboutSection() {
       <div className="section-inner grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
           <span className="section-label">OUR STORY</span>
-          <h2 className="section-h2" style={{ textAlign: 'left' }}>Built by investors, for property owners.</h2>
-          <p className="font-inter text-[17px]" style={{ color: 'rgba(248,246,242,0.68)', lineHeight: 1.8, marginBottom: 16 }}>
+          <h2 className="section-h2">Built by investors, for property owners.</h2>
+          <p className="font-inter text-[16px]" style={{ color: 'rgba(248,246,242,0.66)', lineHeight: 1.8, marginBottom: 18, maxWidth: '58ch', textWrap: 'pretty' as any }}>
             Abodoo Properties was founded with a single belief: that every UK property has the potential to earn significantly more than a standard buy-to-let. We started by building our own serviced accommodation portfolio — and when the model proved itself, we opened it to landlords who wanted the same results without the operational complexity.
           </p>
-          <p className="font-inter text-[17px]" style={{ color: 'rgba(248,246,242,0.68)', lineHeight: 1.8, marginBottom: 24 }}>
+          <p className="font-inter text-[16px]" style={{ color: 'rgba(248,246,242,0.66)', lineHeight: 1.8, marginBottom: 28, maxWidth: '58ch', textWrap: 'pretty' as any }}>
             Today we manage properties across Birmingham, Manchester, Leeds, and beyond — using three specialist strategies tailored to each property's location, condition, and income potential.
           </p>
           <div className="flex flex-wrap gap-2 font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.45)', marginBottom: 32 }}>
