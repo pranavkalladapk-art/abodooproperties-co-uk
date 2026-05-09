@@ -100,8 +100,9 @@ body {
 }
 @media (max-width: 767px) {
   .section { padding: 80px 24px; }
-  .section-head { margin-bottom: 52px; }
-  .section-h2 { font-size: clamp(28px, 7vw, 40px); line-height: 1.15; }
+  .section-head { margin-bottom: 60px; }
+  .section-label { margin-bottom: 20px; }
+  .section-h2 { font-size: clamp(28px, 7vw, 40px); line-height: 1.18; margin-bottom: 22px; }
   .section-sub { font-size: 15px; }
 }
 
