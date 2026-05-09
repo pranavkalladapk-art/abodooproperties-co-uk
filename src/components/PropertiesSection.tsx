@@ -24,7 +24,7 @@ export default function PropertiesSection() {
   return (
     <section id="properties" ref={ref} className="section section--midnight section--divider">
       <div className="section-inner">
-        <div className="section-head section-head--left">
+        <div className="section-head">
           <span className="section-label">PORTFOLIO</span>
           <h2 className="section-h2">Featured Properties</h2>
         </div>

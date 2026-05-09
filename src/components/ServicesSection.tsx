@@ -38,7 +38,7 @@ export default function ServicesSection() {
   return (
     <section id="services" ref={ref} className="section section--midnight section--divider">
       <div className="section-inner">
-        <div className="section-head section-head--left">
+        <div className="section-head">
           <span className="section-label">OUR SERVICES</span>
           <h2 className="section-h2">Three proven strategies. One trusted partner.</h2>
           <p className="section-sub">Every Abodoo client is matched to the strategy that maximises their property's income potential.</p>
