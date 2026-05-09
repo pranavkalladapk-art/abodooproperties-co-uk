@@ -18,7 +18,7 @@ export default function TestimonialsSection() {
   return (
     <section ref={ref} className="section section--blue section--divider">
       <div className="section-inner">
-        <div className="section-head section-head--left">
+        <div className="section-head">
           <span className="section-label">TESTIMONIALS</span>
           <h2 className="section-h2">What our landlords and investors say.</h2>
         </div>
