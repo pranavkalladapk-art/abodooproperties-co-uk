@@ -42,16 +42,17 @@ export default function WhyAbodooSection() {
             Abodoo was built by property investors frustrated by the gap between what letting agents offered and what a property could actually earn. Every strategy has been proven in our own portfolio first.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto" style={{ gap: 32 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 mx-auto" style={{ gap: '40px 56px', maxWidth: 880 }}>
           {items.map((it, i) => (
             <motion.div key={i}
-              initial={{ opacity: 0, x: -20 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              style={{ borderLeft: '2px solid rgba(198,169,107,0.35)', paddingLeft: 24, paddingTop: 8, paddingBottom: 8 }}>
-              <div style={{ marginBottom: 16 }}><it.Icon /></div>
+              className="flex flex-col items-center text-center"
+              style={{ paddingLeft: 16, paddingRight: 16, paddingTop: 8, paddingBottom: 8 }}>
+              <div style={{ marginBottom: 18 }}><it.Icon /></div>
               <h3 className="font-playfair text-[20px] text-ivory" style={{ marginBottom: 10 }}>{it.title}</h3>
-              <p className="font-inter text-[15px]" style={{ color: 'rgba(248,246,242,0.62)', lineHeight: 1.8 }}>{it.body}</p>
+              <p className="font-inter text-[15px]" style={{ color: 'rgba(248,246,242,0.62)', lineHeight: 1.75, maxWidth: '38ch' }}>{it.body}</p>
             </motion.div>
           ))}
         </div>
