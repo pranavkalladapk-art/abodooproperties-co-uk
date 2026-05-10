@@ -41,10 +41,10 @@ export default function Navbar() {
       }}
     >
       <Logo />
-      <div className="hidden md:flex items-center gap-8">
+      <div className="hidden lg:flex items-center gap-8">
         {links.map((l) => (
           <a key={l.href} href={l.href}
-            className="font-inter text-[14px] transition-colors duration-250"
+            className="font-inter text-[14px] transition-colors duration-250 whitespace-nowrap"
             style={{ color: 'rgba(248,246,242,0.65)' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#C6A96B')}
             onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(248,246,242,0.65)')}
@@ -52,7 +52,7 @@ export default function Navbar() {
         ))}
       </div>
       <a href="#contact"
-        className="hidden md:inline-block font-inter text-[13px] font-medium tracking-wide rounded-md transition-all duration-300"
+        className="hidden lg:inline-block font-inter text-[13px] font-medium tracking-wide rounded-md transition-all duration-300 whitespace-nowrap"
         style={{
           border: '1.5px solid #C6A96B',
           color: '#C6A96B',
@@ -62,7 +62,7 @@ export default function Navbar() {
         onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#C6A96B'; }}
       >Get Free Assessment</a>
 
-      <button className="md:hidden flex flex-col gap-1.5" onClick={() => setOpen(true)} aria-label="Open menu">
+      <button className="lg:hidden flex flex-col gap-1.5" onClick={() => setOpen(true)} aria-label="Open menu">
         <span className="block w-[22px] h-[1.5px] bg-gold" />
         <span className="block w-[22px] h-[1.5px] bg-gold" />
         <span className="block w-[22px] h-[1.5px] bg-gold" />
