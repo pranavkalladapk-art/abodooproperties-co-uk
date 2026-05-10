@@ -18,8 +18,6 @@ export default function HowItWorksSection() {
           <h2 className="section-h2">From your property to consistent income — in four steps</h2>
         </div>
         <div className="relative grid grid-cols-1 lg:grid-cols-4" style={{ gap: 40 }}>
-          <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-px"
-            style={{ borderTop: '1px dashed rgba(198,169,107,0.22)' }} />
           {steps.map((s, i) => (
             <motion.div key={s.n} className="relative"
               style={{ padding: '32px 24px' }}
