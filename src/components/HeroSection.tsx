@@ -23,7 +23,7 @@ export default function HeroSection() {
         <motion.div variants={fadeUp} className="flex flex-col items-center">
           <motion.div variants={{ hidden: { opacity: 0, scaleX: 0 }, show: { opacity: 1, scaleX: 1, transition: { duration: 0.7 } } }}
             className="w-14 h-px bg-gold mb-6" style={{ transformOrigin: 'center' }} />
-          <div className="font-inter text-[12px] tracking-[0.28em] text-gold uppercase">
+          <div className="font-inter text-[10px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.28em] text-gold uppercase text-center px-4">
             Premium Property Investment · United Kingdom
           </div>
         </motion.div>
