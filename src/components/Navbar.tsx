@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import logo from '@/assets/logo.png';
 
 const links = [
   { href: '#home', label: 'Home' },
@@ -13,16 +14,7 @@ const links = [
 function Logo() {
   return (
     <a href="#home" className="flex items-center gap-3">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-        <defs>
-          <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#C6A96B" />
-            <stop offset="100%" stopColor="#E8D4A0" />
-          </linearGradient>
-        </defs>
-        <path d="M5 28 L17 5 L29 28 M11 22 H23 M17 5 L17 14 M14 11 L17 8 L20 11"
-          stroke="url(#goldGrad)" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      <img src={logo} alt="Abodoo Properties" style={{ height: 40, width: 'auto', display: 'block' }} />
       <div className="flex flex-col leading-none">
         <span className="font-inter font-semibold text-[17px] tracking-widest text-ivory">ABODOO</span>
         <span className="font-inter font-normal text-[9px] tracking-[0.3em] text-gold mt-0.5">PROPERTIES</span>
