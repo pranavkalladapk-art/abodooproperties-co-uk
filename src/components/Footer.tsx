@@ -24,7 +24,7 @@ export default function Footer() {
           <div>
             <Logo />
             <p className="font-inter text-[14px] mt-4 max-w-[220px]" style={{ color: 'rgba(248,246,242,0.42)', lineHeight: 1.8 }}>
-              Maximising property income across the United Kingdom since 2019.
+              Maximising property income across the United Kingdom since 2026.
             </p>
             <div className="flex gap-4 mt-6" style={{ color: 'rgba(198,169,107,0.45)' }}>
               {[SocialLinkedIn, SocialIG, SocialX].map((I, i) => (
@@ -53,7 +53,7 @@ export default function Footer() {
         <div className="mt-12 pt-6 flex justify-between flex-wrap gap-3"
           style={{ borderTop: '1px solid rgba(198,169,107,0.1)' }}>
           <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.38)' }}>
-            © 2025 Abodoo Properties Ltd. Registered in England & Wales.
+            © 2025 Abodoo Properties
           </div>
           <div className="font-inter text-[11px]" style={{ color: 'rgba(248,246,242,0.28)' }}>
             Property investment carries risk. Past performance is not indicative of future results.
