@@ -5,7 +5,7 @@ export default function CTABanner() {
       borderTop: '1px solid rgba(198,169,107,0.2)',
       borderBottom: '1px solid rgba(198,169,107,0.2)',
     }}>
-      <div className="section-inner max-w-3xl">
+      <div className="section-inner max-w-3xl mx-auto flex flex-col items-center text-center">
         <h2 className="font-playfair text-ivory mx-auto" style={{ fontSize: 'clamp(30px, 3.6vw, 44px)', lineHeight: 1.15, letterSpacing: '-0.012em', marginBottom: 20, maxWidth: '22ch', textWrap: 'balance' as any }}>
           Ready to see what your property could earn?
         </h2>
