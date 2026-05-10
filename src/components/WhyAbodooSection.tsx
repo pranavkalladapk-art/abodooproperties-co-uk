@@ -50,15 +50,11 @@ export default function WhyAbodooSection() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="flex flex-col h-full"
+                className={`flex flex-col h-full text-left items-start mr-auto md:mr-0 md:ml-0 ${isLeft ? 'md:text-left md:items-start md:mr-auto' : 'md:text-right md:items-end md:ml-auto'}`}
                 style={{
                   maxWidth: 360,
                   display: 'grid',
                   gridTemplateRows: 'auto auto 1fr',
-                  textAlign: isLeft ? 'left' : 'right',
-                  justifyItems: isLeft ? 'start' : 'end',
-                  marginLeft: isLeft ? 0 : 'auto',
-                  marginRight: isLeft ? 'auto' : 0,
                 }}>
                 <div style={{ marginBottom: 18 }}><it.Icon /></div>
                 <h3 className="font-playfair text-[20px] text-ivory" style={{ marginBottom: 12, minHeight: '2.4em', display: 'flex', alignItems: 'center' }}>{it.title}</h3>

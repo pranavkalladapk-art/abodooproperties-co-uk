@@ -23,7 +23,7 @@ export default function HeroSection() {
         <motion.div variants={fadeUp} className="flex flex-col items-center">
           <motion.div variants={{ hidden: { opacity: 0, scaleX: 0 }, show: { opacity: 1, scaleX: 1, transition: { duration: 0.7 } } }}
             className="w-14 h-px bg-gold mb-6" style={{ transformOrigin: 'center' }} />
-          <div className="font-inter text-[12px] tracking-[0.28em] text-gold uppercase">
+          <div className="font-inter text-[10px] sm:text-[12px] tracking-[0.18em] sm:tracking-[0.28em] text-gold uppercase text-center px-4">
             Premium Property Investment · United Kingdom
           </div>
         </motion.div>
@@ -42,8 +42,8 @@ export default function HeroSection() {
             ))}
           </motion.h1>
           <motion.p variants={fadeUp}
-            className="font-inter mx-auto mt-8 whitespace-nowrap"
-            style={{ color: 'rgba(248,246,242,0.72)', fontSize: 'clamp(13px, 1.05vw, 16px)', lineHeight: 1.6 }}>
+            className="font-inter mx-auto mt-8"
+            style={{ color: 'rgba(248,246,242,0.72)', fontSize: 'clamp(13px, 1.05vw, 16px)', lineHeight: 1.6, maxWidth: '52ch' }}>
             We help property owners and investors generate higher returns through smart property solutions.
           </motion.p>
         </div>
