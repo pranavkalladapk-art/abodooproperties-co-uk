@@ -42,7 +42,7 @@ export default function WhyAbodooSection() {
             Abodoo was built by property investors frustrated by the gap between what letting agents offered and what a property could actually earn. Every strategy has been proven in our own portfolio first.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 mx-auto" style={{ gap: '48px 96px', maxWidth: 980, width: '100%', alignItems: 'stretch' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 mx-auto" style={{ gap: '48px 160px', maxWidth: 1200, width: '100%', alignItems: 'stretch' }}>
           {items.map((it, i) => {
             const isLeft = i % 2 === 0;
             return (
