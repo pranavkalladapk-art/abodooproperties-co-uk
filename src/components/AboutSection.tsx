@@ -18,7 +18,7 @@ export default function AboutSection() {
               Today we manage properties across Birmingham, Manchester, Leeds, and beyond — using three specialist strategies tailored to each property's location, condition, and income potential.
             </p>
             <div className="flex flex-wrap gap-2 font-inter text-[13px] justify-center lg:justify-start" style={{ color: 'rgba(248,246,242,0.45)', marginBottom: 32 }}>
-              <span>Est. 2019</span><span className="text-gold mx-2">·</span>
+              <span>Est. 2026</span><span className="text-gold mx-2">·</span>
               <span>UK-Wide Coverage</span><span className="text-gold mx-2">·</span>
               <span>3 Specialist Strategies</span>
             </div>
