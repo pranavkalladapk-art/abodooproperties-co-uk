@@ -42,8 +42,8 @@ export default function HeroSection() {
             ))}
           </motion.h1>
           <motion.p variants={fadeUp}
-            className="font-inter mx-auto mt-8 whitespace-nowrap"
-            style={{ color: 'rgba(248,246,242,0.72)', fontSize: 'clamp(13px, 1.05vw, 16px)', lineHeight: 1.6 }}>
+            className="font-inter mx-auto mt-8"
+            style={{ color: 'rgba(248,246,242,0.72)', fontSize: 'clamp(13px, 1.05vw, 16px)', lineHeight: 1.6, maxWidth: '52ch' }}>
             We help property owners and investors generate higher returns through smart property solutions.
           </motion.p>
         </div>
