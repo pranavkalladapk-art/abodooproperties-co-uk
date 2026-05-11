@@ -6,9 +6,14 @@ const HouseIcon = () => (
     <path d="M4 14 L16 4 L28 14 V27 H4 Z" /><path d="M13 27 V19 H19 V27" /><path d="M21 11 H24 V14 H21 Z" />
   </svg>
 );
+const KeyIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#C6A96B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="16" r="5" /><path d="M16 16 H28" /><path d="M24 16 V20" /><path d="M28 16 V21" />
+  </svg>
+);
 const ArrowIcon = () => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#C6A96B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M8 24 L24 8" /><path d="M16 8 H24 V16" /><circle cx="9" cy="26" r="2.5" /><circle cx="13" cy="28" r="2.5" />
+    <path d="M5 20 L13 12 L18 17 L27 8" /><path d="M20 8 H27 V15" />
   </svg>
 );
 const BuildingIcon = () => (
@@ -20,16 +25,20 @@ const BuildingIcon = () => (
 
 const cards = [
   {
-    icon: HouseIcon, title: 'Rent to Serviced Accommodation',
-    body: 'We lease your property on a guaranteed fixed rent and operate it as a premium serviced apartment. You receive reliable monthly income — we handle everything else.',
+    icon: HouseIcon, title: 'Rent-to-HMO',
+    body: 'Transforming properties into high-yield shared accommodation for stronger monthly cash flow.',
   },
   {
-    icon: ArrowIcon, title: 'Strategic Property Flipping',
-    body: 'We identify undervalued properties, refurbish to high specification, and sell at significant uplift — typically within 4 to 8 months. Joint ventures with investors welcome.',
+    icon: KeyIcon, title: 'Serviced Accommodation',
+    body: 'Premium short-term rental solutions designed for higher occupancy and increased returns.',
   },
   {
-    icon: BuildingIcon, title: 'Full-Service Property Management',
-    body: 'We handle tenants, maintenance, compliance, inspections, and rent collection — so you can step back completely and receive consistent monthly income.',
+    icon: ArrowIcon, title: 'BRRR Projects',
+    body: 'Buy, refurbish, rent, and refinance strategies focused on long-term portfolio growth.',
+  },
+  {
+    icon: BuildingIcon, title: 'Refurbishment & Resale',
+    body: 'Value-add renovation projects designed to maximise resale profit and investment potential.',
   },
 ];
 
@@ -40,10 +49,10 @@ export default function ServicesSection() {
       <div className="section-inner">
         <div className="section-head">
           <span className="section-label">OUR SERVICES</span>
-          <h2 className="section-h2">Three proven strategies. One trusted partner.</h2>
+          <h2 className="section-h2">Four proven strategies. One trusted partner.</h2>
           <p className="section-sub">Every Abodoo client is matched to the strategy that maximises their property's income potential.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((c, i) => (
             <motion.div key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -54,11 +63,11 @@ export default function ServicesSection() {
                 background: 'rgba(20,28,46,0.7)',
                 border: '1px solid rgba(198,169,107,0.08)',
                 borderRadius: 14,
-                padding: 36,
+                padding: 32,
               }}>
               <c.icon />
-              <h3 className="font-playfair text-[24px] text-ivory" style={{ marginTop: 28, marginBottom: 16 }}>{c.title}</h3>
-              <p className="font-inter text-[15px]" style={{ color: 'rgba(248,246,242,0.6)', lineHeight: 1.7, marginBottom: 28 }}>{c.body}</p>
+              <h3 className="font-playfair text-[22px] text-ivory" style={{ marginTop: 24, marginBottom: 14 }}>{c.title}</h3>
+              <p className="font-inter text-[14.5px]" style={{ color: 'rgba(248,246,242,0.6)', lineHeight: 1.7, marginBottom: 24 }}>{c.body}</p>
               <a href="#contact" className="inline-flex items-center gap-2 font-inter text-[14px] text-gold hover:gap-3 transition-all mt-auto">
                 Learn more
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
