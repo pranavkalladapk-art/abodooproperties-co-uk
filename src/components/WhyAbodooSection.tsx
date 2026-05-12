@@ -33,7 +33,7 @@ const items = [
 export default function WhyAbodooSection() {
   const { ref, inView } = useScrollReveal({ threshold: 0.12 });
   return (
-    <section ref={ref} className="section section--blue section--divider">
+    <section id="why" ref={ref} className="section section--blue section--divider">
       <div className="section-inner">
         <div className="section-head">
           <span className="section-label">WHY ABODOO</span>
