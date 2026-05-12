@@ -168,10 +168,9 @@ export default function Navbar() {
                 style={{ background: 'radial-gradient(circle, rgba(198,169,107,0.18) 0%, transparent 70%)' }}
               />
 
-              <motion.div
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative flex-1 flex flex-col px-7 pt-28 pb-8 overflow-y-auto"
+              <div
+                className="relative flex-1 flex flex-col px-7 pt-24 pb-6 overflow-y-auto"
+                style={{ WebkitOverflowScrolling: 'touch' }}
               >
                 <ul className="flex flex-col">
                   {links.map((l, i) => {
@@ -188,7 +187,7 @@ export default function Navbar() {
                         <a
                           href={l.href}
                           onClick={() => setOpen(false)}
-                          className="group relative flex items-center gap-3 py-4 font-inter text-[16px] tracking-wide transition-all duration-300"
+                          className="group relative flex items-center gap-3 py-3 font-inter text-[15px] tracking-wide transition-all duration-300"
                           style={{ color: isActive ? '#C6A96B' : 'rgba(248,246,242,0.82)' }}
                         >
                           <motion.span

@@ -3,7 +3,7 @@ import useScrollReveal from '../hooks/useScrollReveal';
 export default function AboutSection() {
   const { ref, inView } = useScrollReveal({ threshold: 0.12 });
   return (
-    <section ref={ref} className="section section--midnight section--divider">
+    <section id="about" ref={ref} className="section section--midnight section--divider">
       <div className="section-inner">
         <div className="section-head">
           <span className="section-label">OUR STORY</span>
