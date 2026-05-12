@@ -147,42 +147,29 @@ export default function Navbar() {
             {/* Sidebar */}
             <motion.aside
               key="sidebar"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ x: '100%', opacity: 0.6 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: '100%', opacity: 0.4 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="lg:hidden fixed top-0 right-0 z-[200] h-full flex flex-col"
               style={{
-                width: 'min(88vw, 420px)',
-                background: 'linear-gradient(180deg, #0A1020 0%, #060B17 100%)',
-                borderLeft: '1px solid rgba(198,169,107,0.15)',
-                boxShadow: '-24px 0 60px rgba(0,0,0,0.6)',
+                width: 'min(86vw, 380px)',
+                background: 'linear-gradient(180deg, rgba(8,14,28,0.96) 0%, rgba(6,10,22,0.98) 100%)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                borderLeft: '1px solid rgba(198,169,107,0.18)',
+                boxShadow: '-24px 0 60px rgba(0,0,0,0.5)',
               }}
             >
-              {/* Header: logo + close */}
+              {/* Soft glow */}
               <div
-                className="flex items-center justify-between px-6 py-5"
-                style={{ borderBottom: '1px solid rgba(198,169,107,0.12)' }}
-              >
-                <a href="#home" onClick={() => setOpen(false)} className="flex items-center gap-2">
-                  <img src={logo} alt="Abodoo" style={{ height: 34, width: 'auto' }} />
-                  <span className="font-inter font-semibold text-[15px] tracking-widest text-ivory">ABODOO</span>
-                </a>
-                <button
-                  onClick={() => setOpen(false)}
-                  aria-label="Close menu"
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
-                  style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
-                >
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path d="M1 1L13 13M13 1L1 13" stroke="#F8F6F2" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                </button>
-              </div>
+                aria-hidden
+                className="pointer-events-none absolute -top-20 -right-20 w-[260px] h-[260px] rounded-full"
+                style={{ background: 'radial-gradient(circle, rgba(198,169,107,0.18) 0%, transparent 70%)' }}
+              />
 
-              {/* Menu list */}
               <div
-                className="flex-1 overflow-y-auto"
+                className="relative flex-1 flex flex-col px-7 pt-24 pb-6 overflow-y-auto"
                 style={{ WebkitOverflowScrolling: 'touch' }}
               >
                 <ul className="flex flex-col">
@@ -192,29 +179,29 @@ export default function Navbar() {
                     return (
                       <motion.li
                         key={l.href}
-                        initial={{ opacity: 0, x: 24 }}
+                        initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 + i * 0.04, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                        style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+                        transition={{ delay: 0.15 + i * 0.05, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                        style={{ borderBottom: '1px solid rgba(198,169,107,0.08)' }}
                       >
                         <a
                           href={l.href}
                           onClick={() => setOpen(false)}
-                          className="relative flex items-center px-6 py-[18px] font-inter text-[15px] tracking-wide transition-all duration-300"
-                          style={{
-                            color: isActive ? '#C6A96B' : '#F8F6F2',
-                            background: isActive ? 'rgba(198,169,107,0.06)' : 'transparent',
-                            fontWeight: isActive ? 500 : 400,
-                          }}
+                          className="group relative flex items-center gap-3 py-3 font-inter text-[15px] tracking-wide transition-all duration-300"
+                          style={{ color: isActive ? '#C6A96B' : 'rgba(248,246,242,0.82)' }}
                         >
-                          {isActive && (
-                            <motion.span
-                              layoutId="active-bar"
-                              className="absolute left-0 top-2 bottom-2 rounded-r"
-                              style={{ width: 2.5, background: '#C6A96B' }}
-                            />
-                          )}
+                          <motion.span
+                            aria-hidden
+                            className="block rounded-full"
+                            animate={{
+                              width: isActive ? 22 : 6,
+                              opacity: isActive ? 1 : 0.35,
+                            }}
+                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                            style={{ height: 1.5, background: '#C6A96B' }}
+                          />
                           <span
+                            className="transition-all duration-300 group-hover:translate-x-1"
                             style={{ textShadow: isActive ? '0 0 18px rgba(198,169,107,0.45)' : 'none' }}
                           >
                             {l.label}
@@ -224,51 +211,41 @@ export default function Navbar() {
                     );
                   })}
                 </ul>
-              </div>
 
-              {/* Footer: CTA + socials */}
-              <div
-                className="px-6 pt-5 pb-7"
-                style={{ borderTop: '1px solid rgba(198,169,107,0.12)' }}
-              >
-                <a
-                  href="#contact"
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-center gap-3 w-full font-inter text-[13px] font-semibold tracking-[0.18em] uppercase rounded-md py-4 transition-all duration-300"
-                  style={{
-                    background: 'linear-gradient(135deg, #C6A96B 0%, #A88848 100%)',
-                    color: '#0B1426',
-                    boxShadow: '0 10px 30px rgba(198,169,107,0.25)',
-                  }}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 + links.length * 0.05 + 0.1, duration: 0.5 }}
+                  className="mt-10"
                 >
-                  Contact Us
-                  <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-                    <path d="M1 6H15M15 6L10 1M15 6L10 11" stroke="#0B1426" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </a>
+                  <a
+                    href="#contact"
+                    onClick={() => setOpen(false)}
+                    className="block text-center font-inter text-[14px] font-medium tracking-wide rounded-md py-3.5 transition-all duration-300"
+                    style={{
+                      border: '1.5px solid #C6A96B',
+                      color: '#C6A96B',
+                      boxShadow: '0 0 0 rgba(198,169,107,0)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = '#C6A96B';
+                      e.currentTarget.style.color = '#0B1426';
+                      e.currentTarget.style.boxShadow = '0 8px 30px rgba(198,169,107,0.35)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.color = '#C6A96B';
+                      e.currentTarget.style.boxShadow = '0 0 0 rgba(198,169,107,0)';
+                    }}
+                  >
+                    Get Free Assessment
+                  </a>
 
-                <div className="flex items-center justify-center gap-4 mt-6">
-                  {[
-                    { label: 'Facebook', path: 'M13 3h-2.5A3.5 3.5 0 0 0 7 6.5V9H5v3h2v7h3v-7h2.5l.5-3H10V6.5a.5.5 0 0 1 .5-.5H13V3z' },
-                    { label: 'Instagram', path: 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm5.5-1.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z' },
-                    { label: 'YouTube', path: 'M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5 3-5 3z' },
-                    { label: 'LinkedIn', path: 'M5 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h4v12H3V9zm6 0h4v2c.6-1 2-2 4-2 3 0 4 2 4 5v7h-4v-6c0-1.5-.5-2.5-2-2.5s-2 1-2 2.5V21H9V9z' },
-                  ].map((s) => (
-                    <a
-                      key={s.label}
-                      href="#"
-                      aria-label={s.label}
-                      className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
-                      style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(198,169,107,0.18)' }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(198,169,107,0.12)'; e.currentTarget.style.borderColor = '#C6A96B'; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(198,169,107,0.18)'; }}
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#C6A96B">
-                        <path d={s.path} />
-                      </svg>
-                    </a>
-                  ))}
-                </div>
+                  <p className="mt-6 font-inter text-[11px] tracking-[0.28em] uppercase text-center"
+                     style={{ color: 'rgba(248,246,242,0.35)' }}>
+                    Abodoo Properties
+                  </p>
+                </motion.div>
               </div>
             </motion.aside>
           </>
