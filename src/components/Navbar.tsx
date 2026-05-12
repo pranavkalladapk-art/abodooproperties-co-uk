@@ -115,7 +115,7 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setOpen(false)}
-              className="lg:hidden fixed inset-0 z-[190] bg-black/60 backdrop-blur-sm"
+              className="lg:hidden fixed inset-0 z-[240] bg-black/60 backdrop-blur-sm"
             />
 
             {/* Sidebar */}
@@ -125,7 +125,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:hidden fixed top-0 left-0 z-[200] h-[100dvh] w-full max-w-[400px] flex flex-col"
+              className="lg:hidden fixed top-0 left-0 z-[250] h-[100dvh] w-full max-w-[400px] flex flex-col"
               style={{ background: '#1a1a1a' }}
             >
               {/* Panel Header */}
