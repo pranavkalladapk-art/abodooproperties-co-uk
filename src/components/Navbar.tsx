@@ -14,6 +14,15 @@ const links = [
   { href: '#contact', label: 'Contact' },
 ];
 
+const desktopLinks = [
+  { href: '#home', label: 'Home' },
+  { href: '#how', label: 'How It Works' },
+  { href: '#services', label: 'Services' },
+  { href: '#properties', label: 'Properties' },
+  { href: '#faq', label: 'FAQ' },
+  { href: '#contact', label: 'Contact' },
+];
+
 function Logo() {
   return (
     <a href="#home" className="flex items-center gap-3">
