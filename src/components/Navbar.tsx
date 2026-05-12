@@ -76,10 +76,10 @@ export default function Navbar() {
       }}
     >
       <Logo />
-      <div className="hidden lg:flex items-center gap-4 xl:gap-6">
-        {links.map((l) => (
+      <div className="hidden lg:flex items-center gap-8">
+        {desktopLinks.map((l) => (
           <a key={l.href} href={l.href}
-            className="font-inter text-[13px] xl:text-[14px] transition-colors duration-250 whitespace-nowrap"
+            className="font-inter text-[14px] transition-colors duration-250 whitespace-nowrap"
             style={{ color: 'rgba(248,246,242,0.65)' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#C6A96B')}
             onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(248,246,242,0.65)')}
