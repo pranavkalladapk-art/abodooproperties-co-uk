@@ -4,7 +4,7 @@ import { useState } from 'react';
 export default function WhatsAppButton() {
   const [hover, setHover] = useState(false);
   return (
-    <div className="fixed z-[200]" style={{ right: 28, bottom: 28 }}
+    <div className="fixed z-[90] lg:z-[200]" style={{ right: 28, bottom: 28 }}
       onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <AnimatePresence>
         {hover && (
