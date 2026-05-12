@@ -246,7 +246,7 @@ export default function Navbar() {
                     Abodoo Properties
                   </p>
                 </motion.div>
-              </motion.div>
+              </div>
             </motion.aside>
           </>
         )}
