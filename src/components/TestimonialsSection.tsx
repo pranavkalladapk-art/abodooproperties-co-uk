@@ -16,7 +16,7 @@ const Star = () => (
 export default function TestimonialsSection() {
   const { ref, inView } = useScrollReveal({ threshold: 0.12 });
   return (
-    <section ref={ref} className="section section--blue section--divider">
+    <section id="testimonials" ref={ref} className="section section--blue section--divider">
       <div className="section-inner">
         <div className="section-head">
           <span className="section-label">TESTIMONIALS</span>

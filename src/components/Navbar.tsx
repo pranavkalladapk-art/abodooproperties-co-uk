@@ -4,21 +4,12 @@ import logo from '@/assets/logo.png';
 
 const links = [
   { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#strategies', label: 'Investment Strategies' },
-  { href: '#properties', label: 'Portfolio' },
-  { href: '#why', label: 'Why Invest With Us' },
-  { href: '#testimonials', label: 'Testimonials' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#contact', label: 'Contact' },
-];
-
-const desktopLinks = [
-  { href: '#home', label: 'Home' },
   { href: '#how', label: 'How It Works' },
   { href: '#services', label: 'Services' },
-  { href: '#properties', label: 'Properties' },
+  { href: '#properties', label: 'Portfolio' },
+  { href: '#about', label: 'About' },
+  { href: '#why', label: 'Why Us' },
+  { href: '#testimonials', label: 'Reviews' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -76,10 +67,10 @@ export default function Navbar() {
       }}
     >
       <Logo />
-      <div className="hidden lg:flex items-center gap-8">
-        {desktopLinks.map((l) => (
+      <div className="hidden lg:flex items-center gap-4 xl:gap-6">
+        {links.map((l) => (
           <a key={l.href} href={l.href}
-            className="font-inter text-[14px] transition-colors duration-250 whitespace-nowrap"
+            className="font-inter text-[13px] xl:text-[14px] transition-colors duration-250 whitespace-nowrap"
             style={{ color: 'rgba(248,246,242,0.65)' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#C6A96B')}
             onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(248,246,242,0.65)')}
