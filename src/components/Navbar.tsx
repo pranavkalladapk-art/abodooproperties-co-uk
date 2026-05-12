@@ -4,21 +4,12 @@ import logo from '@/assets/logo.png';
 
 const links = [
   { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#strategies', label: 'Investment Strategies' },
-  { href: '#properties', label: 'Portfolio' },
-  { href: '#why', label: 'Why Invest With Us' },
-  { href: '#testimonials', label: 'Testimonials' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#contact', label: 'Contact' },
-];
-
-const desktopLinks = [
-  { href: '#home', label: 'Home' },
   { href: '#how', label: 'How It Works' },
   { href: '#services', label: 'Services' },
-  { href: '#properties', label: 'Properties' },
+  { href: '#properties', label: 'Portfolio' },
+  { href: '#about', label: 'About' },
+  { href: '#why', label: 'Why Us' },
+  { href: '#testimonials', label: 'Reviews' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contact' },
 ];
