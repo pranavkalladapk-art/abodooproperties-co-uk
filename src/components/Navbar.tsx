@@ -89,32 +89,20 @@ export default function Navbar() {
       >Get Free Assessment</a>
 
       {/* Hamburger / Close toggle */}
-      <button
-        className="lg:hidden relative z-[210] w-10 h-10 flex items-center justify-center rounded-md"
-        onClick={() => setOpen((v) => !v)}
-        aria-label={open ? 'Close menu' : 'Open menu'}
-        style={{ border: '1px solid rgba(198,169,107,0.25)' }}
-      >
-        <span className="relative block w-[20px] h-[14px]">
-          <motion.span
-            className="absolute left-0 block h-[1.5px] w-full bg-gold"
-            animate={open ? { rotate: 45, top: 6 } : { rotate: 0, top: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            style={{ transformOrigin: 'center' }}
-          />
-          <motion.span
-            className="absolute left-0 top-[6px] block h-[1.5px] w-full bg-gold"
-            animate={open ? { opacity: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.2 }}
-          />
-          <motion.span
-            className="absolute left-0 block h-[1.5px] w-full bg-gold"
-            animate={open ? { rotate: -45, top: 6 } : { rotate: 0, top: 12 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            style={{ transformOrigin: 'center' }}
-          />
-        </span>
-      </button>
+      {!open && (
+        <button
+          className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-md"
+          onClick={() => setOpen(true)}
+          aria-label="Open menu"
+          style={{ border: '1px solid rgba(198,169,107,0.25)' }}
+        >
+          <span className="relative block w-[20px] h-[14px]">
+            <span className="absolute left-0 top-0 block h-[1.5px] w-full bg-gold" />
+            <span className="absolute left-0 top-[6px] block h-[1.5px] w-full bg-gold" />
+            <span className="absolute left-0 top-[12px] block h-[1.5px] w-full bg-gold" />
+          </span>
+        </button>
+      )}
 
       <AnimatePresence>
         {open && (
@@ -125,118 +113,100 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: 'easeOut' }}
+              transition={{ duration: 0.3 }}
               onClick={() => setOpen(false)}
-              className="lg:hidden fixed inset-0 z-[190]"
-              style={{
-                background: 'rgba(3,8,18,0.55)',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
-              }}
+              className="lg:hidden fixed inset-0 z-[190] bg-black/60 backdrop-blur-sm"
             />
 
             {/* Sidebar */}
             <motion.aside
               key="sidebar"
-              initial={{ x: '100%', opacity: 0.6 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: '100%', opacity: 0.4 }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:hidden fixed top-0 right-0 z-[200] h-full flex flex-col"
-              style={{
-                width: 'min(86vw, 380px)',
-                background: 'linear-gradient(180deg, rgba(8,14,28,0.96) 0%, rgba(6,10,22,0.98) 100%)',
-                backdropFilter: 'blur(24px)',
-                WebkitBackdropFilter: 'blur(24px)',
-                borderLeft: '1px solid rgba(198,169,107,0.18)',
-                boxShadow: '-24px 0 60px rgba(0,0,0,0.5)',
-              }}
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:hidden fixed top-0 left-0 z-[200] h-[100dvh] w-full max-w-[400px] flex flex-col"
+              style={{ background: '#1a1a1a' }}
             >
-              {/* Soft glow */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -top-20 -right-20 w-[260px] h-[260px] rounded-full"
-                style={{ background: 'radial-gradient(circle, rgba(198,169,107,0.18) 0%, transparent 70%)' }}
-              />
+              {/* Panel Header */}
+              <div className="flex items-center justify-between px-5 h-[74px] border-b border-[#333] shrink-0">
+                <Logo />
+                <button 
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-center w-9 h-9 rounded-full bg-[#333] text-white hover:bg-[#444] transition-colors"
+                  aria-label="Close menu"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
 
-              <div
-                className="relative flex-1 flex flex-col px-7 pt-24 pb-6 overflow-y-auto"
-                style={{ WebkitOverflowScrolling: 'touch' }}
-              >
-                <ul className="flex flex-col">
-                  {links.map((l, i) => {
+              {/* Navigation Items */}
+              <div className="flex-1 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
+                <ul className="flex flex-col w-full">
+                  {links.map((l) => {
                     const id = l.href.slice(1);
                     const isActive = activeId === id;
                     return (
-                      <motion.li
-                        key={l.href}
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.15 + i * 0.05, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                        style={{ borderBottom: '1px solid rgba(198,169,107,0.08)' }}
-                      >
+                      <li key={l.href} className="w-full border-b border-[#333]">
                         <a
                           href={l.href}
                           onClick={() => setOpen(false)}
-                          className="group relative flex items-center gap-3 py-3 font-inter text-[15px] tracking-wide transition-all duration-300"
-                          style={{ color: isActive ? '#C6A96B' : 'rgba(248,246,242,0.82)' }}
+                          className="relative flex items-center w-full px-5 py-4 transition-colors"
                         >
-                          <motion.span
-                            aria-hidden
-                            className="block rounded-full"
-                            animate={{
-                              width: isActive ? 22 : 6,
-                              opacity: isActive ? 1 : 0.35,
-                            }}
-                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                            style={{ height: 1.5, background: '#C6A96B' }}
-                          />
-                          <span
-                            className="transition-all duration-300 group-hover:translate-x-1"
-                            style={{ textShadow: isActive ? '0 0 18px rgba(198,169,107,0.45)' : 'none' }}
+                          {isActive && (
+                            <span className="absolute left-0 top-0 bottom-0 w-1.5 bg-white" />
+                          )}
+                          <span 
+                            className="font-bold text-[20px] md:text-[22px]" 
+                            style={{ color: isActive ? '#a3a3a3' : '#ffffff' }}
                           >
                             {l.label}
                           </span>
                         </a>
-                      </motion.li>
+                      </li>
                     );
                   })}
                 </ul>
+              </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 + links.length * 0.05 + 0.1, duration: 0.5 }}
-                  className="mt-10"
+              {/* Bottom Section */}
+              <div className="p-5 border-t border-[#333] shrink-0">
+                <a
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-between w-full p-4 rounded-xl bg-[#333] text-white uppercase font-bold text-[15px] tracking-wide hover:bg-[#444] transition-colors"
                 >
-                  <a
-                    href="#contact"
-                    onClick={() => setOpen(false)}
-                    className="block text-center font-inter text-[14px] font-medium tracking-wide rounded-md py-3.5 transition-all duration-300"
-                    style={{
-                      border: '1.5px solid #C6A96B',
-                      color: '#C6A96B',
-                      boxShadow: '0 0 0 rgba(198,169,107,0)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = '#C6A96B';
-                      e.currentTarget.style.color = '#0B1426';
-                      e.currentTarget.style.boxShadow = '0 8px 30px rgba(198,169,107,0.35)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'transparent';
-                      e.currentTarget.style.color = '#C6A96B';
-                      e.currentTarget.style.boxShadow = '0 0 0 rgba(198,169,107,0)';
-                    }}
-                  >
-                    Get Free Assessment
-                  </a>
+                  <span>Contact Us</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
 
-                  <p className="mt-6 font-inter text-[11px] tracking-[0.28em] uppercase text-center"
-                     style={{ color: 'rgba(248,246,242,0.35)' }}>
-                    Abodoo Properties
-                  </p>
-                </motion.div>
+                {/* Social Icons Row */}
+                <div className="flex items-center justify-center gap-6 mt-6 pb-2">
+                  {/* Facebook */}
+                  <a href="#" aria-label="Facebook" className="flex items-center justify-center w-11 h-11 rounded-full bg-[#333] text-white hover:bg-[#444] transition-colors">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                  </a>
+                  {/* Instagram */}
+                  <a href="#" aria-label="Instagram" className="flex items-center justify-center w-11 h-11 rounded-full bg-[#333] text-white hover:bg-[#444] transition-colors">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                  </a>
+                  {/* WhatsApp */}
+                  <a href="#" aria-label="WhatsApp" className="flex items-center justify-center w-11 h-11 rounded-full bg-[#333] text-white hover:bg-[#444] transition-colors">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </motion.aside>
           </>
