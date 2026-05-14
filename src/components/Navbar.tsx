@@ -9,6 +9,7 @@ const links = [
   { href: '#properties', label: 'Portfolio' },
   { href: '#about', label: 'About' },
   { href: '#why', label: 'Why Us' },
+  { href: '#who', label: 'Who We Work With' },
   { href: '#testimonials', label: 'Reviews' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contact' },
@@ -19,6 +20,7 @@ const desktopLinks = [
   { href: '#how', label: 'How It Works' },
   { href: '#services', label: 'Services' },
   { href: '#properties', label: 'Properties' },
+  { href: '#who', label: 'Who We Work With' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contact' },
 ];
