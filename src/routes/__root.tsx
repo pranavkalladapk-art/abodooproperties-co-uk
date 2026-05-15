@@ -91,6 +91,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://abodoo-zenith.lovable.app/#organization",
+              name: "Abodoo Properties",
+              url: "https://abodoo-zenith.lovable.app/",
+              description: "UK property income specialists offering Rent-to-SA, strategic flips, and full-service management.",
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://abodoo-zenith.lovable.app/#website",
+              url: "https://abodoo-zenith.lovable.app/",
+              name: "Abodoo Properties",
+              publisher: { "@id": "https://abodoo-zenith.lovable.app/#organization" },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
