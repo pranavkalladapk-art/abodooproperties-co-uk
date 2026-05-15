@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abodoo-zenith.lovable.app/sitemap.xml
