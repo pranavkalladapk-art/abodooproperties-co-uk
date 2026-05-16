@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import { Menu, X, ArrowRight, ArrowLeft, type LucideIcon } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 export type StrategyNavItem = { slug: string; title: string };
 
