@@ -16,6 +16,7 @@ import {
   Minus,
   Phone,
 } from 'lucide-react';
+import logo from '@/assets/logo.png';
 import { strategyNav } from '@/components/StrategyPageLayout';
 
 const PAGE_URL = 'https://abodoo-zenith.lovable.app/strategies/rent-to-hmo';
