@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import logo from '@/assets/logo.png';
 
 function Logo() {
@@ -16,6 +17,77 @@ const SocialLinkedIn = () => <svg width="20" height="20" viewBox="0 0 20 20" fil
 const SocialIG = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="16" height="16" rx="4" /><circle cx="10" cy="10" r="4" /><circle cx="15" cy="5" r="0.5" fill="currentColor" /></svg>;
 const SocialX = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 3 L17 17 M17 3 L3 17" /></svg>;
 
+const footerColumns = [
+  {
+    h: 'SERVICES',
+    items: [
+      { label: 'Rent to SA', to: '/strategies/$slug', params: { slug: 'serviced-accommodation' } },
+      { label: 'Property Flipping', to: '/strategies/$slug', params: { slug: 'refurbishment-resale' } },
+      { label: 'Property Management', to: '/strategies/$slug', params: { slug: 'rent-to-hmo' } },
+      { label: 'Joint Ventures', to: '/strategies/$slug', params: { slug: 'brrr-projects' } },
+    ],
+  },
+  {
+    h: 'COMPANY',
+    items: [
+      { label: 'About Us', href: '/#about' },
+      { label: 'How It Works', href: '/#how' },
+      { label: 'Properties', href: '/#properties' },
+      { label: 'FAQ', href: '/#faq' },
+      { label: 'Contact', href: '/#contact' },
+    ],
+  },
+  {
+    h: 'GET IN TOUCH',
+    items: [
+      { label: 'hello@abodooproperties.co.uk', href: 'mailto:hello@abodooproperties.co.uk' },
+      { label: '+44 (0) 121 000 0000', href: 'tel:+441210000000' },
+      { label: 'London, United Kingdom' },
+    ],
+  },
+];
+
+function FooterLink({ item }: { item: { label: string; to?: string; params?: Record<string, string>; href?: string } }) {
+  const style = { color: 'rgba(248,246,242,0.45)' } as React.CSSProperties;
+  const hoverIn = (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.color = 'rgba(248,246,242,0.9)'; };
+  const hoverOut = (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.color = 'rgba(248,246,242,0.45)'; };
+
+  if (item.to) {
+    return (
+      <Link
+        to={item.to}
+        params={item.params}
+        className="font-inter text-[14px] block mb-3 transition-colors"
+        style={style}
+        onMouseEnter={hoverIn}
+        onMouseLeave={hoverOut}
+      >
+        {item.label}
+      </Link>
+    );
+  }
+
+  if (item.href) {
+    return (
+      <a
+        href={item.href}
+        className="font-inter text-[14px] block mb-3 transition-colors"
+        style={style}
+        onMouseEnter={hoverIn}
+        onMouseLeave={hoverOut}
+      >
+        {item.label}
+      </a>
+    );
+  }
+
+  return (
+    <span className="font-inter text-[14px] block mb-3" style={style}>
+      {item.label}
+    </span>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="section section--deep" style={{ paddingTop: 80, paddingBottom: 40, borderTop: '1px solid rgba(198,169,107,0.18)' }}>
@@ -32,20 +104,11 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          {[
-            { h: 'SERVICES', items: ['Rent to SA', 'Property Flipping', 'Property Management', 'Joint Ventures'] },
-            { h: 'COMPANY', items: ['About Us', 'How It Works', 'Properties', 'FAQ', 'Contact'] },
-            { h: 'GET IN TOUCH', items: ['hello@abodooproperties.co.uk', '+44 (0) 121 000 0000', 'London, United Kingdom'] },
-          ].map((col, i) => (
+          {footerColumns.map((col, i) => (
             <div key={i}>
               <div className="font-inter text-[11px] tracking-[0.16em] text-gold mb-5 font-medium">{col.h}</div>
               {col.items.map((it, j) => (
-                <a key={j} href="#" className="font-inter text-[14px] block mb-3 transition-colors"
-                  style={{ color: 'rgba(248,246,242,0.45)' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = 'rgba(248,246,242,0.9)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(248,246,242,0.45)')}>
-                  {it}
-                </a>
+                <FooterLink key={j} item={it} />
               ))}
             </div>
           ))}
