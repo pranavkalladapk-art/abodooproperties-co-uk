@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Home, KeyRound, TrendingUp, Building2, Menu, X, ArrowRight } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 export const Route = createFileRoute('/strategies')({
   component: StrategiesPage,
