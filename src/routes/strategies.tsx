@@ -158,6 +158,14 @@ function StrategiesPage() {
             'radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08), transparent 60%), #0d1117',
         }}
       >
+        <Link
+          to="/"
+          className="inline-flex items-center gap-1.5 font-inter text-[13px]"
+          style={{ color: 'rgba(248,246,242,0.55)', marginBottom: 22 }}
+        >
+          <Home size={14} />
+          Back to Home
+        </Link>
         <span
           className="font-inter uppercase"
           style={{
