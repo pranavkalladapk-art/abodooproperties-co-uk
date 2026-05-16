@@ -1,51 +1,61 @@
 ## Goal
 
-Match the visual layout, alignment, and box styling of the six reference screenshots while preserving all existing copy, sections, and 3D hero scene.
+Turn each of the 4 strategy cards on `/strategies` into its own full inner page, so "Learn more →" navigates to a dedicated route instead of scrolling to an in-page section.
 
-## Section-by-section changes
+## New routes
 
-### 1. HeroSection (`src/components/HeroSection.tsx`)
-- Keep current headline/subtitle/CTA text.
-- Tighten layout: gold divider line + centered `PROPERTY INCOME SPECIALISTS · UNITED KINGDOM` label, headline wrapping cleanly on 2 lines (clamp 48–80px), short subtitle, then two side-by-side buttons.
-- Buttons: equal width pill-rounded (radius 8), 52px tall, ~200px min-width. Primary = solid gold `#C6A96B` with midnight text; Secondary = transparent with gold border + gold text. Both same size, side-by-side with 16px gap.
-- Remove the small "100+ Properties Managed · …" trust line below buttons (it crowds the layout in the reference). Keep only buttons + scroll indicator.
+Create one route file per strategy under `src/routes/`:
 
-### 2. StatsSection (`src/components/StatsSection.tsx`) — match image-2
-- Switch from centered to **left-aligned** section header sitting above the stats row: gold uppercase label `WHY ABODOO`, then large Playfair H2 (kept current copy: "The smarter way to invest in UK property" — actually keep current text but reformat to the same left-aligned style).
-- 4 stats in a single row separated by thin vertical gold dividers (1px, `rgba(198,169,107,0.12)`); no horizontal dividers, no boxed cards. Each stat: large gold Playfair number left-aligned, small ivory label below.
-- Numbers left-aligned within each cell (not centered).
-- Mobile: 2×2 grid, dividers between cells.
+- `src/routes/strategies.rent-to-hmo.tsx` → `/strategies/rent-to-hmo`
+- `src/routes/strategies.serviced-accommodation.tsx` → `/strategies/serviced-accommodation`
+- `src/routes/strategies.brrr-projects.tsx` → `/strategies/brrr-projects`
+- `src/routes/strategies.refurbishment-resale.tsx` → `/strategies/refurbishment-resale`
 
-### 3. ServicesSection (`src/components/ServicesSection.tsx`) — match image-3
-- Switch section header to left-aligned (gold label `OUR SERVICES`, large H2, optional subtitle).
-- Cards: solid dark background `rgba(20,28,46,0.7)`, 1px subtle border `rgba(198,169,107,0.08)`, radius 14, padding 36px. No gradient, no glass blur, no hover translate.
-- Inside card: gold icon (top-left, 32px), then Playfair title, then short body (keep current copy), then `Learn more →` gold link at the bottom. Remove the STRATEGY pill, the bullet list, and the badge chip — the reference is much cleaner.
-- Equal heights via flex column with link pushed to bottom.
-- Remove the "selected" highlight on Strategy 02 (reference shows all three identical).
+Each route uses `createFileRoute` with its own `head()` metadata (unique title, description, og:title, og:description) for SEO and share previews.
 
-### 4. PropertiesSection (`src/components/PropertiesSection.tsx`) — match image-4
-- Cards: rounded 16px, image fills container with `object-fit: cover`, aspect ratio `4/3` (wider/shorter than current 3/4).
-- Single ROI badge top-right only: `ROI {value} annually` format inside a dark pill (`rgba(11,20,38,0.75)`, 1px gold border, radius 8, padding 8px 14px). Remove the top-left `RENT TO SA / FLIP & EXIT` tag and the dual-line badge.
-- Remove the bottom gradient overlay + caption (location/name/income) — reference shows image only with the ROI badge. Keep caption optional below the image if needed; default to image + badge only to match reference.
-- Same gap and equal heights across the row.
+## Shared layout for inner pages
 
-### 5. TestimonialsSection (`src/components/TestimonialsSection.tsx`) — match image-5
-- Switch from single auto-rotating card to a **3-card row** showing all three testimonials side-by-side (lg:grid-cols-3, md:grid-cols-2, sm:grid-cols-1).
-- Header left-aligned: gold `TESTIMONIALS` label, Playfair H2 "What our landlords and investors say".
-- Card: dark `rgba(20,28,46,0.7)`, 1px border `rgba(198,169,107,0.08)`, radius 14, padding 32px. Five gold stars top, italic Playfair quote, then bold ivory name and small gold role line.
-- Remove auto-rotate carousel + dot pagination.
+Extract a single reusable `StrategyPageLayout` component (e.g. `src/components/StrategyPageLayout.tsx`) so the 4 pages stay consistent and DRY. It renders:
 
-### 6. ContactSection (`src/components/ContactSection.tsx`) — match image-6 (right column only)
-- **Form (left column):** keep current boxed inputs as the user requested — no change to input style or submit button.
-- **Right column:** replace the stacked `icon + text` rows + map placeholder with 4 `icon-box` rows matching the reference. Each row = full-width pill (`rgba(20,28,46,0.55)`, 1px border `rgba(198,169,107,0.10)`, radius 12, padding 18px 22px) containing: square gold-bordered icon tile (44×44, radius 8) on the left, then a small uppercase gold label (`EMAIL`, `PHONE`, `WHATSAPP`, `ADDRESS`) above the value in ivory.
-- Replace map placeholder with a slightly taller version of the same boxed style (or remove if it doesn't fit visually).
-- Right column vertically aligned to top of form.
+1. The same sticky navbar already on `/strategies` (logo + 4 strategy links + mobile hamburger), with the current strategy link highlighted as active.
+2. A hero band — gold eyebrow ("Strategy 01/02/03/04"), gold outline icon, large Playfair `<h1>` title, lead paragraph.
+3. A two-column body section:
+   - Left: 3–4 paragraph long-form explanation of the strategy.
+   - Right: a "Key benefits" card listing the 4 benefit bullets (gold dot + text), styled like the existing cards (`#141c28`, gold border, rounded).
+4. A "How it works" 3–4 step strip (numbered steps, gold accents) tailored per strategy.
+5. A full-width gold CTA banner: "Ready to explore [Strategy name]?" with two buttons — primary "Get in touch" (links to `/#contact`) and secondary "Back to all strategies" (links to `/strategies`).
+6. Reuses the same footer block currently on `/strategies`.
 
-### 7. Global polish
-- Add a `.section-head--left` modifier in `src/styles.css` for the new left-aligned headers (text-align: left; max-width: none; remove `mx-auto` on subtitle).
-- Ensure all cards across sections share the same border color and radius so the visual language is consistent.
+The 4 route files just pass strategy-specific data (title, icon, copy, benefits, steps, meta) into the layout — no duplicated markup.
+
+## Updates to `/strategies`
+
+- Change each card's `href={'#' + id}` to a TanStack `<Link to="/strategies/$slug" params={{ slug }}>` so clicking "Learn more →" navigates to the new inner page.
+- Remove the four inline `<section id="...">` deep-dive blocks below the hero cards (they're now full pages). Keep hero + cards + footer only.
+- Update the in-page nav links so they point to the new inner routes too.
+
+## Content per page
+
+Reuse the existing long descriptions and benefit lists already written in `src/routes/strategies.tsx`. Add a short 3–4 step "How it works" list for each:
+
+- Rent-to-HMO: 1) Property assessment 2) Lease agreement signed 3) Refurb & furnish to HMO spec 4) Tenants placed, guaranteed rent begins.
+- Serviced Accommodation: 1) Onboarding & styling 2) Multi-channel listing setup 3) Dynamic pricing live 4) Monthly payouts.
+- BRRR Projects: 1) Deal sourced & analysed 2) Acquire & refurbish 3) Tenant & stabilise 4) Refinance & recycle capital.
+- Refurbishment & Resale: 1) Acquisition with exit modelled 2) Scope agreed, contractors mobilised 3) Refurb delivered on schedule 4) Marketed and sold via partner agents.
+
+## Visual style
+
+Match the existing `/strategies` aesthetic exactly — `#0d1117` background, `#141c28` surfaces, `#c9a84c` gold accents, Playfair headings, Inter body, gold outline icons (lucide-react). No new colors, fonts, or libraries.
 
 ## Out of scope
-- No copy changes (headlines, descriptions, stats values, testimonial quotes all stay).
-- 3D hero canvas stays unchanged.
-- Form inputs/submit button stay as they are now.
+
+- No changes to the main site Navbar (`src/components/Navbar.tsx`), home page sections, or any unrelated routes.
+- No backend / data fetching — content stays static, defined in route files.
+- No new design system tokens.
+
+## Files touched
+
+- New: `src/components/StrategyPageLayout.tsx`
+- New: 4 route files under `src/routes/strategies.*.tsx`
+- Edited: `src/routes/strategies.tsx` (cards link out, drop inline deep-dive sections)
+- Auto-regenerated: `src/routeTree.gen.ts` (by the Vite plugin — not edited manually)
