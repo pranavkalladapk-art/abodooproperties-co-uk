@@ -1,3 +1,4 @@
+import type * as React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from '@tanstack/react-router';
 import useScrollReveal from '../hooks/useScrollReveal';
