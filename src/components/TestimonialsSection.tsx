@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const items = [
-  { quote: 'I was earning £900 a month on a standard AST. Within six weeks of signing with Abodoo, I was receiving £1,650 guaranteed — with zero contact from tenants or maintenance calls.', name: 'Richard T.', role: 'Landlord · Birmingham' },
+  { quote: 'I was earning £900 a month on a standard AST. Within six weeks of signing with Abodoo, I was receiving £1,650 guaranteed — with zero contact from tenants or maintenance calls.', name: 'Richard T.', role: 'Landlord · London' },
   { quote: 'The flip on our Salford property took four months from purchase to sale. We made a 19% return and the Abodoo team handled absolutely everything. We\'re already in on a second deal.', name: 'Priya & James K.', role: 'Property Investors · Manchester' },
   { quote: 'I handed over three properties to their management team six months ago. Not a single issue has reached me. Rent is in my account every month like clockwork.', name: 'Sandra O.', role: 'Portfolio Landlord · Leeds' },
 ];

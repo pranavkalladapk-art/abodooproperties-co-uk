@@ -35,7 +35,7 @@ export default function Footer() {
           {[
             { h: 'SERVICES', items: ['Rent to SA', 'Property Flipping', 'Property Management', 'Joint Ventures'] },
             { h: 'COMPANY', items: ['About Us', 'How It Works', 'Properties', 'FAQ', 'Contact'] },
-            { h: 'GET IN TOUCH', items: ['hello@abodooproperties.co.uk', '+44 (0) 121 000 0000', 'Birmingham, United Kingdom'] },
+            { h: 'GET IN TOUCH', items: ['hello@abodooproperties.co.uk', '+44 (0) 121 000 0000', 'London, United Kingdom'] },
           ].map((col, i) => (
             <div key={i}>
               <div className="font-inter text-[11px] tracking-[0.16em] text-gold mb-5 font-medium">{col.h}</div>
