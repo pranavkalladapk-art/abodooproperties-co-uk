@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from '@tanstack/react-router';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const HouseIcon = () => (
@@ -23,21 +24,23 @@ const BuildingIcon = () => (
   </svg>
 );
 
-const cards = [
+type Slug = 'rent-to-hmo' | 'serviced-accommodation' | 'brrr-projects' | 'refurbishment-resale';
+
+const cards: { icon: () => JSX.Element; title: string; body: string; slug: Slug }[] = [
   {
-    icon: HouseIcon, title: 'Rent-to-HMO',
+    icon: HouseIcon, title: 'Rent-to-HMO', slug: 'rent-to-hmo',
     body: 'Transforming properties into high-yield shared accommodation for stronger monthly cash flow.',
   },
   {
-    icon: KeyIcon, title: 'Serviced Accommodation',
+    icon: KeyIcon, title: 'Serviced Accommodation', slug: 'serviced-accommodation',
     body: 'Premium short-term rental solutions designed for higher occupancy and increased returns.',
   },
   {
-    icon: ArrowIcon, title: 'BRRR Projects',
+    icon: ArrowIcon, title: 'BRRR Projects', slug: 'brrr-projects',
     body: 'Buy, refurbish, rent, and refinance strategies focused on long-term portfolio growth.',
   },
   {
-    icon: BuildingIcon, title: 'Refurbishment & Resale',
+    icon: BuildingIcon, title: 'Refurbishment & Resale', slug: 'refurbishment-resale',
     body: 'Value-add renovation projects designed to maximise resale profit and investment potential.',
   },
 ];
@@ -68,14 +71,36 @@ export default function ServicesSection() {
               <c.icon />
               <h3 className="font-playfair text-[22px] text-ivory" style={{ marginTop: 24, marginBottom: 14 }}>{c.title}</h3>
               <p className="font-inter text-[14.5px]" style={{ color: 'rgba(248,246,242,0.6)', lineHeight: 1.7, marginBottom: 24 }}>{c.body}</p>
-              <a href="#contact" className="inline-flex items-center gap-2 font-inter text-[14px] text-gold hover:gap-3 transition-all mt-auto">
+              <Link
+                to="/strategies/$slug"
+                params={{ slug: c.slug }}
+                className="inline-flex items-center gap-2 font-inter text-[14px] text-gold hover:gap-3 transition-all mt-auto"
+              >
                 Learn more
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M3 8 H13 M9 4 L13 8 L9 12" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </a>
+              </Link>
             </motion.div>
           ))}
+        </div>
+
+        <div className="flex justify-center" style={{ marginTop: 48 }}>
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 font-inter text-[14px] text-gold hover:gap-3 transition-all"
+            style={{
+              border: '1px solid rgba(198,169,107,0.45)',
+              padding: '13px 26px',
+              borderRadius: 8,
+              letterSpacing: '0.04em',
+            }}
+          >
+            View all services
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M3 8 H13 M9 4 L13 8 L9 12" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>
