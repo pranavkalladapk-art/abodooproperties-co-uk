@@ -121,7 +121,7 @@ const STRATEGIES: Record<string, StrategyData> = {
   },
 };
 
-export const Route = createFileRoute('/strategies/$slug')({
+export const Route = createFileRoute('/strategies_/$slug')({
   loader: ({ params }) => {
     const data = STRATEGIES[params.slug];
     if (!data) throw notFound();
