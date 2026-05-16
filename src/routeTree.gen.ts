@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as StrategiesRouteImport } from './routes/strategies'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as StrategiesSlugRouteImport } from './routes/strategies.$slug'
 
 const StrategiesRoute = StrategiesRouteImport.update({
   id: '/strategies',
@@ -28,35 +29,43 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StrategiesSlugRoute = StrategiesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => StrategiesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/strategies': typeof StrategiesRoute
+  '/strategies': typeof StrategiesRouteWithChildren
+  '/strategies/$slug': typeof StrategiesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/strategies': typeof StrategiesRoute
+  '/strategies': typeof StrategiesRouteWithChildren
+  '/strategies/$slug': typeof StrategiesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/strategies': typeof StrategiesRoute
+  '/strategies': typeof StrategiesRouteWithChildren
+  '/strategies/$slug': typeof StrategiesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/strategies'
+  fullPaths: '/' | '/sitemap.xml' | '/strategies' | '/strategies/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/strategies'
-  id: '__root__' | '/' | '/sitemap.xml' | '/strategies'
+  to: '/' | '/sitemap.xml' | '/strategies' | '/strategies/$slug'
+  id: '__root__' | '/' | '/sitemap.xml' | '/strategies' | '/strategies/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  StrategiesRoute: typeof StrategiesRoute
+  StrategiesRoute: typeof StrategiesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -82,14 +91,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/strategies/$slug': {
+      id: '/strategies/$slug'
+      path: '/$slug'
+      fullPath: '/strategies/$slug'
+      preLoaderRoute: typeof StrategiesSlugRouteImport
+      parentRoute: typeof StrategiesRoute
+    }
   }
 }
+
+interface StrategiesRouteChildren {
+  StrategiesSlugRoute: typeof StrategiesSlugRoute
+}
+
+const StrategiesRouteChildren: StrategiesRouteChildren = {
+  StrategiesSlugRoute: StrategiesSlugRoute,
+}
+
+const StrategiesRouteWithChildren = StrategiesRoute._addFileChildren(
+  StrategiesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  StrategiesRoute: StrategiesRoute,
+  StrategiesRoute: StrategiesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
