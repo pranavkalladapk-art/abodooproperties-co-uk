@@ -15,6 +15,7 @@ import {
   Wrench,
   type LucideIcon,
 } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const PAGE_URL = 'https://abodoo-zenith.lovable.app/services';
 const PAGE_TITLE = 'Our Services — Abodoo Properties';
