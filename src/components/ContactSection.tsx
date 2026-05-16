@@ -70,7 +70,7 @@ export default function ContactSection() {
                 </Field>
                 <Field label="Property Location">
                   <input className={inputBase}
-                    placeholder="e.g. Birmingham B1, Manchester M1"
+                    placeholder="e.g. London SW1, Manchester M1"
                     value={form.location} onChange={(e) => update('location', e.target.value)} />
                 </Field>
                 <Field label="Your Situation">
@@ -103,7 +103,7 @@ export default function ContactSection() {
               { Icon: Mail, label: 'EMAIL', value: 'hello@abodooproperties.co.uk' },
               { Icon: Phone, label: 'PHONE', value: '+44 (0) 121 000 0000' },
               { Icon: Msg, label: 'WHATSAPP', value: <a href="https://wa.me/441210000000" className="hover:underline">Chat with us</a> },
-              { Icon: Pin, label: 'ADDRESS', value: 'Birmingham, United Kingdom' },
+              { Icon: Pin, label: 'ADDRESS', value: 'London, United Kingdom' },
             ].map((r, i) => (
               <div key={i} className="flex items-center gap-4"
                 style={{
@@ -125,7 +125,7 @@ export default function ContactSection() {
             <div className="flex flex-col items-center justify-center gap-3 mt-2"
               style={{ background: 'rgba(20,28,46,0.55)', border: '1px solid rgba(198,169,107,0.10)', borderRadius: 12, height: 200 }}>
               <BigPin />
-              <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.5)' }}>Birmingham, UK</div>
+              <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.5)' }}>London, UK</div>
             </div>
           </div>
         </div>
