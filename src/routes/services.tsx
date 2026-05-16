@@ -15,6 +15,7 @@ import {
   Wrench,
   type LucideIcon,
 } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const PAGE_URL = 'https://abodoo-zenith.lovable.app/services';
 const PAGE_TITLE = 'Our Services — Abodoo Properties';
@@ -149,20 +150,7 @@ function Navbar() {
       </Link>
 
       <Link to="/services" className="flex items-center gap-2">
-        <div
-          className="flex items-center justify-center"
-          style={{
-            width: 32,
-            height: 32,
-            border: `1.5px solid ${GOLD}`,
-            borderRadius: 6,
-            color: GOLD,
-            fontFamily: 'Playfair Display, serif',
-            fontWeight: 600,
-          }}
-        >
-          A
-        </div>
+        <img src={logo} alt="Abodoo" style={{ height: 36, width: 'auto', display: 'block' }} />
         <span
           className="font-inter font-semibold tracking-widest text-[15px]"
           style={{ color: TEXT }}
