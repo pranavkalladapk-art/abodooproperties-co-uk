@@ -26,7 +26,7 @@ const BuildingIcon = () => (
 
 type Slug = 'rent-to-hmo' | 'serviced-accommodation' | 'brrr-projects' | 'refurbishment-resale';
 
-const cards: { icon: () => JSX.Element; title: string; body: string; slug: Slug }[] = [
+const cards: { icon: () => React.ReactElement; title: string; body: string; slug: Slug }[] = [
   {
     icon: HouseIcon, title: 'Rent-to-HMO', slug: 'rent-to-hmo',
     body: 'Transforming properties into high-yield shared accommodation for stronger monthly cash flow.',
