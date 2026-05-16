@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as StrategiesRouteImport } from './routes/strategies'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as StrategiesRentToHmoRouteImport } from './routes/strategies_.rent-to-hmo'
 import { Route as StrategiesSlugRouteImport } from './routes/strategies_.$slug'
 
 const StrategiesRoute = StrategiesRouteImport.update({
@@ -29,6 +30,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StrategiesRentToHmoRoute = StrategiesRentToHmoRouteImport.update({
+  id: '/strategies_/rent-to-hmo',
+  path: '/strategies/rent-to-hmo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StrategiesSlugRoute = StrategiesSlugRouteImport.update({
   id: '/strategies_/$slug',
   path: '/strategies/$slug',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/strategies': typeof StrategiesRoute
   '/strategies/$slug': typeof StrategiesSlugRoute
+  '/strategies/rent-to-hmo': typeof StrategiesRentToHmoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/strategies': typeof StrategiesRoute
   '/strategies/$slug': typeof StrategiesSlugRoute
+  '/strategies/rent-to-hmo': typeof StrategiesRentToHmoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,30 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/strategies': typeof StrategiesRoute
   '/strategies_/$slug': typeof StrategiesSlugRoute
+  '/strategies_/rent-to-hmo': typeof StrategiesRentToHmoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/strategies' | '/strategies/$slug'
+  fullPaths:
+    | '/'
+    | '/sitemap.xml'
+    | '/strategies'
+    | '/strategies/$slug'
+    | '/strategies/rent-to-hmo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/strategies' | '/strategies/$slug'
-  id: '__root__' | '/' | '/sitemap.xml' | '/strategies' | '/strategies_/$slug'
+  to:
+    | '/'
+    | '/sitemap.xml'
+    | '/strategies'
+    | '/strategies/$slug'
+    | '/strategies/rent-to-hmo'
+  id:
+    | '__root__'
+    | '/'
+    | '/sitemap.xml'
+    | '/strategies'
+    | '/strategies_/$slug'
+    | '/strategies_/rent-to-hmo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +92,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StrategiesRoute: typeof StrategiesRoute
   StrategiesSlugRoute: typeof StrategiesSlugRoute
+  StrategiesRentToHmoRoute: typeof StrategiesRentToHmoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,6 +118,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/strategies_/rent-to-hmo': {
+      id: '/strategies_/rent-to-hmo'
+      path: '/strategies/rent-to-hmo'
+      fullPath: '/strategies/rent-to-hmo'
+      preLoaderRoute: typeof StrategiesRentToHmoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/strategies_/$slug': {
       id: '/strategies_/$slug'
       path: '/strategies/$slug'
@@ -107,6 +140,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StrategiesRoute: StrategiesRoute,
   StrategiesSlugRoute: StrategiesSlugRoute,
+  StrategiesRentToHmoRoute: StrategiesRentToHmoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
