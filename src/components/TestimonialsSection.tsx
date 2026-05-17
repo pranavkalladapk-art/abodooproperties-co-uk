@@ -1,17 +1,45 @@
 import { motion } from 'framer-motion';
 import useScrollReveal from '../hooks/useScrollReveal';
 
-const items = [
-  { quote: 'I was earning £900 a month on a standard AST. Within six weeks of signing with Abodoo, I was receiving £1,650 guaranteed — with zero contact from tenants or maintenance calls.', name: 'Richard T.', role: 'Landlord · London' },
-  { quote: 'The flip on our Salford property took four months from purchase to sale. We made a 19% return and the Abodoo team handled absolutely everything. We\'re already in on a second deal.', name: 'Priya & James K.', role: 'Property Investors · Manchester' },
-  { quote: 'I handed over three properties to their management team six months ago. Not a single issue has reached me. Rent is in my account every month like clockwork.', name: 'Sandra O.', role: 'Portfolio Landlord · Leeds' },
-];
-
-const Star = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="#C6A96B">
-    <path d="M8 1 L10.2 5.6 L15.2 6.3 L11.5 9.8 L12.5 14.8 L8 12.4 L3.5 14.8 L4.5 9.8 L0.8 6.3 L5.8 5.6 Z" />
+const Briefcase = () => (
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C6A96B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="7" width="20" height="14" rx="2" /><path d="M9 7 V5 a2 2 0 0 1 2 -2 h4 a2 2 0 0 1 2 2 V7" /><path d="M3 13 H23" />
   </svg>
 );
+const Layers = () => (
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C6A96B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M13 3 L23 8 L13 13 L3 8 Z" /><path d="M3 13 L13 18 L23 13" /><path d="M3 18 L13 23 L23 18" />
+  </svg>
+);
+const Gauge = () => (
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C6A96B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 18 a9 9 0 1 1 18 0" /><path d="M13 18 L18 10" /><circle cx="13" cy="18" r="1.2" fill="#C6A96B" />
+  </svg>
+);
+const Chat = () => (
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C6A96B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 6 h18 v12 h-9 l-5 4 v-4 H4 Z" /><path d="M9 12 h0 M13 12 h0 M17 12 h0" />
+  </svg>
+);
+const Broom = () => (
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C6A96B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 3 L22 9" /><path d="M14 5 L19 10 L13 16 L8 11 Z" /><path d="M8 11 L3 22" /><path d="M13 16 L9 22" />
+  </svg>
+);
+const Cert = () => (
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#C6A96B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="13" cy="10" r="6" /><path d="M9 14 L7 23 L13 20 L19 23 L17 14" /><path d="M10 10 L12 12 L16 8" />
+  </svg>
+);
+
+const items = [
+  { Icon: Briefcase, title: 'Professional property management', body: 'A single point of contact for owners, with structured reporting and a clear management agreement.' },
+  { Icon: Layers, title: 'Flexible rental strategies', body: 'Choose between Rent-to-SA, HMO, or full management — matched to your property and goals.' },
+  { Icon: Gauge, title: 'Market-based income assessments', body: 'Indicative figures built from comparable listings, occupancy trends, and operational costs.' },
+  { Icon: Chat, title: 'Guest communication & 24/7 support', body: 'Our team handles enquiries, check-ins, and out-of-hours issues so owners are not disturbed.' },
+  { Icon: Broom, title: 'Cleaning & maintenance coordination', body: 'Vetted cleaners, linen suppliers, and tradespeople scheduled around bookings and inspections.' },
+  { Icon: Cert, title: 'Compliance, licensing & certifications', body: 'Gas, electrical, EPC, HMO licensing, and council registrations managed in line with regulations.' },
+];
 
 export default function TestimonialsSection() {
   const { ref, inView } = useScrollReveal({ threshold: 0.12 });
@@ -19,15 +47,18 @@ export default function TestimonialsSection() {
     <section id="testimonials" ref={ref} className="section section--blue section--divider">
       <div className="section-inner">
         <div className="section-head">
-          <span className="section-label">TESTIMONIALS</span>
-          <h2 className="section-h2">What our landlords and investors say.</h2>
+          <span className="section-label">WHY LANDLORDS WORK WITH US</span>
+          <h2 className="section-h2">What working with Abodoo looks like.</h2>
+          <p className="section-sub">
+            We are an early-stage company building our portfolio with transparency. Instead of testimonials we cannot yet verify, here is what we offer every landlord we work with.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((t, i) => (
             <motion.div key={i}
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.6, delay: i * 0.08 }}
               className="flex flex-col"
               style={{
                 background: 'rgba(20,28,46,0.7)',
@@ -35,14 +66,9 @@ export default function TestimonialsSection() {
                 borderRadius: 14,
                 padding: 32,
               }}>
-              <div className="flex gap-1" style={{ marginBottom: 20 }}>{[...Array(5)].map((_, j) => <Star key={j} />)}</div>
-              <p className="font-playfair italic text-[16px]" style={{ color: 'rgba(248,246,242,0.88)', lineHeight: 1.7, marginBottom: 28 }}>
-                "{t.quote}"
-              </p>
-              <div className="mt-auto">
-                <div className="font-inter text-[14px] font-semibold text-ivory">{t.name}</div>
-                <div className="font-inter text-[12px] text-gold" style={{ marginTop: 4 }}>{t.role}</div>
-              </div>
+              <div style={{ marginBottom: 20 }}><t.Icon /></div>
+              <h3 className="font-playfair text-[19px] text-ivory" style={{ marginBottom: 12, lineHeight: 1.3 }}>{t.title}</h3>
+              <p className="font-inter text-[14.5px]" style={{ color: 'rgba(248,246,242,0.62)', lineHeight: 1.7 }}>{t.body}</p>
             </motion.div>
           ))}
         </div>
