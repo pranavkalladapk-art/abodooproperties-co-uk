@@ -2,12 +2,17 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
-  { q: 'What is Rent to Serviced Accommodation (R2SA)?', a: 'R2SA is a model where we lease your property directly at an agreed monthly rent — typically above standard market rate — and operate it as a premium serviced apartment. You receive guaranteed income with no tenant management, while we generate revenue through higher nightly rates.' },
-  { q: 'Do I need to own the property outright to work with you?', a: 'No. For R2SA we lease from landlords — so as long as you hold the property and your mortgage or freeholder permits short-term lets, we can work together. For flipping and joint ventures, we work with investors deploying capital into specific projects.' },
-  { q: 'What happens if the property sits empty?', a: 'Under our R2SA model your income is guaranteed regardless of occupancy — we take on that commercial risk entirely. For management clients we actively market the property and use dynamic pricing tools to minimise any void periods.' },
-  { q: 'What areas do you currently operate in?', a: 'We operate across London, Manchester, Leeds, Sheffield, and Nottingham. We are expanding to additional cities through 2025 — contact us to discuss your specific location and we\'ll advise on feasibility.' },
-  { q: 'How quickly can you get my property earning?', a: 'Most R2SA and management properties are fully set up and live within 10–14 days of signing. Flip projects depend on refurbishment scope, but we typically complete within 4–8 months from acquisition to sale.' },
-  { q: 'What compliance and certifications do you handle?', a: 'We manage Gas Safety certificates, Electrical Installation Condition Reports (EICRs), Energy Performance Certificates (EPCs), HMO licensing where required, and all relevant council short-let registrations. You will not need to chase any paperwork.' },
+  { q: 'What is Rent to Serviced Accommodation (R2SA)?', a: 'R2SA is a model where we lease your property at a fixed monthly rent agreed in advance, subject to contract terms, and operate it as a serviced apartment. You receive a consistent payment each month while we manage guests, cleaning, and operations.' },
+  { q: 'Is rent-to-rent legal?', a: 'Yes, when structured correctly and with the appropriate landlord, lender, and freeholder permissions. We operate in line with applicable tenancy, licensing, and local short-let regulations.' },
+  { q: 'Do I need permission from my mortgage lender or freeholder?', a: 'In many cases, yes. We recommend confirming any mortgage, leasehold, and insurance restrictions before signing an agreement, and we are happy to support you through that process.' },
+  { q: 'Are all properties suitable?', a: 'No. Suitability depends on location, building rules, licensing requirements, and local demand. We assess each property individually before offering terms.' },
+  { q: 'What happens if there is damage to the property?', a: 'We carry out regular inspections, guest screening, and professional cleaning between stays. Any issues are addressed in line with the management agreement and the relevant operating insurance.' },
+  { q: 'How are income figures calculated?', a: 'Indicative figures are based on market research, comparable listings, occupancy trends, and operational costs. They are estimates, not guaranteed earnings, and actual performance may vary.' },
+  { q: 'What happens if the property sits empty?', a: 'Under a fixed-rent agreement, your rent is paid for the term regardless of occupancy, in line with the contract. For management clients, we use dynamic pricing and multi-channel marketing to minimise voids.' },
+  { q: 'Where do you market properties?', a: 'Depending on the property and local regulations, we may market accommodation through platforms such as Airbnb, Booking.com, and direct corporate channels.' },
+  { q: 'What areas do you operate in?', a: 'We currently focus on London, Manchester, Leeds, Sheffield, and Nottingham, and assess additional UK locations on a case-by-case basis. Contact us to discuss your specific area.' },
+  { q: 'How quickly can a property be set up?', a: 'Most properties go live within a few weeks of signing, subject to compliance checks, furnishing, and any required permissions. Refurbishment-led projects take longer depending on scope.' },
+  { q: 'What compliance and certifications do you handle?', a: 'We coordinate Gas Safety certificates, Electrical Installation Condition Reports (EICRs), Energy Performance Certificates (EPCs), HMO licensing where required, and applicable council short-let registrations.' },
 ];
 
 export default function FAQSection() {

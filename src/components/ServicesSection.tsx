@@ -30,19 +30,19 @@ type Slug = 'rent-to-hmo' | 'serviced-accommodation' | 'brrr-projects' | 'refurb
 const cards: { icon: React.ComponentType; title: string; body: string; slug: Slug }[] = [
   {
     icon: HouseIcon, title: 'Rent-to-HMO', slug: 'rent-to-hmo',
-    body: 'Transforming properties into high-yield shared accommodation for stronger monthly cash flow.',
+    body: 'We structure and operate properties as compliant shared accommodation, with fixed-rent agreements for the landlord.',
   },
   {
     icon: KeyIcon, title: 'Serviced Accommodation', slug: 'serviced-accommodation',
-    body: 'Premium short-term rental solutions designed for higher occupancy and increased returns.',
+    body: 'We manage premium short-stay homes end-to-end, marketing across multiple platforms to support occupancy.',
   },
   {
     icon: ArrowIcon, title: 'BRRR Projects', slug: 'brrr-projects',
-    body: 'Buy, refurbish, rent, and refinance strategies focused on long-term portfolio growth.',
+    body: 'We structure Buy, Refurbish, Rent, Refinance projects for investors focused on long-term portfolio growth.',
   },
   {
     icon: BuildingIcon, title: 'Refurbishment & Resale', slug: 'refurbishment-resale',
-    body: 'Value-add renovation projects designed to maximise resale profit and investment potential.',
+    body: 'We manage value-add renovation projects with fixed scopes and a defined exit modelled before exchange.',
   },
 ];
 

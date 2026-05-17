@@ -7,10 +7,10 @@ export default function CTABanner() {
     }}>
       <div className="section-inner max-w-3xl mx-auto flex flex-col items-center text-center">
         <h2 className="font-playfair text-ivory mx-auto" style={{ fontSize: 'clamp(30px, 3.6vw, 44px)', lineHeight: 1.15, letterSpacing: '-0.012em', marginBottom: 20, maxWidth: '22ch', textWrap: 'balance' as any }}>
-          Ready to see what your property could earn?
+          Curious what your property could earn?
         </h2>
         <p className="font-inter text-[17px] mx-auto" style={{ color: 'rgba(248,246,242,0.62)', lineHeight: 1.75, marginBottom: 36, maxWidth: '52ch', textWrap: 'balance' as any }}>
-          Get a free income assessment in 48 hours. We'll show projected monthly returns across all three strategies so you can make a fully informed decision.
+          Request a free, no-obligation property assessment. We'll share an indicative income range based on comparable listings and local demand — not a guaranteed figure.
         </p>
         <a href="#contact"
           className="inline-flex items-center justify-center bg-gold text-midnight font-inter text-[15px] font-semibold tracking-wide transition-all duration-300 hover:brightness-110"
@@ -20,7 +20,7 @@ export default function CTABanner() {
           Get My Free Assessment
         </a>
         <p className="font-inter text-[12px]" style={{ color: 'rgba(248,246,242,0.35)', marginTop: 16 }}>
-          No obligation · Response within 48 hours · UK properties only
+          No obligation · Indicative figures only · UK properties only
         </p>
       </div>
     </section>

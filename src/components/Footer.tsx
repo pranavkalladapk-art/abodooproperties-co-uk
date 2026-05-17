@@ -45,6 +45,14 @@ const footerColumns = [
       { label: 'London, United Kingdom' },
     ],
   },
+  {
+    h: 'LEGAL',
+    items: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Cookies', href: '/cookies' },
+    ],
+  },
 ];
 
 function FooterLink({ item }: { item: { label: string; to?: string; params?: Record<string, string>; href?: string } }) {
@@ -92,11 +100,11 @@ export default function Footer() {
   return (
     <footer className="section section--deep" style={{ paddingTop: 80, paddingBottom: 40, borderTop: '1px solid rgba(198,169,107,0.18)' }}>
       <div className="section-inner">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: 48 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5" style={{ gap: 48 }}>
           <div>
             <Logo />
             <p className="font-inter text-[14px] mt-4 max-w-[220px]" style={{ color: 'rgba(248,246,242,0.42)', lineHeight: 1.8 }}>
-              Maximising property income across the United Kingdom since 2026.
+              Helping landlords explore modern letting strategies across the United Kingdom.
             </p>
             <div className="flex gap-4 mt-6" style={{ color: 'rgba(198,169,107,0.45)' }}>
               {[SocialLinkedIn, SocialIG, SocialX].map((I, i) => (
@@ -122,6 +130,9 @@ export default function Footer() {
             Property investment carries risk. Past performance is not indicative of future results.
           </div>
         </div>
+        <p className="font-inter text-[11px] mt-4" style={{ color: 'rgba(248,246,242,0.32)', lineHeight: 1.7, maxWidth: '90ch' }}>
+          Images, example properties, and figures shown on this site are illustrative. Abodoo Properties is a trading name; company registration details available on request.
+        </p>
       </div>
     </footer>
   );

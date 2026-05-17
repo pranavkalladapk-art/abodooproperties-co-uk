@@ -9,13 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as StrategiesRouteImport } from './routes/strategies'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StrategiesRentToHmoRouteImport } from './routes/strategies_.rent-to-hmo'
 import { Route as StrategiesSlugRouteImport } from './routes/strategies_.$slug'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StrategiesRoute = StrategiesRouteImport.update({
   id: '/strategies',
   path: '/strategies',
@@ -29,6 +37,16 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -49,26 +67,35 @@ const StrategiesSlugRoute = StrategiesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cookies': typeof CookiesRoute
+  '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/strategies': typeof StrategiesRoute
+  '/terms': typeof TermsRoute
   '/strategies/$slug': typeof StrategiesSlugRoute
   '/strategies/rent-to-hmo': typeof StrategiesRentToHmoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cookies': typeof CookiesRoute
+  '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/strategies': typeof StrategiesRoute
+  '/terms': typeof TermsRoute
   '/strategies/$slug': typeof StrategiesSlugRoute
   '/strategies/rent-to-hmo': typeof StrategiesRentToHmoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cookies': typeof CookiesRoute
+  '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/strategies': typeof StrategiesRoute
+  '/terms': typeof TermsRoute
   '/strategies_/$slug': typeof StrategiesSlugRoute
   '/strategies_/rent-to-hmo': typeof StrategiesRentToHmoRoute
 }
@@ -76,40 +103,59 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/cookies'
+    | '/privacy'
     | '/services'
     | '/sitemap.xml'
     | '/strategies'
+    | '/terms'
     | '/strategies/$slug'
     | '/strategies/rent-to-hmo'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/cookies'
+    | '/privacy'
     | '/services'
     | '/sitemap.xml'
     | '/strategies'
+    | '/terms'
     | '/strategies/$slug'
     | '/strategies/rent-to-hmo'
   id:
     | '__root__'
     | '/'
+    | '/cookies'
+    | '/privacy'
     | '/services'
     | '/sitemap.xml'
     | '/strategies'
+    | '/terms'
     | '/strategies_/$slug'
     | '/strategies_/rent-to-hmo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CookiesRoute: typeof CookiesRoute
+  PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StrategiesRoute: typeof StrategiesRoute
+  TermsRoute: typeof TermsRoute
   StrategiesSlugRoute: typeof StrategiesSlugRoute
   StrategiesRentToHmoRoute: typeof StrategiesRentToHmoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/strategies': {
       id: '/strategies'
       path: '/strategies'
@@ -129,6 +175,20 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -157,22 +217,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CookiesRoute: CookiesRoute,
+  PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StrategiesRoute: StrategiesRoute,
+  TermsRoute: TermsRoute,
   StrategiesSlugRoute: StrategiesSlugRoute,
   StrategiesRentToHmoRoute: StrategiesRentToHmoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
