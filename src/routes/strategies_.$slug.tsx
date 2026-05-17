@@ -178,7 +178,9 @@ export const Route = createFileRoute('/strategies_/$slug')({
       </div>
     </main>
   ),
-  errorComponent: ({ error }) => (
+  errorComponent: ({ error }) => {
+    console.error(error);
+    return (
     <main
       style={{
         background: '#0d1117',
@@ -196,7 +198,7 @@ export const Route = createFileRoute('/strategies_/$slug')({
           Something went wrong
         </h1>
         <p className="font-inter" style={{ color: 'rgba(248,246,242,0.6)', marginBottom: 24 }}>
-          {error.message}
+          An unexpected error occurred. Please try again.
         </p>
         <Link
           to="/strategies"
