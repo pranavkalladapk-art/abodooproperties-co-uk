@@ -45,6 +45,14 @@ const footerColumns = [
       { label: 'London, United Kingdom' },
     ],
   },
+  {
+    h: 'LEGAL',
+    items: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Cookies', href: '/cookies' },
+    ],
+  },
 ];
 
 function FooterLink({ item }: { item: { label: string; to?: string; params?: Record<string, string>; href?: string } }) {
