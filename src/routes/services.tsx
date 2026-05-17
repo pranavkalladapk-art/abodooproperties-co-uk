@@ -58,7 +58,7 @@ const services: Service[] = [
     description:
       "Transforming standard properties into high-yield shared accommodation. We lease, operate, and manage each home as a fully compliant HMO so owners earn above-market rent with zero day-to-day involvement.",
     highlights: [
-      'Guaranteed monthly income above standard AST rates',
+      'Fixed-rent agreements above standard AST rates, subject to suitability',
       'Full HMO licensing, compliance, and inspections handled',
       'Vetted professional tenants and ongoing management',
     ],
@@ -70,7 +70,7 @@ const services: Service[] = [
     description:
       'Premium short-term rentals operated like a boutique hotel — listed across Booking.com, Airbnb, and direct corporate channels. Hotel-grade housekeeping and dynamic pricing drive consistently high occupancy.',
     highlights: [
-      'Significantly higher gross income vs. long-let',
+      'Potential for higher gross income vs. long-let, depending on location and demand',
       'Multi-channel listings with dynamic revenue management',
       'Cleaning, linen, guest support, and insurance included',
     ],
@@ -96,7 +96,7 @@ const services: Service[] = [
     highlights: [
       'End-to-end project management — no operational burden',
       'Vetted contractors and fixed-price scopes of work',
-      'Target net returns of 15–25% per project cycle',
+      'Each project underwritten to a target return range agreed before exchange',
     ],
   },
 ];

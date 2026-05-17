@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import HeroCanvas from './HeroCanvas';
 
-const headline = 'Maximize Your Property Income With Zero Hassle';
+const headline = 'Smarter ways to earn from your UK property.';
 
 export default function HeroSection() {
   return (
@@ -44,7 +44,7 @@ export default function HeroSection() {
           <motion.p variants={fadeUp}
             className="font-inter mx-auto mt-8"
             style={{ color: 'rgba(248,246,242,0.72)', fontSize: 'clamp(13px, 1.05vw, 16px)', lineHeight: 1.6, maxWidth: '52ch' }}>
-            We help property owners and investors generate higher returns through smart property solutions.
+            We help property owners and investors explore higher-performing letting and refurbishment strategies — with transparent, market-based assessments.
           </motion.p>
         </div>
 

@@ -24,10 +24,10 @@ const Cert = () => (
 );
 
 const items = [
-  { Icon: Shield, title: 'Guaranteed rent contracts', body: 'Your income is contractually agreed — not subject to occupancy rates or market dips.' },
-  { Icon: Chart, title: 'Data-driven property matching', body: 'Every property assessed against live SA demand, comparable rates, and yield benchmarks.' },
-  { Icon: Clock, title: '24/7 operations team', body: 'Our in-house team manages guest communications, maintenance, and emergencies around the clock.' },
-  { Icon: Cert, title: 'Fully compliant operations', body: 'We handle all licensing, safety certificates, and council requirements — zero regulatory risk.' },
+  { Icon: Shield, title: 'Fixed-rent agreements', body: 'Rent is contractually agreed for the term — subject to property suitability and contract terms.' },
+  { Icon: Chart, title: 'Data-informed property matching', body: 'Every property assessed against comparable listings, occupancy trends, and operating costs.' },
+  { Icon: Clock, title: '24/7 operations support', body: 'Our team handles guest communications, maintenance coordination, and out-of-hours issues.' },
+  { Icon: Cert, title: 'Compliant operations', body: 'We handle licensing, safety certificates, and council requirements in line with current regulations.' },
 ];
 
 export default function WhyAbodooSection() {
