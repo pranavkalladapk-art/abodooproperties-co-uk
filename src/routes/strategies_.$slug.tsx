@@ -215,7 +215,8 @@ export const Route = createFileRoute('/strategies_/$slug')({
         </Link>
       </div>
     </main>
-  ),
+    );
+  },
   component: StrategyDetailPage,
 });
 
