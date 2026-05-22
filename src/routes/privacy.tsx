@@ -26,7 +26,7 @@ export const Route = createFileRoute('/privacy')({
         sections={[
           { h: 'Information we collect', p: 'When you submit an enquiry, we collect the contact details and property information you provide so we can respond to your request.' },
           { h: 'How we use it', p: 'We use your information solely to respond to your enquiry, provide assessments, and — where you have agreed — send relevant follow-up communications. We do not sell personal data.' },
-          { h: 'Your rights', p: 'You may request access to, correction of, or deletion of your personal data at any time by contacting hello@abodooproperties.co.uk.' },
+          { h: 'Your rights', p: 'You may request access to, correction of, or deletion of your personal data at any time by contacting Info@abodooproperties.co.uk.' },
         ]}
       />
       <Footer />

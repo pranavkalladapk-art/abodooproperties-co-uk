@@ -100,7 +100,7 @@ export default function ContactSection() {
           </div>
           <div className="flex flex-col gap-4">
             {[
-              { Icon: Mail, label: 'EMAIL', value: 'hello@abodooproperties.co.uk' },
+              { Icon: Mail, label: 'EMAIL', value: 'Info@abodooproperties.co.uk' },
               { Icon: Phone, label: 'PHONE', value: '+44 (0) 121 000 0000' },
               { Icon: Msg, label: 'WHATSAPP', value: <a href="https://wa.me/441210000000" className="hover:underline">Chat with us</a> },
               { Icon: Pin, label: 'ADDRESS', value: 'London, United Kingdom' },

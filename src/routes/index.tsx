@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
           image: "https://abodoo-zenith.lovable.app/",
           url: "https://abodoo-zenith.lovable.app/",
           telephone: "+44 (0) 121 000 0000",
-          email: "hello@abodooproperties.co.uk",
+          email: "Info@abodooproperties.co.uk",
           address: {
             "@type": "PostalAddress",
             addressLocality: "London",
