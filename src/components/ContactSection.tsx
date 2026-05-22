@@ -35,7 +35,21 @@ export default function ContactSection() {
     const errs: Record<string, boolean> = {};
     ['name', 'email', 'phone'].forEach((k) => { if (!form[k as keyof typeof form]) errs[k] = true; });
     setErrors(errs);
-    if (Object.keys(errs).length === 0) setSent(true);
+    if (Object.keys(errs).length === 0) {
+      const subject = `New Enquiry from ${form.name}`;
+      const body = [
+        `Name: ${form.name}`,
+        `Email: ${form.email}`,
+        `Phone: ${form.phone}`,
+        `Property Location: ${form.location || '-'}`,
+        `Situation: ${form.setup || '-'}`,
+        '',
+        'Message:',
+        form.message || '-',
+      ].join('\n');
+      window.location.href = `mailto:Info@abodooproperties.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setSent(true);
+    }
   };
 
 
