@@ -109,7 +109,7 @@ export default function Footer() {
             <div className="flex gap-4 mt-6" style={{ color: 'rgba(198,169,107,0.45)' }}>
               <a href="https://www.linkedin.com/company/abodooproperties" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="LinkedIn"><SocialLinkedIn /></a>
               <a href="https://www.instagram.com/abodooproperties?igsh=MTdpaW8xczJmc2x3Yg==" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="Instagram"><SocialIG /></a>
-              <a href="https://x.com/abodooproperties" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="X (Twitter)"><SocialX /></a>
+              <a href="https://www.tiktok.com/@abodooproperties?_r=1&_t=ZN-96ZmV5Iqsly" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="TikTok"><SocialTikTok /></a>
             </div>
           </div>
           {footerColumns.map((col, i) => (
