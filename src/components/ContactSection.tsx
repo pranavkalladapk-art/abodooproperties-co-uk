@@ -115,8 +115,8 @@ export default function ContactSection() {
           <div className="flex flex-col gap-4">
             {[
               { Icon: Mail, label: 'EMAIL', value: 'Info@abodooproperties.co.uk' },
-              { Icon: Phone, label: 'PHONE', value: '+44 (0) 121 000 0000' },
-              { Icon: Msg, label: 'WHATSAPP', value: <a href="https://wa.me/441210000000" className="hover:underline">Chat with us</a> },
+              { Icon: Phone, label: 'PHONE', value: '+44 7442 526283' },
+              { Icon: Msg, label: 'WHATSAPP', value: <a href="https://wa.me/447442526283" className="hover:underline">Chat with us</a> },
               { Icon: Pin, label: 'ADDRESS', value: 'London, United Kingdom' },
             ].map((r, i) => (
               <div key={i} className="flex items-center gap-4"

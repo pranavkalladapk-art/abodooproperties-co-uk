@@ -19,7 +19,7 @@ export default function WhatsAppButton() {
       <motion.button
         animate={{ y: [0, -5, 0] }}
         transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-        onClick={() => window.open('https://wa.me/441210000000', '_blank')}
+        onClick={() => window.open('https://wa.me/447442526283', '_blank')}
         className="relative w-14 h-14 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300"
         style={{
           background: 'rgba(11,20,38,0.92)',
