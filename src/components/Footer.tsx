@@ -40,7 +40,7 @@ const footerColumns = [
   {
     h: 'GET IN TOUCH',
     items: [
-      { label: 'hello@abodooproperties.co.uk', href: 'mailto:hello@abodooproperties.co.uk' },
+      { label: 'Info@abodooproperties.co.uk', href: 'mailto:Info@abodooproperties.co.uk' },
       { label: '+44 (0) 121 000 0000', href: 'tel:+441210000000' },
       { label: 'London, United Kingdom' },
     ],
