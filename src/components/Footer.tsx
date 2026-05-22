@@ -15,7 +15,7 @@ function Logo() {
 
 const SocialLinkedIn = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="16" height="16" rx="2" /><path d="M6 8 V14 M6 5.5 V5.6 M9 14 V8 M9 11 C9 9.5 10 8 12 8 S14 9.5 14 11 V14" /></svg>;
 const SocialIG = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="16" height="16" rx="4" /><circle cx="10" cy="10" r="4" /><circle cx="15" cy="5" r="0.5" fill="currentColor" /></svg>;
-const SocialX = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 3 L17 17 M17 3 L3 17" /></svg>;
+const SocialTikTok = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M10 5.5V14a3 3 0 1 1-3-3" /><path d="M10 5.5V3h3v2.5a4 4 0 0 0 4-4v1a5 5 0 0 1-4 4" /></svg>;
 
 const footerColumns = [
   {
