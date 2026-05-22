@@ -107,9 +107,9 @@ export default function Footer() {
               Helping landlords explore modern letting strategies across the United Kingdom.
             </p>
             <div className="flex gap-4 mt-6" style={{ color: 'rgba(198,169,107,0.45)' }}>
-              {[SocialLinkedIn, SocialIG, SocialX].map((I, i) => (
-                <a key={i} href="#" className="hover:text-gold transition-colors" aria-label="Social link"><I /></a>
-              ))}
+              <a href="https://www.linkedin.com/company/abodooproperties" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="LinkedIn"><SocialLinkedIn /></a>
+              <a href="https://www.instagram.com/abodooproperties?igsh=MTdpaW8xczJmc2x3Yg==" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="Instagram"><SocialIG /></a>
+              <a href="https://x.com/abodooproperties" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors" aria-label="X (Twitter)"><SocialX /></a>
             </div>
           </div>
           {footerColumns.map((col, i) => (
