@@ -6,7 +6,6 @@ import HowItWorksSection from "@/components/HowItWorksSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyAbodooSection from "@/components/WhyAbodooSection";
 import WhoWeWorkWithSection from "@/components/WhoWeWorkWithSection";
-import PropertiesSection from "@/components/PropertiesSection";
 import AboutSection from "@/components/AboutSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
@@ -85,7 +84,6 @@ function Index() {
       <ServicesSection />
       <WhyAbodooSection />
       <WhoWeWorkWithSection />
-      <PropertiesSection />
       <AboutSection />
       <TestimonialsSection />
       <FAQSection />
