@@ -84,7 +84,6 @@ function Index() {
       <ServicesSection />
       <WhyAbodooSection />
       <WhoWeWorkWithSection />
-      <PropertiesSection />
       <AboutSection />
       <TestimonialsSection />
       <FAQSection />
