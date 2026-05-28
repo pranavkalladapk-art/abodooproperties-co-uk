@@ -405,8 +405,9 @@ export default function StrategyPageLayout({
             </p>
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">
-            <a
-              href="/#contact"
+            <Link
+              to="/"
+              hash="contact"
               className="inline-flex items-center gap-2 font-inter font-medium"
               style={{
                 background: '#c9a84c',
@@ -421,7 +422,7 @@ export default function StrategyPageLayout({
             >
               Get in touch
               <ArrowRight size={16} />
-            </a>
+            </Link>
             <Link
               to="/strategies"
               className="inline-flex items-center gap-2 font-inter font-medium"

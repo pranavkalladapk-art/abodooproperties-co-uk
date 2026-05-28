@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { Link } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import HeroCanvas from './HeroCanvas';
 
@@ -55,11 +56,11 @@ export default function HeroSection() {
             style={{ height: 54, minWidth: 200, borderRadius: 8, padding: '0 32px' }}>
             Explore Services
           </a>
-          <a href="#contact"
+          <Link to="/" hash="contact"
             className="border border-gold text-gold font-inter text-[14px] font-semibold tracking-wide transition-all duration-300 hover:bg-gold hover:text-midnight inline-flex items-center justify-center"
             style={{ height: 54, minWidth: 200, borderRadius: 8, padding: '0 32px' }}>
             Book Consultation
-          </a>
+          </Link>
         </motion.div>
       </motion.div>
       <motion.div
