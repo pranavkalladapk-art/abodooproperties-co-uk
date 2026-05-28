@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { Link } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import HeroCanvas from './HeroCanvas';
 
