@@ -206,15 +206,18 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 }
 
 function GoldButton({
-  href,
+  to,
+  hash,
   children,
 }: {
-  href: string;
+  to: string;
+  hash?: string;
   children: React.ReactNode;
 }) {
   return (
-    <a
-      href={href}
+    <Link
+      to={to}
+      hash={hash}
       className="inline-flex items-center gap-2 font-inter font-medium"
       style={{
         background: GOLD,
@@ -226,7 +229,7 @@ function GoldButton({
       }}
     >
       {children}
-    </a>
+    </Link>
   );
 }
 
