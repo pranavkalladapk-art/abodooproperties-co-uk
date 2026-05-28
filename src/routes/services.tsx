@@ -174,13 +174,14 @@ function Navbar() {
         >
           Strategies
         </Link>
-        <a
-          href="/#contact"
+        <Link
+          to="/"
+          hash="contact"
           className="font-inter text-[13px] tracking-wide"
           style={{ color: 'rgba(248,246,242,0.65)' }}
         >
           Contact
-        </a>
+        </Link>
       </div>
 
       <button
@@ -216,14 +217,15 @@ function Navbar() {
           >
             Strategies
           </Link>
-          <a
-            href="/#contact"
+          <Link
+            to="/"
+            hash="contact"
             onClick={() => setOpen(false)}
             className="font-inter text-[15px] px-6 py-4"
             style={{ color: 'rgba(248,246,242,0.85)' }}
           >
             Contact
-          </a>
+          </Link>
         </div>
       )}
     </nav>
