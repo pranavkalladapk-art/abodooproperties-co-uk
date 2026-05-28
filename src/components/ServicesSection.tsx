@@ -58,31 +58,46 @@ export default function ServicesSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((c, i) => (
-            <motion.div key={i}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="flex flex-col"
-              style={{
-                background: 'rgba(20,28,46,0.7)',
-                border: '1px solid rgba(198,169,107,0.08)',
-                borderRadius: 14,
-                padding: 32,
-              }}>
-              <c.icon />
-              <h3 className="font-playfair text-[22px] text-ivory" style={{ marginTop: 24, marginBottom: 14 }}>{c.title}</h3>
-              <p className="font-inter text-[14.5px]" style={{ color: 'rgba(248,246,242,0.6)', lineHeight: 1.7, marginBottom: 24 }}>{c.body}</p>
-              <Link
-                to="/strategies/$slug"
-                params={{ slug: c.slug }}
-                className="inline-flex items-center gap-2 font-inter text-[14px] text-gold hover:gap-3 transition-all mt-auto"
+            <Link
+              key={i}
+              to="/strategies/$slug"
+              params={{ slug: c.slug }}
+              className="group"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="flex flex-col h-full"
+                style={{
+                  background: 'rgba(20,28,46,0.7)',
+                  border: '1px solid rgba(198,169,107,0.08)',
+                  borderRadius: 14,
+                  padding: 32,
+                  transition: 'all 350ms cubic-bezier(0.22,1,0.36,1)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(198,169,107,0.35)';
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 24px 50px -28px rgba(198,169,107,0.25)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(198,169,107,0.08)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
               >
-                Learn more
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M3 8 H13 M9 4 L13 8 L9 12" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            </motion.div>
+                <c.icon />
+                <h3 className="font-playfair text-[22px] text-ivory" style={{ marginTop: 24, marginBottom: 14 }}>{c.title}</h3>
+                <p className="font-inter text-[14.5px]" style={{ color: 'rgba(248,246,242,0.6)', lineHeight: 1.7, marginBottom: 24 }}>{c.body}</p>
+                <span className="inline-flex items-center gap-2 font-inter text-[14px] text-gold group-hover:gap-3 transition-all mt-auto">
+                  Learn more
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M3 8 H13 M9 4 L13 8 L9 12" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </motion.div>
+            </Link>
           ))}
         </div>
 
