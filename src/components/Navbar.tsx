@@ -173,7 +173,7 @@ export default function Navbar() {
                       <li key={l.href} className="w-full border-b border-[#333]">
                         <a
                           href={l.href}
-                          onClick={() => setOpen(false)}
+                          onClick={(e) => { setOpen(false); smoothScroll(e); }}
                           className="relative flex items-center w-full px-5 py-4 transition-colors"
                         >
                           {isActive && (
@@ -196,7 +196,7 @@ export default function Navbar() {
               <div className="p-5 border-t border-[#333] shrink-0">
                 <a
                   href="#contact"
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => { setOpen(false); smoothScroll(e); }}
                   className="flex items-center justify-between w-full p-4 rounded-xl bg-[#333] text-white uppercase font-bold text-[15px] tracking-wide hover:bg-[#444] transition-colors"
                 >
                   <span>Contact Us</span>
