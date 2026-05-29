@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://abodoo-zenith.lovable.app";
+const BASE_URL = "https://abodooproperties.co.uk";
 
 interface SitemapEntry {
   path: string;
@@ -15,6 +15,15 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/services", changefreq: "monthly", priority: "0.8" },
+          { path: "/strategies", changefreq: "weekly", priority: "0.8" },
+          { path: "/strategies/rent-to-hmo", changefreq: "monthly", priority: "0.7" },
+          { path: "/strategies/serviced-accommodation", changefreq: "monthly", priority: "0.7" },
+          { path: "/strategies/brrr-projects", changefreq: "monthly", priority: "0.7" },
+          { path: "/strategies/refurbishment-resale", changefreq: "monthly", priority: "0.7" },
+          { path: "/privacy", changefreq: "yearly", priority: "0.3" },
+          { path: "/cookies", changefreq: "yearly", priority: "0.3" },
+          { path: "/terms", changefreq: "yearly", priority: "0.3" },
         ];
 
         const urls = entries.map((e) =>

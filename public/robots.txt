@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abodoo-zenith.lovable.app/sitemap.xml
+Sitemap: https://abodooproperties.co.uk/sitemap.xml
