@@ -58,7 +58,7 @@ export default function WhyAbodooSection() {
                 }}>
                 <div style={{ marginBottom: 18 }}><it.Icon /></div>
                 <h3 className="font-playfair text-[20px] text-ivory" style={{ marginBottom: 12, minHeight: '2.4em', display: 'flex', alignItems: 'center' }}>{it.title}</h3>
-                <p className="font-inter text-[15px]" style={{ color: 'rgba(248,246,242,0.62)', lineHeight: 1.75 }}>{it.body}</p>
+                <p className="font-inter text-[15px]" style={{ color: 'rgba(248,246,242,0.82)', lineHeight: 1.75 }}>{it.body}</p>
               </motion.div>
             );
           })}

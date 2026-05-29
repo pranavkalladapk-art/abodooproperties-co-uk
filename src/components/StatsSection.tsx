@@ -6,7 +6,7 @@ function StatItem({ headline, label }: { headline: string; label: string }) {
       <div className="font-playfair text-gold" style={{ fontSize: 'clamp(32px, 3.6vw, 46px)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: 14 }}>
         {headline}
       </div>
-      <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.55)', lineHeight: 1.5, letterSpacing: '0.01em' }}>
+      <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.78)', lineHeight: 1.5, letterSpacing: '0.01em' }}>
         {label}
       </div>
     </div>

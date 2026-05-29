@@ -68,7 +68,7 @@ export default function TestimonialsSection() {
               }}>
               <div style={{ marginBottom: 20 }}><t.Icon /></div>
               <h3 className="font-playfair text-[19px] text-ivory" style={{ marginBottom: 12, lineHeight: 1.3 }}>{t.title}</h3>
-              <p className="font-inter text-[14.5px]" style={{ color: 'rgba(248,246,242,0.62)', lineHeight: 1.7 }}>{t.body}</p>
+              <p className="font-inter text-[14.5px]" style={{ color: 'rgba(248,246,242,0.82)', lineHeight: 1.7 }}>{t.body}</p>
             </motion.div>
           ))}
         </div>

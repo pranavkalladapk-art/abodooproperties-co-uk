@@ -154,7 +154,7 @@ export default function ContactSection() {
             <div className="flex flex-col items-center justify-center gap-3 mt-2"
               style={{ background: 'rgba(20,28,46,0.55)', border: '1px solid rgba(198,169,107,0.10)', borderRadius: 12, height: 200 }}>
               <BigPin />
-              <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.5)' }}>London, UK</div>
+              <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.75)' }}>London, UK</div>
             </div>
           </div>
         </div>

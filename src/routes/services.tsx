@@ -170,7 +170,7 @@ function Navbar() {
         <Link
           to="/strategies"
           className="font-inter text-[13px] tracking-wide"
-          style={{ color: 'rgba(248,246,242,0.65)' }}
+          style={{ color: 'rgba(248,246,242,0.85)' }}
         >
           Strategies
         </Link>
@@ -178,7 +178,7 @@ function Navbar() {
           to="/"
           hash="contact"
           className="font-inter text-[13px] tracking-wide"
-          style={{ color: 'rgba(248,246,242,0.65)' }}
+          style={{ color: 'rgba(248,246,242,0.85)' }}
         >
           Contact
         </Link>
@@ -539,7 +539,7 @@ function ServicesPage() {
         }}
         className="font-inter text-[13px]"
       >
-        <span style={{ color: 'rgba(248,246,242,0.42)' }}>
+        <span style={{ color: 'rgba(248,246,242,0.7)' }}>
           &copy; 2025 Abodoo Properties &middot; London, United Kingdom
         </span>
       </footer>

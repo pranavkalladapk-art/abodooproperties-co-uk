@@ -159,7 +159,7 @@ export const Route = createFileRoute('/strategies_/$slug')({
         <h1 className="font-playfair" style={{ fontSize: 36, marginBottom: 16 }}>
           Strategy not found
         </h1>
-        <p className="font-inter" style={{ color: 'rgba(248,246,242,0.6)', marginBottom: 28 }}>
+        <p className="font-inter" style={{ color: 'rgba(248,246,242,0.82)', marginBottom: 28 }}>
           The strategy you're looking for doesn't exist.
         </p>
         <Link
@@ -197,7 +197,7 @@ export const Route = createFileRoute('/strategies_/$slug')({
         <h1 className="font-playfair" style={{ fontSize: 32, marginBottom: 12 }}>
           Something went wrong
         </h1>
-        <p className="font-inter" style={{ color: 'rgba(248,246,242,0.6)', marginBottom: 24 }}>
+        <p className="font-inter" style={{ color: 'rgba(248,246,242,0.82)', marginBottom: 24 }}>
           An unexpected error occurred. Please try again.
         </p>
         <Link

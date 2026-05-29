@@ -103,9 +103,9 @@ function StrategiesPage() {
               to="/strategies/$slug"
               params={{ slug: s.slug }}
               className="font-inter text-[13px] tracking-wide transition-colors"
-              style={{ color: 'rgba(248,246,242,0.65)' }}
+              style={{ color: 'rgba(248,246,242,0.85)' }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#c9a84c')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(248,246,242,0.65)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(248,246,242,0.85)')}
             >
               {s.title}
             </Link>
@@ -161,7 +161,7 @@ function StrategiesPage() {
         <Link
           to="/"
           className="inline-flex items-center gap-1.5 font-inter text-[13px]"
-          style={{ color: 'rgba(248,246,242,0.55)', marginBottom: 22 }}
+          style={{ color: 'rgba(248,246,242,0.78)', marginBottom: 22 }}
         >
           <Home size={14} />
           Back to Home
@@ -194,7 +194,7 @@ function StrategiesPage() {
           style={{
             fontSize: 16,
             lineHeight: 1.75,
-            color: 'rgba(248,246,242,0.65)',
+            color: 'rgba(248,246,242,0.85)',
             maxWidth: 640,
           }}
         >
@@ -265,7 +265,7 @@ function StrategiesPage() {
                   style={{
                     fontSize: 14,
                     lineHeight: 1.7,
-                    color: 'rgba(248,246,242,0.55)',
+                    color: 'rgba(248,246,242,0.78)',
                     marginBottom: 24,
                     flex: 1,
                   }}
@@ -302,7 +302,7 @@ function StrategiesPage() {
         }}
         className="font-inter text-[13px]"
       >
-        <span style={{ color: 'rgba(248,246,242,0.42)' }}>
+        <span style={{ color: 'rgba(248,246,242,0.7)' }}>
           © 2025 Abodoo Properties · London, United Kingdom
         </span>
       </footer>

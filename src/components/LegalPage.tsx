@@ -39,7 +39,7 @@ export default function LegalPage({
         {sections.map((s) => (
           <div key={s.h} style={{ marginBottom: 28 }}>
             <h2 className="font-playfair text-ivory" style={{ fontSize: 22, marginBottom: 10 }}>{s.h}</h2>
-            <p className="font-inter" style={{ color: 'rgba(248,246,242,0.62)', fontSize: 15, lineHeight: 1.8 }}>{s.p}</p>
+            <p className="font-inter" style={{ color: 'rgba(248,246,242,0.82)', fontSize: 15, lineHeight: 1.8 }}>{s.p}</p>
           </div>
         ))}
       </div>
