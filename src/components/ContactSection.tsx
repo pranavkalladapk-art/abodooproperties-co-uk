@@ -111,11 +111,15 @@ export default function ContactSection() {
                     placeholder="Tell us about your property or investment goals..."
                     value={form.message} onChange={(e) => update('message', e.target.value)} />
                 </Field>
-                <div onClick={submit} role="button" tabIndex={0}
+                {serverError && (
+                  <div className="font-inter text-[13px] text-red-300" style={{ padding: '8px 0' }}>{serverError}</div>
+                )}
+                <div onClick={submitting ? undefined : submit} role="button" tabIndex={0} aria-disabled={submitting}
                   className="w-full bg-gold text-midnight font-inter text-[15px] font-semibold text-center cursor-pointer transition hover:brightness-110 flex items-center justify-center mt-2"
-                  style={{ height: 56, borderRadius: 8 }}>
-                  Send My Enquiry
+                  style={{ height: 56, borderRadius: 8, opacity: submitting ? 0.6 : 1, pointerEvents: submitting ? 'none' : 'auto' }}>
+                  {submitting ? 'Sending…' : 'Send My Enquiry'}
                 </div>
+
               </div>
             )}
           </div>
