@@ -133,32 +133,31 @@ export default function Navbar() {
               </div>
 
               {/* Navigation Items */}
-              <div className="flex-1 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
                 <ul className="flex flex-col w-full">
                   {links.map((l) => {
-                    const id = l.href.slice(1);
-                    const isActive = activeId === id;
+                    const isActive = pathname === l.to;
                     return (
-                      <li key={l.href} className="w-full border-b border-[#333]">
-                        <a
-                          href={l.href}
-                          onClick={(e) => { setOpen(false); smoothScroll(e); }}
+                      <li key={l.to} className="w-full border-b border-[#333]">
+                        <Link
+                          to={l.to}
+                          onClick={() => setOpen(false)}
                           className="relative flex items-center w-full px-5 py-4 transition-colors"
                         >
                           {isActive && (
                             <span className="absolute left-0 top-0 bottom-0 w-1.5 bg-white" />
                           )}
-                          <span 
-                            className="font-bold text-[20px] md:text-[22px]" 
+                          <span
+                            className="font-bold text-[20px] md:text-[22px]"
                             style={{ color: isActive ? '#a3a3a3' : '#ffffff' }}
                           >
                             {l.label}
                           </span>
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}
                 </ul>
+
               </div>
 
               {/* Bottom Section */}
