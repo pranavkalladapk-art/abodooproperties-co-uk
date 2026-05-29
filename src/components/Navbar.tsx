@@ -160,8 +160,8 @@ export default function Navbar() {
                 </ul>
               </div>
 
-
               {/* Bottom Section */}
+              <div className="p-5 border-t border-[#333] shrink-0">
                 <Link
                   to="/contact"
                   onClick={() => setOpen(false)}
@@ -173,7 +173,6 @@ export default function Navbar() {
                   </svg>
                 </Link>
 
-                </a>
 
                 {/* Social Icons Row */}
                 <div className="flex items-center justify-center gap-6 mt-6 pb-2">
