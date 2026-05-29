@@ -29,34 +29,41 @@ export default function ContactSection() {
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [sent, setSent] = useState(false);
 
+export default function ContactSection() {
+  const [form, setForm] = useState({ name: '', email: '', phone: '', location: '', setup: '', message: '' });
+  const [errors, setErrors] = useState<Record<string, boolean>>({});
+  const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+
   const update = (k: string, v: string) => setForm({ ...form, [k]: v });
 
-  const submit = () => {
+  const submit = async () => {
     const errs: Record<string, boolean> = {};
     ['name', 'email', 'phone'].forEach((k) => { if (!form[k as keyof typeof form]) errs[k] = true; });
     setErrors(errs);
-    if (Object.keys(errs).length === 0) {
-      const subject = `New Enquiry from ${form.name}`;
-      const body = [
-        `Name: ${form.name}`,
-        `Email: ${form.email}`,
-        `Phone: ${form.phone}`,
-        `Property Location: ${form.location || '-'}`,
-        `Situation: ${form.setup || '-'}`,
-        '',
-        'Message:',
-        form.message || '-',
-      ].join('\n');
-      window.location.href = `mailto:Info@abodooproperties.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (Object.keys(errs).length > 0) return;
+
+    setSubmitting(true);
+    setServerError(null);
+    try {
+      const res = await fetch('/api/public/contact-enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.error || 'Something went wrong. Please try again.');
+      }
       setSent(true);
+    } catch (e) {
+      setServerError(e instanceof Error ? e.message : 'Failed to send enquiry');
+    } finally {
+      setSubmitting(false);
     }
   };
 
-
-  return (
-    <section id="contact" className="section section--blue section--divider">
-      <div className="section-inner">
-        <div className="section-head">
           <span className="section-label">CONTACT</span>
           <h2 className="section-h2">Let's talk about your property.</h2>
           <p className="section-sub">Whether you have one property or ten, we'll give you an honest assessment of what it could earn under each of our three strategies.</p>

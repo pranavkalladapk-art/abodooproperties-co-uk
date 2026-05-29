@@ -18,6 +18,7 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StrategiesRentToHmoRouteImport } from './routes/strategies_.rent-to-hmo'
 import { Route as StrategiesSlugRouteImport } from './routes/strategies_.$slug'
+import { Route as ApiPublicContactEnquiryRouteImport } from './routes/api/public/contact-enquiry'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -64,6 +65,11 @@ const StrategiesSlugRoute = StrategiesSlugRouteImport.update({
   path: '/strategies/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicContactEnquiryRoute = ApiPublicContactEnquiryRouteImport.update({
+  id: '/api/public/contact-enquiry',
+  path: '/api/public/contact-enquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/strategies/$slug': typeof StrategiesSlugRoute
   '/strategies/rent-to-hmo': typeof StrategiesRentToHmoRoute
+  '/api/public/contact-enquiry': typeof ApiPublicContactEnquiryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/strategies/$slug': typeof StrategiesSlugRoute
   '/strategies/rent-to-hmo': typeof StrategiesRentToHmoRoute
+  '/api/public/contact-enquiry': typeof ApiPublicContactEnquiryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/strategies_/$slug': typeof StrategiesSlugRoute
   '/strategies_/rent-to-hmo': typeof StrategiesRentToHmoRoute
+  '/api/public/contact-enquiry': typeof ApiPublicContactEnquiryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +120,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/strategies/$slug'
     | '/strategies/rent-to-hmo'
+    | '/api/public/contact-enquiry'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/strategies/$slug'
     | '/strategies/rent-to-hmo'
+    | '/api/public/contact-enquiry'
   id:
     | '__root__'
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/strategies_/$slug'
     | '/strategies_/rent-to-hmo'
+    | '/api/public/contact-enquiry'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +157,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   StrategiesSlugRoute: typeof StrategiesSlugRoute
   StrategiesRentToHmoRoute: typeof StrategiesRentToHmoRoute
+  ApiPublicContactEnquiryRoute: typeof ApiPublicContactEnquiryRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StrategiesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/contact-enquiry': {
+      id: '/api/public/contact-enquiry'
+      path: '/api/public/contact-enquiry'
+      fullPath: '/api/public/contact-enquiry'
+      preLoaderRoute: typeof ApiPublicContactEnquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -225,6 +245,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   StrategiesSlugRoute: StrategiesSlugRoute,
   StrategiesRentToHmoRoute: StrategiesRentToHmoRoute,
+  ApiPublicContactEnquiryRoute: ApiPublicContactEnquiryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
