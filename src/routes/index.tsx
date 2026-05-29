@@ -22,10 +22,10 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Abodoo Properties offers professional property services in the UK. Contact us at Info@abodooproperties.co.uk" },
       { property: "og:title", content: "Abodoo Properties | UK Property Services" },
       { property: "og:description", content: "Abodoo Properties offers professional property services in the UK. Contact us at Info@abodooproperties.co.uk" },
-      { property: "og:url", content: "https://abodoo-zenith.lovable.app/" },
+      { property: "og:url", content: "https://abodooproperties.co.uk/" },
     ],
     links: [
-      { rel: "canonical", href: "https://abodoo-zenith.lovable.app/" },
+      { rel: "canonical", href: "https://abodooproperties.co.uk/" },
     ],
     scripts: [
       {
@@ -34,8 +34,8 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "Abodoo Properties",
-          image: "https://abodoo-zenith.lovable.app/",
-          url: "https://abodoo-zenith.lovable.app/",
+          image: "https://abodooproperties.co.uk/",
+          url: "https://abodooproperties.co.uk/",
           telephone: "+44 7442 526283",
           email: "Info@abodooproperties.co.uk",
           address: {

@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import LegalPage from '@/components/LegalPage';
 
-const URL = 'https://abodoo-zenith.lovable.app/terms';
+const URL = 'https://abodooproperties.co.uk/terms';
 
 export const Route = createFileRoute('/terms')({
   head: () => ({
