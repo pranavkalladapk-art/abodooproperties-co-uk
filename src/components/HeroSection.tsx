@@ -1,17 +1,45 @@
-import { Suspense } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
-import HeroCanvas from './HeroCanvas';
+
+const HeroCanvas = lazy(() => import('./HeroCanvas'));
 
 const headline = 'Smarter ways to earn from your UK property.';
 
+function HeroBackground() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const isMobile = window.innerWidth < 768;
+    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const conn = (navigator as any).connection;
+    const saveData = conn?.saveData || /2g/.test(conn?.effectiveType || '');
+    if (isMobile || reduced || saveData) return;
+    // Defer until idle to keep LCP fast
+    const ric = (window as any).requestIdleCallback || ((cb: any) => setTimeout(cb, 200));
+    const id = ric(() => setShow(true));
+    return () => (window as any).cancelIdleCallback?.(id);
+  }, []);
+  if (!show) {
+    return (
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0, zIndex: 0,
+        background: 'radial-gradient(ellipse at 50% 40%, #1a2d4a 0%, #0B1426 60%, #07101f 100%)',
+      }} />
+    );
+  }
+  return (
+    <Suspense fallback={null}>
+      <HeroCanvas />
+    </Suspense>
+  );
+}
+
 export default function HeroSection() {
   return (
-    <section id="home" className="relative overflow-hidden" style={{ height: '100dvh', background: '#0B1426' }}>
-      <Suspense fallback={null}>
-        <HeroCanvas />
-      </Suspense>
-      <div className="absolute inset-0 z-[5] pointer-events-none" style={{
+    <section id="home" className="relative overflow-hidden" style={{ height: '100dvh', background: '#0B1426' }} aria-label="Hero">
+      <HeroBackground />
+      <div className="absolute inset-0 z-[5] pointer-events-none" aria-hidden="true" style={{
         background: 'linear-gradient(to bottom, rgba(11,20,38,0.32) 0%, rgba(11,20,38,0.52) 35%, rgba(11,20,38,0.82) 70%, rgba(11,20,38,0.97) 100%)',
       }} />
       <motion.div
@@ -44,7 +72,7 @@ export default function HeroSection() {
           </motion.h1>
           <motion.p variants={fadeUp}
             className="font-inter mx-auto mt-8"
-            style={{ color: 'rgba(248,246,242,0.72)', fontSize: 'clamp(13px, 1.05vw, 16px)', lineHeight: 1.6, maxWidth: '52ch' }}>
+            style={{ color: 'rgba(248,246,242,0.82)', fontSize: 'clamp(13px, 1.05vw, 16px)', lineHeight: 1.6, maxWidth: '52ch' }}>
             We help property owners and investors explore higher-performing letting and refurbishment strategies — with transparent, market-based assessments.
           </motion.p>
         </div>
@@ -65,6 +93,7 @@ export default function HeroSection() {
       </motion.div>
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        aria-hidden="true"
         animate={{ y: [0, -8, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C6A96B" strokeWidth="1.5">
           <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />

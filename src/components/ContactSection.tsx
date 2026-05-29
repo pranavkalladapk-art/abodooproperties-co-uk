@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 
-const labelCls = 'font-inter text-[11px] tracking-[0.18em] text-gold uppercase';
+const labelCls = 'font-inter text-[11px] tracking-[0.18em] text-gold uppercase block';
 const inputBase = 'w-full bg-transparent text-ivory font-inter text-[15px] focus:outline-none border-0 p-0';
 const boxStyle = (err?: boolean) => ({
   background: 'rgba(20,28,46,0.55)',
@@ -9,14 +9,16 @@ const boxStyle = (err?: boolean) => ({
   padding: '14px 18px',
 });
 
-function Field({ label, error, children }: { label: string; error?: boolean; children: React.ReactNode }) {
+function Field({ label, error, children }: { label: string; error?: boolean; children: (id: string) => React.ReactNode }) {
+  const id = useId();
   return (
     <div style={boxStyle(error)}>
-      <div className={labelCls} style={{ marginBottom: 6 }}>{label}</div>
-      {children}
+      <label htmlFor={id} className={labelCls} style={{ marginBottom: 6 }}>{label}</label>
+      {children(id)}
     </div>
   );
 }
+
 
 const Mail = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C6A96B" strokeWidth="1.5"><rect x="2" y="4" width="16" height="12" rx="1.5" /><path d="M2 6 L10 11 L18 6" /></svg>;
 const Phone = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C6A96B" strokeWidth="1.5"><path d="M4 3 H7 L8.5 7 L6.5 8.5 C7.5 11 9 12.5 11.5 13.5 L13 11.5 L17 13 V16 C17 17 16 18 15 18 C9 18 2 11 2 5 C2 4 3 3 4 3 Z" /></svg>;
@@ -78,51 +80,53 @@ export default function ContactSection() {
             ) : (
               <div className="flex flex-col gap-4">
                 <Field label="Full Name" error={errors.name}>
-                  <input className={inputBase}
-                    value={form.name} onChange={(e) => update('name', e.target.value)} />
+                  {(id) => <input id={id} className={inputBase} autoComplete="name"
+                    value={form.name} onChange={(e) => update('name', e.target.value)} />}
                 </Field>
                 <Field label="Email Address" error={errors.email}>
-                  <input type="email" className={inputBase}
-                    value={form.email} onChange={(e) => update('email', e.target.value)} />
+                  {(id) => <input id={id} type="email" className={inputBase} autoComplete="email"
+                    value={form.email} onChange={(e) => update('email', e.target.value)} />}
                 </Field>
                 <Field label="Phone Number" error={errors.phone}>
-                  <input type="tel" className={inputBase}
-                    value={form.phone} onChange={(e) => update('phone', e.target.value)} />
+                  {(id) => <input id={id} type="tel" className={inputBase} autoComplete="tel"
+                    value={form.phone} onChange={(e) => update('phone', e.target.value)} />}
                 </Field>
                 <Field label="Property Location">
-                  <input className={inputBase}
+                  {(id) => <input id={id} className={inputBase}
                     placeholder="e.g. London SW1, Manchester M1"
-                    value={form.location} onChange={(e) => update('location', e.target.value)} />
+                    value={form.location} onChange={(e) => update('location', e.target.value)} />}
                 </Field>
                 <Field label="Your Situation">
-                  <select value={form.setup} onChange={(e) => update('setup', e.target.value)}
-                    className={inputBase}>
-                    <option value="" style={{ background: '#0B1426' }}>Select your situation</option>
-                    <option style={{ background: '#0B1426' }}>Standard AST Tenancy</option>
-                    <option style={{ background: '#0B1426' }}>Currently Vacant</option>
-                    <option style={{ background: '#0B1426' }}>Already in SA</option>
-                    <option style={{ background: '#0B1426' }}>Looking to Flip/Invest</option>
-                    <option style={{ background: '#0B1426' }}>Other</option>
-                  </select>
+                  {(id) => (
+                    <select id={id} value={form.setup} onChange={(e) => update('setup', e.target.value)}
+                      className={inputBase}>
+                      <option value="" style={{ background: '#0B1426' }}>Select your situation</option>
+                      <option style={{ background: '#0B1426' }}>Standard AST Tenancy</option>
+                      <option style={{ background: '#0B1426' }}>Currently Vacant</option>
+                      <option style={{ background: '#0B1426' }}>Already in SA</option>
+                      <option style={{ background: '#0B1426' }}>Looking to Flip/Invest</option>
+                      <option style={{ background: '#0B1426' }}>Other</option>
+                    </select>
+                  )}
                 </Field>
                 <Field label="Message">
-                  <textarea rows={4}
+                  {(id) => <textarea id={id} rows={4}
                     className={'w-full bg-transparent text-ivory font-inter text-[15px] focus:outline-none resize-none border-0 p-0'}
                     placeholder="Tell us about your property or investment goals..."
-                    value={form.message} onChange={(e) => update('message', e.target.value)} />
+                    value={form.message} onChange={(e) => update('message', e.target.value)} />}
                 </Field>
                 {serverError && (
-                  <div className="font-inter text-[13px] text-red-300" style={{ padding: '8px 0' }}>{serverError}</div>
+                  <div className="font-inter text-[13px] text-red-300" role="alert" style={{ padding: '8px 0' }}>{serverError}</div>
                 )}
-                <div onClick={submitting ? undefined : submit} role="button" tabIndex={0} aria-disabled={submitting}
-                  className="w-full bg-gold text-midnight font-inter text-[15px] font-semibold text-center cursor-pointer transition hover:brightness-110 flex items-center justify-center mt-2"
-                  style={{ height: 56, borderRadius: 8, opacity: submitting ? 0.6 : 1, pointerEvents: submitting ? 'none' : 'auto' }}>
+                <button type="button" onClick={submit} disabled={submitting} aria-disabled={submitting}
+                  className="w-full bg-gold text-midnight font-inter text-[15px] font-semibold text-center cursor-pointer transition hover:brightness-110 flex items-center justify-center mt-2 border-0"
+                  style={{ height: 56, borderRadius: 8, opacity: submitting ? 0.6 : 1 }}>
                   {submitting ? 'Sending…' : 'Send My Enquiry'}
-                </div>
-
+                </button>
               </div>
             )}
           </div>
+
           <div className="flex flex-col gap-4">
             {[
               { Icon: Mail, label: 'EMAIL', value: 'Info@abodooproperties.co.uk' },
