@@ -25,11 +25,13 @@ function Logo() {
   return (
     <Link to="/" className="flex items-center gap-3">
       <img src={logo} alt="Abodoo Properties" style={{ height: 40, width: 'auto', display: 'block' }} />
-      <span className="font-inter font-semibold text-[17px] tracking-widest text-ivory">ABODOO</span>
+      <div className="flex flex-col leading-none">
+        <span className="font-inter font-semibold text-[17px] tracking-widest text-ivory">ABODOO</span>
+        <span className="font-inter text-[9px] tracking-[0.3em] text-gold mt-0.5">PROPERTIES</span>
+      </div>
     </Link>
   );
 }
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
