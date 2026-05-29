@@ -28,10 +28,7 @@ function Logo() {
   return (
     <a href="#home" onClick={smoothScroll} className="flex items-center gap-3">
       <img src={logo} alt="Abodoo Properties" style={{ height: 40, width: 'auto', display: 'block' }} />
-      <div className="flex flex-col leading-none">
-        <span className="font-inter font-semibold text-[17px] tracking-widest text-ivory">ABODOO</span>
-        <span className="font-inter font-normal text-[9px] tracking-[0.3em] text-gold mt-0.5">PROPERTIES</span>
-      </div>
+      <span className="font-inter font-semibold text-[17px] tracking-widest text-ivory">ABODOO</span>
     </a>
   );
 }
