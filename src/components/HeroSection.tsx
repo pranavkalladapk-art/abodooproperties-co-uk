@@ -1,6 +1,7 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
+import { smoothScroll } from '@/lib/smoothScroll';
 
 const HeroCanvas = lazy(() => import('./HeroCanvas'));
 
@@ -79,16 +80,16 @@ export default function HeroSection() {
 
         {/* BOTTOM: buttons */}
         <motion.div variants={fadeUp} className="flex gap-4 flex-wrap justify-center">
-          <a href="#services"
+          <a href="#services" onClick={smoothScroll}
             className="bg-gold text-midnight font-inter text-[14px] font-semibold tracking-wide transition-all duration-300 hover:brightness-110 inline-flex items-center justify-center"
             style={{ height: 54, minWidth: 200, borderRadius: 8, padding: '0 32px' }}>
             Explore Services
           </a>
-          <Link to="/" hash="contact"
+          <a href="#contact" onClick={smoothScroll}
             className="border border-gold text-gold font-inter text-[14px] font-semibold tracking-wide transition-all duration-300 hover:bg-gold hover:text-midnight inline-flex items-center justify-center"
             style={{ height: 54, minWidth: 200, borderRadius: 8, padding: '0 32px' }}>
             Book Consultation
-          </Link>
+          </a>
         </motion.div>
       </motion.div>
       <motion.div
