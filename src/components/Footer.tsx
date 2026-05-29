@@ -124,7 +124,7 @@ export default function Footer() {
         <div className="mt-12 pt-6 flex justify-between flex-wrap gap-3"
           style={{ borderTop: '1px solid rgba(198,169,107,0.1)' }}>
           <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.38)' }}>
-            © 2025 Abodoo Properties
+            © 2026 Abodoo Properties
           </div>
           <div className="font-inter text-[11px]" style={{ color: 'rgba(248,246,242,0.28)' }}>
             Property investment carries risk. Past performance is not indicative of future results.
