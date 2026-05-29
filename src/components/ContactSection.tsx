@@ -77,6 +77,8 @@ export default function ContactSection() {
                 style={{ background: 'rgba(20,28,46,0.55)', border: '1px solid rgba(198,169,107,0.15)', borderRadius: 12 }}>
                 Thank you — we'll be in touch within 48 hours.
               </div>
+            ) : (
+              <div className="flex flex-col gap-4">
                 <Field label="Full Name" error={errors.name}>
                   {(id) => <input id={id} className={inputBase} autoComplete="name"
                     value={form.name} onChange={(e) => update('name', e.target.value)} />}
@@ -121,13 +123,10 @@ export default function ContactSection() {
                   style={{ height: 56, borderRadius: 8, opacity: submitting ? 0.6 : 1 }}>
                   {submitting ? 'Sending…' : 'Send My Enquiry'}
                 </button>
-
-                  {submitting ? 'Sending…' : 'Send My Enquiry'}
-                </div>
-
               </div>
             )}
           </div>
+
           <div className="flex flex-col gap-4">
             {[
               { Icon: Mail, label: 'EMAIL', value: 'Info@abodooproperties.co.uk' },
