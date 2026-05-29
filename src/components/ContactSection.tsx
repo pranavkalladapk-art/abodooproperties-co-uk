@@ -28,11 +28,6 @@ export default function ContactSection() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', location: '', setup: '', message: '' });
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [sent, setSent] = useState(false);
-
-export default function ContactSection() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', location: '', setup: '', message: '' });
-  const [errors, setErrors] = useState<Record<string, boolean>>({});
-  const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
 
