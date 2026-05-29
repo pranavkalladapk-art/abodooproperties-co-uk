@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import logo from '@/assets/logo.png';
+import { smoothScroll } from '@/lib/smoothScroll';
 
 const links = [
   { href: '#home', label: 'Home' },
