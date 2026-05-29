@@ -95,9 +95,9 @@ function FooterLink({ item }: { item: { label: string; to?: string; params?: Rec
     </span>
   );
 }
-
-export default function Footer() {
-  return (
+          <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.38)' }}>
+            © 2026 Abodoo Properties
+          </div>
     <footer className="section section--deep" style={{ paddingTop: 80, paddingBottom: 40, borderTop: '1px solid rgba(198,169,107,0.18)' }}>
       <div className="section-inner">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5" style={{ gap: 48 }}>
