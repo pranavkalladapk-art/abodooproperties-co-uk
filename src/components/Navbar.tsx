@@ -1,62 +1,44 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { Link, useRouterState } from '@tanstack/react-router';
 import logo from '@/assets/logo.png';
-import { smoothScroll } from '@/lib/smoothScroll';
 
-const links = [
-  { href: '#home', label: 'Home' },
-  { href: '#how', label: 'How It Works' },
-  { href: '#services', label: 'Services' },
-  { href: '#properties', label: 'Portfolio' },
-  { href: '#about', label: 'About' },
-  { href: '#why', label: 'Why Us' },
-  { href: '#testimonials', label: 'Reviews' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#contact', label: 'Contact' },
+type NavLink = { to: string; label: string };
+
+const links: NavLink[] = [
+  { to: '/home', label: 'Home' },
+  { to: '/how', label: 'How It Works' },
+  { to: '/services', label: 'Services' },
+  { to: '/faq', label: 'FAQ' },
+  { to: '/contact', label: 'Contact' },
 ];
 
-const desktopLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#how', label: 'How It Works' },
-  { href: '#services', label: 'Services' },
-  { href: '#properties', label: 'Properties' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#contact', label: 'Contact' },
+const desktopLinks: NavLink[] = [
+  { to: '/home', label: 'Home' },
+  { to: '/how', label: 'How It Works' },
+  { to: '/services', label: 'Services' },
+  { to: '/faq', label: 'FAQ' },
+  { to: '/contact', label: 'Contact' },
 ];
 
 function Logo() {
   return (
-    <a href="#home" onClick={smoothScroll} className="flex items-center gap-3">
+    <Link to="/" className="flex items-center gap-3">
       <img src={logo} alt="Abodoo Properties" style={{ height: 40, width: 'auto', display: 'block' }} />
       <span className="font-inter font-semibold text-[17px] tracking-widest text-ivory">ABODOO</span>
-    </a>
+    </Link>
   );
 }
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [activeId, setActiveId] = useState<string>('home');
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
-  useEffect(() => {
-    const ids = links.map(l => l.href.slice(1));
-    const handler = () => {
-      const y = window.scrollY + 120;
-      let current = ids[0];
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= y) current = id;
-      }
-      setActiveId(current);
-    };
-    handler();
-    window.addEventListener('scroll', handler, { passive: true });
-    return () => window.removeEventListener('scroll', handler);
-  }, []);
 
   return (
     <motion.nav
