@@ -67,7 +67,9 @@ export const Route = createFileRoute('/api/public/contact-enquiry')({
         ].join('\n');
 
         try {
+          const { WorkerMailer } = await import('worker-mailer');
           const mailer = await WorkerMailer.connect({
+
             credentials: { username: ZOHO_EMAIL, password: ZOHO_APP_PASSWORD },
             authType: 'login',
             host: 'smtp.zoho.com',
