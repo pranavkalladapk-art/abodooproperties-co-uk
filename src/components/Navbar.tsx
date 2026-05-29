@@ -1,62 +1,44 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { Link, useRouterState } from '@tanstack/react-router';
 import logo from '@/assets/logo.png';
-import { smoothScroll } from '@/lib/smoothScroll';
 
-const links = [
-  { href: '#home', label: 'Home' },
-  { href: '#how', label: 'How It Works' },
-  { href: '#services', label: 'Services' },
-  { href: '#properties', label: 'Portfolio' },
-  { href: '#about', label: 'About' },
-  { href: '#why', label: 'Why Us' },
-  { href: '#testimonials', label: 'Reviews' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#contact', label: 'Contact' },
+type NavLink = { to: string; label: string };
+
+const links: NavLink[] = [
+  { to: '/home', label: 'Home' },
+  { to: '/how', label: 'How It Works' },
+  { to: '/services', label: 'Services' },
+  { to: '/faq', label: 'FAQ' },
+  { to: '/contact', label: 'Contact' },
 ];
 
-const desktopLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#how', label: 'How It Works' },
-  { href: '#services', label: 'Services' },
-  { href: '#properties', label: 'Properties' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#contact', label: 'Contact' },
+const desktopLinks: NavLink[] = [
+  { to: '/home', label: 'Home' },
+  { to: '/how', label: 'How It Works' },
+  { to: '/services', label: 'Services' },
+  { to: '/faq', label: 'FAQ' },
+  { to: '/contact', label: 'Contact' },
 ];
 
 function Logo() {
   return (
-    <a href="#home" onClick={smoothScroll} className="flex items-center gap-3">
+    <Link to="/" className="flex items-center gap-3">
       <img src={logo} alt="Abodoo Properties" style={{ height: 40, width: 'auto', display: 'block' }} />
       <span className="font-inter font-semibold text-[17px] tracking-widest text-ivory">ABODOO</span>
-    </a>
+    </Link>
   );
 }
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [activeId, setActiveId] = useState<string>('home');
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
-  useEffect(() => {
-    const ids = links.map(l => l.href.slice(1));
-    const handler = () => {
-      const y = window.scrollY + 120;
-      let current = ids[0];
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= y) current = id;
-      }
-      setActiveId(current);
-    };
-    handler();
-    window.addEventListener('scroll', handler, { passive: true });
-    return () => window.removeEventListener('scroll', handler);
-  }, []);
 
   return (
     <motion.nav
@@ -76,15 +58,15 @@ export default function Navbar() {
       <Logo />
       <div className="hidden lg:flex items-center gap-8">
         {desktopLinks.map((l) => (
-          <a key={l.href} href={l.href} onClick={smoothScroll}
+          <Link key={l.to} to={l.to}
             className="font-inter text-[14px] transition-colors duration-250 whitespace-nowrap"
-            style={{ color: 'rgba(248,246,242,0.65)' }}
+            style={{ color: pathname === l.to ? '#C6A96B' : 'rgba(248,246,242,0.65)' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#C6A96B')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(248,246,242,0.65)')}
-          >{l.label}</a>
+            onMouseLeave={(e) => (e.currentTarget.style.color = pathname === l.to ? '#C6A96B' : 'rgba(248,246,242,0.65)')}
+          >{l.label}</Link>
         ))}
       </div>
-      <a href="#contact" onClick={smoothScroll}
+      <Link to="/contact"
         className="hidden lg:inline-block font-inter text-[13px] font-medium tracking-wide rounded-md transition-all duration-300 whitespace-nowrap"
         style={{
           border: '1.5px solid #C6A96B',
@@ -93,7 +75,8 @@ export default function Navbar() {
         }}
         onMouseEnter={(e) => { e.currentTarget.style.background = '#C6A96B'; e.currentTarget.style.color = '#0B1426'; }}
         onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#C6A96B'; }}
-      >Get Free Assessment</a>
+      >Get Free Assessment</Link>
+
 
       {/* Hamburger / Close toggle */}
       {!open && (
@@ -153,25 +136,24 @@ export default function Navbar() {
               <div className="flex-1 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
                 <ul className="flex flex-col w-full">
                   {links.map((l) => {
-                    const id = l.href.slice(1);
-                    const isActive = activeId === id;
+                    const isActive = pathname === l.to;
                     return (
-                      <li key={l.href} className="w-full border-b border-[#333]">
-                        <a
-                          href={l.href}
-                          onClick={(e) => { setOpen(false); smoothScroll(e); }}
+                      <li key={l.to} className="w-full border-b border-[#333]">
+                        <Link
+                          to={l.to}
+                          onClick={() => setOpen(false)}
                           className="relative flex items-center w-full px-5 py-4 transition-colors"
                         >
                           {isActive && (
                             <span className="absolute left-0 top-0 bottom-0 w-1.5 bg-white" />
                           )}
-                          <span 
-                            className="font-bold text-[20px] md:text-[22px]" 
+                          <span
+                            className="font-bold text-[20px] md:text-[22px]"
                             style={{ color: isActive ? '#a3a3a3' : '#ffffff' }}
                           >
                             {l.label}
                           </span>
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}
@@ -180,16 +162,17 @@ export default function Navbar() {
 
               {/* Bottom Section */}
               <div className="p-5 border-t border-[#333] shrink-0">
-                <a
-                  href="#contact"
-                  onClick={(e) => { setOpen(false); smoothScroll(e); }}
+                <Link
+                  to="/contact"
+                  onClick={() => setOpen(false)}
                   className="flex items-center justify-between w-full p-4 rounded-xl bg-[#333] text-white uppercase font-bold text-[15px] tracking-wide hover:bg-[#444] transition-colors"
                 >
                   <span>Contact Us</span>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
+
 
                 {/* Social Icons Row */}
                 <div className="flex items-center justify-center gap-6 mt-6 pb-2">
