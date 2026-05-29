@@ -95,9 +95,9 @@ function FooterLink({ item }: { item: { label: string; to?: string; params?: Rec
     </span>
   );
 }
-          <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.38)' }}>
-            © 2026 Abodoo Properties
-          </div>
+
+export default function Footer() {
+  return (
     <footer className="section section--deep" style={{ paddingTop: 80, paddingBottom: 40, borderTop: '1px solid rgba(198,169,107,0.18)' }}>
       <div className="section-inner">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5" style={{ gap: 48 }}>
@@ -124,7 +124,7 @@ function FooterLink({ item }: { item: { label: string; to?: string; params?: Rec
         <div className="mt-12 pt-6 flex justify-between flex-wrap gap-3"
           style={{ borderTop: '1px solid rgba(198,169,107,0.1)' }}>
           <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.38)' }}>
-            © 2025 Abodoo Properties
+            © 2026 Abodoo Properties
           </div>
           <div className="font-inter text-[11px]" style={{ color: 'rgba(248,246,242,0.28)' }}>
             Property investment carries risk. Past performance is not indicative of future results.
