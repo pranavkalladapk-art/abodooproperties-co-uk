@@ -1,3 +1,5 @@
+import { smoothScroll } from '@/lib/smoothScroll';
+
 export default function CTABanner() {
   return (
     <section className="section section--midnight text-center" style={{
@@ -12,7 +14,7 @@ export default function CTABanner() {
         <p className="font-inter text-[17px] mx-auto" style={{ color: 'rgba(248,246,242,0.62)', lineHeight: 1.75, marginBottom: 36, maxWidth: '52ch', textWrap: 'balance' as any }}>
           Request a free, no-obligation property assessment. We'll share an indicative income range based on comparable listings and local demand — not a guaranteed figure.
         </p>
-        <a href="#contact"
+        <a href="#contact" onClick={smoothScroll}
           className="inline-flex items-center justify-center bg-gold text-midnight font-inter text-[15px] font-semibold tracking-wide transition-all duration-300 hover:brightness-110"
           style={{ height: 60, minWidth: 280, padding: '0 40px', borderRadius: 8 }}
           onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 0 28px rgba(198,169,107,0.22)')}

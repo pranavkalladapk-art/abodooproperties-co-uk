@@ -1,4 +1,5 @@
 import useScrollReveal from '../hooks/useScrollReveal';
+import { smoothScroll } from '@/lib/smoothScroll';
 
 export default function AboutSection() {
   const { ref, inView } = useScrollReveal({ threshold: 0.12 });
@@ -22,7 +23,7 @@ export default function AboutSection() {
               <span>UK-Wide Coverage</span><span className="text-gold mx-2">·</span>
               <span>3 Specialist Strategies</span>
             </div>
-            <a href="#contact" className="inline-block border border-gold text-gold px-6 py-2.5 rounded-md font-inter text-[14px] hover:bg-gold hover:text-midnight transition">
+            <a href="#contact" onClick={smoothScroll} className="inline-block border border-gold text-gold px-6 py-2.5 rounded-md font-inter text-[14px] hover:bg-gold hover:text-midnight transition">
               Meet the team →
             </a>
           </div>

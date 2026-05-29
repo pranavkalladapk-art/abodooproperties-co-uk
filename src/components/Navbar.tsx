@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import logo from '@/assets/logo.png';
+import { smoothScroll } from '@/lib/smoothScroll';
 
 const links = [
   { href: '#home', label: 'Home' },
@@ -25,7 +26,7 @@ const desktopLinks = [
 
 function Logo() {
   return (
-    <a href="#home" className="flex items-center gap-3">
+    <a href="#home" onClick={smoothScroll} className="flex items-center gap-3">
       <img src={logo} alt="Abodoo Properties" style={{ height: 40, width: 'auto', display: 'block' }} />
       <div className="flex flex-col leading-none">
         <span className="font-inter font-semibold text-[17px] tracking-widest text-ivory">ABODOO</span>
@@ -78,7 +79,7 @@ export default function Navbar() {
       <Logo />
       <div className="hidden lg:flex items-center gap-8">
         {desktopLinks.map((l) => (
-          <a key={l.href} href={l.href}
+          <a key={l.href} href={l.href} onClick={smoothScroll}
             className="font-inter text-[14px] transition-colors duration-250 whitespace-nowrap"
             style={{ color: 'rgba(248,246,242,0.65)' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#C6A96B')}
@@ -86,7 +87,7 @@ export default function Navbar() {
           >{l.label}</a>
         ))}
       </div>
-      <a href="#contact"
+      <a href="#contact" onClick={smoothScroll}
         className="hidden lg:inline-block font-inter text-[13px] font-medium tracking-wide rounded-md transition-all duration-300 whitespace-nowrap"
         style={{
           border: '1.5px solid #C6A96B',
@@ -161,7 +162,7 @@ export default function Navbar() {
                       <li key={l.href} className="w-full border-b border-[#333]">
                         <a
                           href={l.href}
-                          onClick={() => setOpen(false)}
+                          onClick={(e) => { setOpen(false); smoothScroll(e); }}
                           className="relative flex items-center w-full px-5 py-4 transition-colors"
                         >
                           {isActive && (
@@ -184,7 +185,7 @@ export default function Navbar() {
               <div className="p-5 border-t border-[#333] shrink-0">
                 <a
                   href="#contact"
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => { setOpen(false); smoothScroll(e); }}
                   className="flex items-center justify-between w-full p-4 rounded-xl bg-[#333] text-white uppercase font-bold text-[15px] tracking-wide hover:bg-[#444] transition-colors"
                 >
                   <span>Contact Us</span>
