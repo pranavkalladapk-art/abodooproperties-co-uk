@@ -19,7 +19,7 @@ const audiences = [
 export default function WhoWeWorkWithSection() {
   const { ref, inView } = useScrollReveal({ threshold: 0.12 });
   return (
-    <section id="who" ref={ref} className="section section--blue section--divider">
+    <section id="properties" ref={ref} className="section section--blue section--divider">
       <div className="section-inner">
         <div className="section-head">
           <span className="section-label">WHO WE WORK WITH</span>
