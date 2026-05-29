@@ -22,7 +22,6 @@ const desktopLinks: NavLink[] = [
 ];
 
 function Logo() {
-function Logo() {
   return (
     <Link to="/" className="flex items-center gap-3">
       <img src={logo} alt="Abodoo Properties" style={{ height: 40, width: 'auto', display: 'block' }} />
