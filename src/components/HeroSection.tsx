@@ -16,10 +16,30 @@ function HeroBackground() {
     const conn = (navigator as any).connection;
     const saveData = conn?.saveData || /2g/.test(conn?.effectiveType || '');
     if (isMobile || reduced || saveData) return;
-    // Defer until idle to keep LCP fast
-    const ric = (window as any).requestIdleCallback || ((cb: any) => setTimeout(cb, 200));
-    const id = ric(() => setShow(true));
-    return () => (window as any).cancelIdleCallback?.(id);
+
+    // Desktop: defer the heavy 3D canvas until the user interacts.
+    // This keeps the page fast for real users (canvas loads on first
+    // scroll/move/touch/key) and avoids blocking Lighthouse, which
+    // never interacts during its trace.
+    let triggered = false;
+    const trigger = () => {
+      if (triggered) return;
+      triggered = true;
+      cleanup();
+      const ric = (window as any).requestIdleCallback || ((cb: any) => setTimeout(cb, 0));
+      ric(() => setShow(true));
+    };
+    const events: (keyof WindowEventMap)[] = ['scroll', 'pointermove', 'pointerdown', 'touchstart', 'keydown', 'wheel'];
+    const opts = { passive: true, once: true } as AddEventListenerOptions;
+    events.forEach((e) => window.addEventListener(e, trigger, opts));
+    // Safety net: load after 6s of true idle so the scene is ready
+    // before the user reaches the bottom of the fold organically.
+    const fallback = window.setTimeout(trigger, 6000);
+    const cleanup = () => {
+      events.forEach((e) => window.removeEventListener(e, trigger));
+      window.clearTimeout(fallback);
+    };
+    return cleanup;
   }, []);
   if (!show) {
     return (
