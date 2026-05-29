@@ -72,7 +72,7 @@ export const Route = createFileRoute('/api/public/contact-enquiry')({
         ].join('\n');
 
         try {
-          const isWorkersRuntime = typeof navigator === 'undefined' && typeof WebSocketPair !== 'undefined';
+          const isWorkersRuntime = typeof (globalThis as { WebSocketPair?: unknown }).WebSocketPair !== 'undefined';
 
           if (isWorkersRuntime) {
             const { WorkerMailer } = await import('worker-mailer');
