@@ -36,8 +36,6 @@ function Logo() {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>('home');
-  const [open, setOpen] = useState(false);
-  const [activeId, setActiveId] = useState<string>('home');
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
