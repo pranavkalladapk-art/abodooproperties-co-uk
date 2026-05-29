@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { WorkerMailer } from 'worker-mailer';
 import { z } from 'zod';
+
 
 const Schema = z.object({
   name: z.string().min(1).max(200),
