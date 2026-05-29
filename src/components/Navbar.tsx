@@ -133,6 +133,7 @@ export default function Navbar() {
               </div>
 
               {/* Navigation Items */}
+              <div className="flex-1 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
                 <ul className="flex flex-col w-full">
                   {links.map((l) => {
                     const isActive = pathname === l.to;
@@ -157,8 +158,8 @@ export default function Navbar() {
                     );
                   })}
                 </ul>
-
               </div>
+
 
               {/* Bottom Section */}
               <div className="p-5 border-t border-[#333] shrink-0">
