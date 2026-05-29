@@ -126,7 +126,7 @@ export const Route = createFileRoute('/api/public/contact-enquiry')({
         } catch (err) {
           console.error('Zoho SMTP send failed:', err);
           return Response.json(
-            { error: 'Failed to send email', detail: err instanceof Error ? err.message : String(err) },
+            { error: 'Failed to send email. Please try again later.' },
             { status: 502 },
           );
         }
