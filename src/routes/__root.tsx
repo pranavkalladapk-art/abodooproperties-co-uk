@@ -72,6 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "kmtFfNjSiCZXM9Kflkz0T5qe6uU8atIDfAZNE-_gJys" },
       { title: "Abodoo Properties" },
       { name: "description", content: "Abodoo Properties turns UK homes into high-performing income assets through guaranteed Rent-to-SA, strategic flips, and full-service management." },
       { name: "author", content: "Abodoo Properties" },
