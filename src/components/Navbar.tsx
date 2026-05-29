@@ -25,7 +25,7 @@ const desktopLinks = [
 
 function Logo() {
   return (
-    <a href="#home" className="flex items-center gap-3">
+    <a href="#home" onClick={smoothScroll} className="flex items-center gap-3">
       <img src={logo} alt="Abodoo Properties" style={{ height: 40, width: 'auto', display: 'block' }} />
       <div className="flex flex-col leading-none">
         <span className="font-inter font-semibold text-[17px] tracking-widest text-ivory">ABODOO</span>
@@ -33,6 +33,18 @@ function Logo() {
       </div>
     </a>
   );
+}
+
+function smoothScroll(e: React.MouseEvent<HTMLAnchorElement>) {
+  const href = e.currentTarget.getAttribute('href');
+  if (!href || !href.startsWith('#')) return;
+  e.preventDefault();
+  const id = href.slice(1);
+  const el = document.getElementById(id);
+  if (!el) return;
+  const navOffset = 80;
+  const y = el.getBoundingClientRect().top + window.scrollY - navOffset;
+  window.scrollTo({ top: y, behavior: 'smooth' });
 }
 
 export default function Navbar() {
