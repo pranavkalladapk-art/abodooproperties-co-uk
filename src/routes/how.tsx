@@ -25,6 +25,7 @@ function HowPage() {
     <main className="min-h-screen bg-midnight text-ivory">
       <Navbar />
       <div style={{ paddingTop: 74 }}>
+        <h1 className="sr-only">Our Process: From Property to Consistent Income</h1>
         <HowItWorksSection />
       </div>
       <Footer />

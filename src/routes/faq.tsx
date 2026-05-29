@@ -25,6 +25,7 @@ function FAQPage() {
     <main className="min-h-screen bg-midnight text-ivory">
       <Navbar />
       <div style={{ paddingTop: 74 }}>
+        <h1 className="sr-only">Property Investment Frequently Asked Questions</h1>
         <FAQSection />
       </div>
       <Footer />

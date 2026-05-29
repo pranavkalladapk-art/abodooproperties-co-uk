@@ -91,7 +91,7 @@ export default function ServicesSection() {
                 <h3 className="font-playfair text-[22px] text-ivory" style={{ marginTop: 24, marginBottom: 14 }}>{c.title}</h3>
                 <p className="font-inter text-[14.5px]" style={{ color: 'rgba(248,246,242,0.6)', lineHeight: 1.7, marginBottom: 24 }}>{c.body}</p>
                 <span className="inline-flex items-center gap-2 font-inter text-[14px] text-gold group-hover:gap-3 transition-all mt-auto">
-                  Learn more
+                  Explore {c.title}
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M3 8 H13 M9 4 L13 8 L9 12" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
