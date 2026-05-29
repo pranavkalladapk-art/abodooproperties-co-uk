@@ -77,48 +77,51 @@ export default function ContactSection() {
                 style={{ background: 'rgba(20,28,46,0.55)', border: '1px solid rgba(198,169,107,0.15)', borderRadius: 12 }}>
                 Thank you — we'll be in touch within 48 hours.
               </div>
-            ) : (
-              <div className="flex flex-col gap-4">
                 <Field label="Full Name" error={errors.name}>
-                  <input className={inputBase}
-                    value={form.name} onChange={(e) => update('name', e.target.value)} />
+                  {(id) => <input id={id} className={inputBase} autoComplete="name"
+                    value={form.name} onChange={(e) => update('name', e.target.value)} />}
                 </Field>
                 <Field label="Email Address" error={errors.email}>
-                  <input type="email" className={inputBase}
-                    value={form.email} onChange={(e) => update('email', e.target.value)} />
+                  {(id) => <input id={id} type="email" className={inputBase} autoComplete="email"
+                    value={form.email} onChange={(e) => update('email', e.target.value)} />}
                 </Field>
                 <Field label="Phone Number" error={errors.phone}>
-                  <input type="tel" className={inputBase}
-                    value={form.phone} onChange={(e) => update('phone', e.target.value)} />
+                  {(id) => <input id={id} type="tel" className={inputBase} autoComplete="tel"
+                    value={form.phone} onChange={(e) => update('phone', e.target.value)} />}
                 </Field>
                 <Field label="Property Location">
-                  <input className={inputBase}
+                  {(id) => <input id={id} className={inputBase}
                     placeholder="e.g. London SW1, Manchester M1"
-                    value={form.location} onChange={(e) => update('location', e.target.value)} />
+                    value={form.location} onChange={(e) => update('location', e.target.value)} />}
                 </Field>
                 <Field label="Your Situation">
-                  <select value={form.setup} onChange={(e) => update('setup', e.target.value)}
-                    className={inputBase}>
-                    <option value="" style={{ background: '#0B1426' }}>Select your situation</option>
-                    <option style={{ background: '#0B1426' }}>Standard AST Tenancy</option>
-                    <option style={{ background: '#0B1426' }}>Currently Vacant</option>
-                    <option style={{ background: '#0B1426' }}>Already in SA</option>
-                    <option style={{ background: '#0B1426' }}>Looking to Flip/Invest</option>
-                    <option style={{ background: '#0B1426' }}>Other</option>
-                  </select>
+                  {(id) => (
+                    <select id={id} value={form.setup} onChange={(e) => update('setup', e.target.value)}
+                      className={inputBase}>
+                      <option value="" style={{ background: '#0B1426' }}>Select your situation</option>
+                      <option style={{ background: '#0B1426' }}>Standard AST Tenancy</option>
+                      <option style={{ background: '#0B1426' }}>Currently Vacant</option>
+                      <option style={{ background: '#0B1426' }}>Already in SA</option>
+                      <option style={{ background: '#0B1426' }}>Looking to Flip/Invest</option>
+                      <option style={{ background: '#0B1426' }}>Other</option>
+                    </select>
+                  )}
                 </Field>
                 <Field label="Message">
-                  <textarea rows={4}
+                  {(id) => <textarea id={id} rows={4}
                     className={'w-full bg-transparent text-ivory font-inter text-[15px] focus:outline-none resize-none border-0 p-0'}
                     placeholder="Tell us about your property or investment goals..."
-                    value={form.message} onChange={(e) => update('message', e.target.value)} />
+                    value={form.message} onChange={(e) => update('message', e.target.value)} />}
                 </Field>
                 {serverError && (
-                  <div className="font-inter text-[13px] text-red-300" style={{ padding: '8px 0' }}>{serverError}</div>
+                  <div className="font-inter text-[13px] text-red-300" role="alert" style={{ padding: '8px 0' }}>{serverError}</div>
                 )}
-                <div onClick={submitting ? undefined : submit} role="button" tabIndex={0} aria-disabled={submitting}
-                  className="w-full bg-gold text-midnight font-inter text-[15px] font-semibold text-center cursor-pointer transition hover:brightness-110 flex items-center justify-center mt-2"
-                  style={{ height: 56, borderRadius: 8, opacity: submitting ? 0.6 : 1, pointerEvents: submitting ? 'none' : 'auto' }}>
+                <button type="button" onClick={submit} disabled={submitting} aria-disabled={submitting}
+                  className="w-full bg-gold text-midnight font-inter text-[15px] font-semibold text-center cursor-pointer transition hover:brightness-110 flex items-center justify-center mt-2 border-0"
+                  style={{ height: 56, borderRadius: 8, opacity: submitting ? 0.6 : 1 }}>
+                  {submitting ? 'Sending…' : 'Send My Enquiry'}
+                </button>
+
                   {submitting ? 'Sending…' : 'Send My Enquiry'}
                 </div>
 
