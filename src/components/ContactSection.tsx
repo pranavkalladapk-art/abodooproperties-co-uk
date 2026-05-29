@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 
-const labelCls = 'font-inter text-[11px] tracking-[0.18em] text-gold uppercase';
+const labelCls = 'font-inter text-[11px] tracking-[0.18em] text-gold uppercase block';
 const inputBase = 'w-full bg-transparent text-ivory font-inter text-[15px] focus:outline-none border-0 p-0';
 const boxStyle = (err?: boolean) => ({
   background: 'rgba(20,28,46,0.55)',
@@ -9,14 +9,16 @@ const boxStyle = (err?: boolean) => ({
   padding: '14px 18px',
 });
 
-function Field({ label, error, children }: { label: string; error?: boolean; children: React.ReactNode }) {
+function Field({ label, error, children }: { label: string; error?: boolean; children: (id: string) => React.ReactNode }) {
+  const id = useId();
   return (
     <div style={boxStyle(error)}>
-      <div className={labelCls} style={{ marginBottom: 6 }}>{label}</div>
-      {children}
+      <label htmlFor={id} className={labelCls} style={{ marginBottom: 6 }}>{label}</label>
+      {children(id)}
     </div>
   );
 }
+
 
 const Mail = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C6A96B" strokeWidth="1.5"><rect x="2" y="4" width="16" height="12" rx="1.5" /><path d="M2 6 L10 11 L18 6" /></svg>;
 const Phone = () => <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C6A96B" strokeWidth="1.5"><path d="M4 3 H7 L8.5 7 L6.5 8.5 C7.5 11 9 12.5 11.5 13.5 L13 11.5 L17 13 V16 C17 17 16 18 15 18 C9 18 2 11 2 5 C2 4 3 3 4 3 Z" /></svg>;
