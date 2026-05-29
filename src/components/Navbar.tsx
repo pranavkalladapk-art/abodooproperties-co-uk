@@ -58,15 +58,15 @@ export default function Navbar() {
       <Logo />
       <div className="hidden lg:flex items-center gap-8">
         {desktopLinks.map((l) => (
-          <a key={l.href} href={l.href} onClick={smoothScroll}
+          <Link key={l.to} to={l.to}
             className="font-inter text-[14px] transition-colors duration-250 whitespace-nowrap"
-            style={{ color: 'rgba(248,246,242,0.65)' }}
+            style={{ color: pathname === l.to ? '#C6A96B' : 'rgba(248,246,242,0.65)' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#C6A96B')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(248,246,242,0.65)')}
-          >{l.label}</a>
+            onMouseLeave={(e) => (e.currentTarget.style.color = pathname === l.to ? '#C6A96B' : 'rgba(248,246,242,0.65)')}
+          >{l.label}</Link>
         ))}
       </div>
-      <a href="#contact" onClick={smoothScroll}
+      <Link to="/contact"
         className="hidden lg:inline-block font-inter text-[13px] font-medium tracking-wide rounded-md transition-all duration-300 whitespace-nowrap"
         style={{
           border: '1.5px solid #C6A96B',
@@ -75,7 +75,8 @@ export default function Navbar() {
         }}
         onMouseEnter={(e) => { e.currentTarget.style.background = '#C6A96B'; e.currentTarget.style.color = '#0B1426'; }}
         onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#C6A96B'; }}
-      >Get Free Assessment</a>
+      >Get Free Assessment</Link>
+
 
       {/* Hamburger / Close toggle */}
       {!open && (
