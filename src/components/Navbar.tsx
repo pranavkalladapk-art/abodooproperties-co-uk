@@ -162,16 +162,17 @@ export default function Navbar() {
 
 
               {/* Bottom Section */}
-              <div className="p-5 border-t border-[#333] shrink-0">
-                <a
-                  href="#contact"
-                  onClick={(e) => { setOpen(false); smoothScroll(e); }}
+                <Link
+                  to="/contact"
+                  onClick={() => setOpen(false)}
                   className="flex items-center justify-between w-full p-4 rounded-xl bg-[#333] text-white uppercase font-bold text-[15px] tracking-wide hover:bg-[#444] transition-colors"
                 >
                   <span>Contact Us</span>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
+                </Link>
+
                 </a>
 
                 {/* Social Icons Row */}
