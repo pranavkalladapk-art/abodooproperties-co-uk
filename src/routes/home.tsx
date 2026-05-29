@@ -19,10 +19,10 @@ const URL = "https://abodooproperties.co.uk/home";
 export const Route = createFileRoute("/home")({
   head: () => ({
     meta: [
-      { title: "Home — Abodoo Properties" },
-      { name: "description", content: "Abodoo Properties turns UK homes into high-performing income assets through guaranteed Rent-to-SA, strategic flips, and full-service management." },
-      { property: "og:title", content: "Home — Abodoo Properties" },
-      { property: "og:description", content: "Guaranteed monthly income, expert management, and proven flip returns across the United Kingdom." },
+      { title: "Abodoo Properties | UK Property Services" },
+      { name: "description", content: "Abodoo Properties offers professional property services in the UK. Contact us at Info@abodooproperties.co.uk" },
+      { property: "og:title", content: "Abodoo Properties | UK Property Services" },
+      { property: "og:description", content: "Abodoo Properties offers professional property services in the UK. Contact us at Info@abodooproperties.co.uk" },
       { property: "og:url", content: URL },
     ],
     links: [{ rel: "canonical", href: URL }],
