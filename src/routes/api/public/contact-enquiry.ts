@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { WorkerMailer } from 'worker-mailer';
 import { z } from 'zod';
+
 
 const Schema = z.object({
   name: z.string().min(1).max(200),
@@ -67,7 +67,9 @@ export const Route = createFileRoute('/api/public/contact-enquiry')({
         ].join('\n');
 
         try {
+          const { WorkerMailer } = await import('worker-mailer');
           const mailer = await WorkerMailer.connect({
+
             credentials: { username: ZOHO_EMAIL, password: ZOHO_APP_PASSWORD },
             authType: 'login',
             host: 'smtp.zoho.com',
