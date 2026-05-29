@@ -25,7 +25,6 @@ const desktopLinks = [
 ];
 
 function Logo() {
-function Logo() {
   return (
     <a href="#home" onClick={smoothScroll} className="flex items-center gap-3">
       <img src={logo} alt="Abodoo Properties" style={{ height: 40, width: 'auto', display: 'block' }} />
@@ -33,8 +32,8 @@ function Logo() {
     </a>
   );
 }
-  );
-}
+
+export default function Navbar() {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
