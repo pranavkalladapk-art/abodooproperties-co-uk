@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { z } from 'zod';
 
-
 const Schema = z.object({
   name: z.string().min(1).max(200),
   email: z.string().email().max(320),
@@ -13,6 +12,12 @@ const Schema = z.object({
 
 const escape = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
+
+const closeTransport = async (transport: { close?: () => void | Promise<void> }) => {
+  if (typeof transport.close === 'function') {
+    await transport.close();
+  }
+};
 
 export const Route = createFileRoute('/api/public/contact-enquiry')({
   server: {
@@ -67,26 +72,56 @@ export const Route = createFileRoute('/api/public/contact-enquiry')({
         ].join('\n');
 
         try {
-          const { WorkerMailer } = await import('worker-mailer');
-          const mailer = await WorkerMailer.connect({
+          const isWorkersRuntime = typeof navigator === 'undefined' && typeof WebSocketPair !== 'undefined';
 
-            credentials: { username: ZOHO_EMAIL, password: ZOHO_APP_PASSWORD },
-            authType: 'login',
-            host: 'smtp.zoho.com',
-            port: 465,
-            secure: true,
-          });
+          if (isWorkersRuntime) {
+            const { WorkerMailer } = await import('worker-mailer');
+            const mailer = await WorkerMailer.connect({
+              credentials: { username: ZOHO_EMAIL, password: ZOHO_APP_PASSWORD },
+              authType: 'login',
+              host: 'smtp.zoho.com',
+              port: 465,
+              secure: true,
+            });
 
-          await mailer.send({
-            from: { name: 'Abodoo Properties Website', email: ZOHO_EMAIL },
-            to: { email: 'Info@abodooproperties.co.uk' },
-            reply: { name: d.name, email: d.email },
-            subject: `New Enquiry from ${d.name}`,
-            html,
-            text,
-          });
+            try {
+              await mailer.send({
+                from: { name: 'Abodoo Properties Website', email: ZOHO_EMAIL },
+                to: { email: ZOHO_EMAIL },
+                reply: { name: d.name, email: d.email },
+                subject: `New Enquiry from ${d.name}`,
+                html,
+                text,
+              });
+            } finally {
+              await closeTransport(mailer);
+            }
+          } else {
+            const nodemailerModule = await import('nodemailer');
+            const transporter = nodemailerModule.createTransport({
+              host: 'smtp.zoho.com',
+              port: 465,
+              secure: true,
+              auth: {
+                user: ZOHO_EMAIL,
+                pass: ZOHO_APP_PASSWORD,
+              },
+            });
 
-          await mailer.close();
+            try {
+              await transporter.sendMail({
+                from: `Abodoo Properties Website <${ZOHO_EMAIL}>`,
+                to: ZOHO_EMAIL,
+                replyTo: `${d.name} <${d.email}>`,
+                subject: `New Enquiry from ${d.name}`,
+                html,
+                text,
+              });
+            } finally {
+              await closeTransport(transporter);
+            }
+          }
+
           return Response.json({ success: true });
         } catch (err) {
           console.error('Zoho SMTP send failed:', err);
