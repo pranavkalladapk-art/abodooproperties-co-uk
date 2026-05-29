@@ -64,6 +64,11 @@ export default function ContactSection() {
     }
   };
 
+  return (
+    <section id="contact" className="section section--blue section--divider">
+      <div className="section-inner">
+        <div className="section-head">
+
           <span className="section-label">CONTACT</span>
           <h2 className="section-h2">Let's talk about your property.</h2>
           <p className="section-sub">Whether you have one property or ten, we'll give you an honest assessment of what it could earn under each of our three strategies.</p>
