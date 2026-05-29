@@ -2,6 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import ServicesSection from "@/components/ServicesSection";
+import WhyAbodooSection from "@/components/WhyAbodooSection";
+import WhoWeWorkWithSection from "@/components/WhoWeWorkWithSection";
+import AboutSection from "@/components/AboutSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
+import CTABanner from "@/components/CTABanner";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -27,6 +36,15 @@ function HomePage() {
       <Navbar />
       <HeroSection />
       <StatsSection />
+      <HowItWorksSection />
+      <ServicesSection />
+      <WhyAbodooSection />
+      <WhoWeWorkWithSection />
+      <AboutSection />
+      <TestimonialsSection />
+      <FAQSection />
+      <CTABanner />
+      <ContactSection />
       <Footer />
       <WhatsAppButton />
     </main>
