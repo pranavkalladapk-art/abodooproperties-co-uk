@@ -56,9 +56,9 @@ const footerColumns = [
 ];
 
 function FooterLink({ item }: { item: { label: string; to?: string; params?: Record<string, string>; href?: string } }) {
-  const style = { color: 'rgba(248,246,242,0.45)' } as React.CSSProperties;
+  const style = { color: 'rgba(248,246,242,0.72)' } as React.CSSProperties;
   const hoverIn = (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.color = 'rgba(248,246,242,0.9)'; };
-  const hoverOut = (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.color = 'rgba(248,246,242,0.45)'; };
+  const hoverOut = (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.color = 'rgba(248,246,242,0.72)'; };
 
   if (item.to) {
     return (
@@ -103,7 +103,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5" style={{ gap: 48 }}>
           <div>
             <Logo />
-            <p className="font-inter text-[14px] mt-4 max-w-[220px]" style={{ color: 'rgba(248,246,242,0.42)', lineHeight: 1.8 }}>
+            <p className="font-inter text-[14px] mt-4 max-w-[220px]" style={{ color: 'rgba(248,246,242,0.7)', lineHeight: 1.8 }}>
               Helping landlords explore modern letting strategies across the United Kingdom.
             </p>
             <div className="flex gap-4 mt-6" style={{ color: 'rgba(198,169,107,0.45)' }}>
@@ -123,14 +123,14 @@ export default function Footer() {
         </div>
         <div className="mt-12 pt-6 flex justify-between flex-wrap gap-3"
           style={{ borderTop: '1px solid rgba(198,169,107,0.1)' }}>
-          <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.38)' }}>
+          <div className="font-inter text-[13px]" style={{ color: 'rgba(248,246,242,0.85)' }}>
             © 2026 Abodoo Properties
           </div>
           <div className="font-inter text-[11px]" style={{ color: 'rgba(248,246,242,0.28)' }}>
             Property investment carries risk. Past performance is not indicative of future results.
           </div>
         </div>
-        <p className="font-inter text-[11px] mt-4" style={{ color: 'rgba(248,246,242,0.32)', lineHeight: 1.7, maxWidth: '90ch' }}>
+        <p className="font-inter text-[11px] mt-4" style={{ color: 'rgba(248,246,242,0.82)', lineHeight: 1.7, maxWidth: '90ch' }}>
           Images, example properties, and figures shown on this site are illustrative. Abodoo Properties is a trading name; company registration details available on request.
         </p>
       </div>

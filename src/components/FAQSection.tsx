@@ -47,7 +47,7 @@ export default function FAQSection() {
                       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       style={{ overflow: 'hidden' }}>
                       <div className="font-inter text-[16px]"
-                        style={{ color: 'rgba(248,246,242,0.65)', lineHeight: 1.8, paddingTop: 16, marginTop: 16, borderTop: '1px solid rgba(198,169,107,0.15)' }}>
+                        style={{ color: 'rgba(248,246,242,0.85)', lineHeight: 1.8, paddingTop: 16, marginTop: 16, borderTop: '1px solid rgba(198,169,107,0.15)' }}>
                         {f.a}
                       </div>
                     </motion.div>

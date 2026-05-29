@@ -62,9 +62,9 @@ export default function Navbar() {
         {desktopLinks.map((l) => (
           <Link key={l.to} to={l.to}
             className="font-inter text-[14px] transition-colors duration-250 whitespace-nowrap"
-            style={{ color: pathname === l.to ? '#C6A96B' : 'rgba(248,246,242,0.65)' }}
+            style={{ color: pathname === l.to ? '#C6A96B' : 'rgba(248,246,242,0.85)' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#C6A96B')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = pathname === l.to ? '#C6A96B' : 'rgba(248,246,242,0.65)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = pathname === l.to ? '#C6A96B' : 'rgba(248,246,242,0.85)')}
           >{l.label}</Link>
         ))}
       </div>

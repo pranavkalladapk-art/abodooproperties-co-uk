@@ -93,7 +93,7 @@ function Navbar() {
               to="/strategies/$slug"
               params={{ slug: s.slug }}
               className="font-inter text-[13px] tracking-wide"
-              style={{ color: isActive ? GOLD : 'rgba(248,246,242,0.65)' }}
+              style={{ color: isActive ? GOLD : 'rgba(248,246,242,0.85)' }}
             >
               {s.title}
             </Link>
@@ -625,7 +625,7 @@ function RentToHmoPage() {
         }}
         className="font-inter text-[13px]"
       >
-        <span style={{ color: 'rgba(248,246,242,0.42)' }}>
+        <span style={{ color: 'rgba(248,246,242,0.7)' }}>
           &copy; 2025 Abodoo Properties &middot; London, United Kingdom
         </span>
       </footer>

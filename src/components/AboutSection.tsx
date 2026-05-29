@@ -15,10 +15,10 @@ export default function AboutSection() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            <p className="font-inter text-[16px]" style={{ color: 'rgba(248,246,242,0.66)', lineHeight: 1.8, marginBottom: 28, maxWidth: '58ch', textWrap: 'pretty' as any }}>
+            <p className="font-inter text-[16px]" style={{ color: 'rgba(248,246,242,0.85)', lineHeight: 1.8, marginBottom: 28, maxWidth: '58ch', textWrap: 'pretty' as any }}>
               We are building our portfolio across London, Manchester, Leeds, and beyond — applying three specialist strategies tailored to each property's location, condition, and income potential.
             </p>
-            <div className="flex flex-wrap gap-2 font-inter text-[13px] justify-center lg:justify-start" style={{ color: 'rgba(248,246,242,0.45)', marginBottom: 32 }}>
+            <div className="flex flex-wrap gap-2 font-inter text-[13px] justify-center lg:justify-start" style={{ color: 'rgba(248,246,242,0.72)', marginBottom: 32 }}>
               <span>Est. 2026</span><span className="text-gold mx-2">·</span>
               <span>UK-Wide Coverage</span><span className="text-gold mx-2">·</span>
               <span>3 Specialist Strategies</span>

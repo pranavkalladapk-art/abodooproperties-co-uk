@@ -52,12 +52,12 @@ export default function PropertiesSection() {
               <div style={{ marginTop: 18 }}>
                 <div className="font-inter text-[11px] uppercase tracking-widest text-gold" style={{ marginBottom: 8 }}>{p.location}</div>
                 <div className="font-playfair text-[20px] text-ivory">{p.name}</div>
-                <div className="font-inter text-[14px]" style={{ color: 'rgba(248,246,242,0.6)', marginTop: 4 }}>{p.descriptor}</div>
+                <div className="font-inter text-[14px]" style={{ color: 'rgba(248,246,242,0.82)', marginTop: 4 }}>{p.descriptor}</div>
               </div>
             </motion.div>
           ))}
         </div>
-        <p className="font-inter text-[12px] text-center mx-auto" style={{ color: 'rgba(248,246,242,0.4)', marginTop: 36, maxWidth: '60ch', lineHeight: 1.7 }}>
+        <p className="font-inter text-[12px] text-center mx-auto" style={{ color: 'rgba(248,246,242,0.68)', marginTop: 36, maxWidth: '60ch', lineHeight: 1.7 }}>
           Images and examples shown are illustrative of the standard of accommodation we operate. Specific properties, locations, and figures will vary.
         </p>
       </div>

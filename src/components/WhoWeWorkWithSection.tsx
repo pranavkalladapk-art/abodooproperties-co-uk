@@ -72,7 +72,7 @@ export default function WhoWeWorkWithSection() {
               </h3>
               <p
                 className="font-inter text-[15px]"
-                style={{ color: 'rgba(248,246,242,0.65)', lineHeight: 1.75 }}
+                style={{ color: 'rgba(248,246,242,0.85)', lineHeight: 1.75 }}
               >
                 {a.body}
               </p>

@@ -31,7 +31,7 @@ export default function HowItWorksSection() {
               <div className="relative" style={{ paddingTop: 56 }}>
                 <div className="bg-gold" style={{ width: 32, height: 2, marginBottom: 20 }} />
                 <h3 className="font-playfair text-[20px] text-ivory" style={{ marginBottom: 12 }}>{s.title}</h3>
-                <p className="font-inter text-[15px]" style={{ color: 'rgba(248,246,242,0.65)', lineHeight: 1.8 }}>
+                <p className="font-inter text-[15px]" style={{ color: 'rgba(248,246,242,0.85)', lineHeight: 1.8 }}>
                   {s.body}
                 </p>
               </div>
