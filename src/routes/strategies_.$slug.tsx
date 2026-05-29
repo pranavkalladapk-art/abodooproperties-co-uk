@@ -129,7 +129,7 @@ export const Route = createFileRoute('/strategies_/$slug')({
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: 'Strategy — Abodoo Properties' }] };
-    const url = `https://abodoo-zenith.lovable.app/strategies/${loaderData.slug}`;
+    const url = `https://abodooproperties.co.uk/strategies/${loaderData.slug}`;
     const pageTitle = `${loaderData.title} — Abodoo Properties`;
     return {
       meta: [

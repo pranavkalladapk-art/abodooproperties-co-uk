@@ -19,7 +19,7 @@ import {
 import logo from '@/assets/logo.png';
 import { strategyNav } from '@/components/StrategyPageLayout';
 
-const PAGE_URL = 'https://abodoo-zenith.lovable.app/strategies/rent-to-hmo';
+const PAGE_URL = 'https://abodooproperties.co.uk/strategies/rent-to-hmo';
 const PAGE_TITLE = 'Rent-to-HMO — Abodoo Properties';
 const PAGE_DESC =
   "One of the UK's most powerful cash flow strategies — lease, sublet by the room, and generate £500–£2,000+ per month per property without ownership.";

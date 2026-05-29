@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import logo from '@/assets/logo.png';
 
-const PAGE_URL = 'https://abodoo-zenith.lovable.app/services';
+const PAGE_URL = 'https://abodooproperties.co.uk/services';
 const PAGE_TITLE = 'Our Services — Abodoo Properties';
 const PAGE_DESC =
   'Four proven UK property strategies — Rent-to-HMO, Serviced Accommodation, BRRR Projects, and Refurbishment & Resale — operated end-to-end by Abodoo Properties.';

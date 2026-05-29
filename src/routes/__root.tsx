@@ -99,17 +99,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://abodoo-zenith.lovable.app/#organization",
+              "@id": "https://abodooproperties.co.uk/#organization",
               name: "Abodoo Properties",
-              url: "https://abodoo-zenith.lovable.app/",
+              url: "https://abodooproperties.co.uk/",
               description: "UK property income specialists offering Rent-to-SA, strategic flips, and full-service management.",
             },
             {
               "@type": "WebSite",
-              "@id": "https://abodoo-zenith.lovable.app/#website",
-              url: "https://abodoo-zenith.lovable.app/",
+              "@id": "https://abodooproperties.co.uk/#website",
+              url: "https://abodooproperties.co.uk/",
               name: "Abodoo Properties",
-              publisher: { "@id": "https://abodoo-zenith.lovable.app/#organization" },
+              publisher: { "@id": "https://abodooproperties.co.uk/#organization" },
             },
           ],
         }),
