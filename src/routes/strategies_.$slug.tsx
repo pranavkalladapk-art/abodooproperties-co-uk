@@ -226,7 +226,8 @@ export const Route = createFileRoute('/strategies_/$slug')({
 
 function StrategyDetailPage() {
   const data = Route.useLoaderData();
-  // ensure nav order matches our data
+  // Re-attach Icon by slug (it was stripped from loader output for serialization)
+  const Icon = STRATEGIES[data.slug]?.Icon ?? Home;
   void strategyNav;
   return (
     <StrategyPageLayout
@@ -234,10 +235,11 @@ function StrategyDetailPage() {
       index={data.index}
       title={data.title}
       lead={data.lead}
-      Icon={data.Icon}
+      Icon={Icon}
       paragraphs={data.paragraphs}
       benefits={data.benefits}
       steps={data.steps}
     />
   );
 }
+
