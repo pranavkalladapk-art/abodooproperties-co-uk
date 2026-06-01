@@ -125,7 +125,10 @@ export const Route = createFileRoute('/strategies_/$slug')({
   loader: ({ params }) => {
     const data = STRATEGIES[params.slug];
     if (!data) throw notFound();
-    return data;
+    // Strip non-serializable fields (Icon is a React component / function)
+    // before returning. They'll be re-attached in the component by slug.
+    const { Icon: _Icon, ...serializable } = data;
+    return serializable;
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: 'Strategy — Abodoo Properties' }] };
@@ -142,6 +145,7 @@ export const Route = createFileRoute('/strategies_/$slug')({
       links: [{ rel: 'canonical', href: url }],
     };
   },
+
   notFoundComponent: () => (
     <main
       style={{
@@ -222,7 +226,8 @@ export const Route = createFileRoute('/strategies_/$slug')({
 
 function StrategyDetailPage() {
   const data = Route.useLoaderData();
-  // ensure nav order matches our data
+  // Re-attach Icon by slug (it was stripped from loader output for serialization)
+  const Icon = STRATEGIES[data.slug]?.Icon ?? Home;
   void strategyNav;
   return (
     <StrategyPageLayout
@@ -230,10 +235,11 @@ function StrategyDetailPage() {
       index={data.index}
       title={data.title}
       lead={data.lead}
-      Icon={data.Icon}
+      Icon={Icon}
       paragraphs={data.paragraphs}
       benefits={data.benefits}
       steps={data.steps}
     />
   );
 }
+
