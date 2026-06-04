@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { Home, KeyRound, TrendingUp, Building2, Menu, X, ArrowRight } from 'lucide-react';
 import logo from '@/assets/logo.png';
 
+const PAGE_URL = 'https://abodooproperties.co.uk/strategies';
+
 export const Route = createFileRoute('/strategies')({
   component: StrategiesPage,
   head: () => ({
@@ -20,7 +22,9 @@ export const Route = createFileRoute('/strategies')({
         content:
           'High-yield UK property strategies — HMO, Serviced Accommodation, BRRR, and refurb-and-resale projects.',
       },
+      { property: 'og:url', content: PAGE_URL },
     ],
+    links: [{ rel: 'canonical', href: PAGE_URL }],
   }),
 });
 
