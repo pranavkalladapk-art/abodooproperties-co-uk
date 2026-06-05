@@ -83,12 +83,15 @@ export default function HeroSection() {
           <motion.h1 variants={fadeUp}
             className="font-playfair text-ivory font-normal mx-auto"
             style={{ fontSize: 'clamp(44px, 7vw, 88px)', lineHeight: 1.05, letterSpacing: '-0.02em', maxWidth: '20ch', textWrap: 'balance' as any }}>
-            {headline.split(' ').map((w, i) => (
-              <motion.span key={i} style={{ display: 'inline-block', marginRight: '0.28em' }}
-                initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.6 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}>
-                {w}
-              </motion.span>
+            {headline.split(' ').map((w, i, arr) => (
+              <span key={i} style={{ display: 'inline' }}>
+                <motion.span style={{ display: 'inline-block' }}
+                  initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.6 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}>
+                  {w}
+                </motion.span>
+                {i < arr.length - 1 ? ' ' : ''}
+              </span>
             ))}
           </motion.h1>
           <motion.p variants={fadeUp}
