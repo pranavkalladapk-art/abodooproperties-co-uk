@@ -19,6 +19,7 @@ import { Route as HomeRouteImport } from './routes/home'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StrategiesRentToHmoRouteImport } from './routes/strategies_.rent-to-hmo'
 import { Route as StrategiesSlugRouteImport } from './routes/strategies_.$slug'
@@ -74,6 +75,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -97,6 +103,7 @@ const ApiPublicContactEnquiryRoute = ApiPublicContactEnquiryRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/faq': typeof FaqRoute
@@ -113,6 +120,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/faq': typeof FaqRoute
@@ -130,6 +138,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/faq': typeof FaqRoute
@@ -148,6 +157,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/blog'
     | '/contact'
     | '/cookies'
     | '/faq'
@@ -164,6 +174,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/blog'
     | '/contact'
     | '/cookies'
     | '/faq'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/blog'
     | '/contact'
     | '/cookies'
     | '/faq'
@@ -197,6 +209,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   FaqRoute: typeof FaqRoute
@@ -284,6 +297,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -317,6 +337,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   FaqRoute: FaqRoute,
@@ -334,3 +355,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
