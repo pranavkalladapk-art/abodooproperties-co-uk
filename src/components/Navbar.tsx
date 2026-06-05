@@ -9,6 +9,7 @@ const links: NavLink[] = [
   { to: '/home', label: 'Home' },
   { to: '/how', label: 'How It Works' },
   { to: '/services', label: 'Services' },
+  { to: '/blog', label: 'Insights' },
   { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
 ];
@@ -17,6 +18,7 @@ const desktopLinks: NavLink[] = [
   { to: '/home', label: 'Home' },
   { to: '/how', label: 'How It Works' },
   { to: '/services', label: 'Services' },
+  { to: '/blog', label: 'Insights' },
   { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
 ];

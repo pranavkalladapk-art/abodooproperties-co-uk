@@ -9,6 +9,7 @@ import WhoWeWorkWithSection from "@/components/WhoWeWorkWithSection";
 import AboutSection from "@/components/AboutSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
+import InsightsSection from "@/components/InsightsSection";
 import CTABanner from "@/components/CTABanner";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -43,6 +44,7 @@ function HomePage() {
       <AboutSection />
       <TestimonialsSection />
       <FAQSection />
+      <InsightsSection />
       <CTABanner />
       <ContactSection />
       <Footer />
