@@ -20,9 +20,9 @@ export const Route = createFileRoute("/home")({
   head: () => ({
     meta: [
       { title: "Abodoo Properties | UK Property Services" },
-      { name: "description", content: "Abodoo Properties offers professional property services in the UK. Contact us at Info@abodooproperties.co.uk" },
+      { name: "description", content: "Abodoo Properties helps UK landlords and investors maximise rental income through Rent-to-SA, HMO, BRRRR and refurbishment strategies. Get a free property assessment today." },
       { property: "og:title", content: "Abodoo Properties | UK Property Services" },
-      { property: "og:description", content: "Abodoo Properties offers professional property services in the UK. Contact us at Info@abodooproperties.co.uk" },
+      { property: "og:description", content: "Abodoo Properties helps UK landlords and investors maximise rental income through Rent-to-SA, HMO, BRRRR and refurbishment strategies. Get a free property assessment today." },
       { property: "og:url", content: URL },
     ],
     links: [{ rel: "canonical", href: URL }],
