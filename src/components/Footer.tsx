@@ -51,6 +51,7 @@ const footerColumns = [
       { label: 'Privacy Policy', href: '/privacy' },
       { label: 'Terms of Service', href: '/terms' },
       { label: 'Cookies', href: '/cookies' },
+      { label: 'Sitemap', href: 'https://abodooproperties.co.uk/sitemap.xml' },
     ],
   },
 ];
