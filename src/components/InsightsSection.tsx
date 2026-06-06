@@ -30,30 +30,29 @@ export default function InsightsSection() {
           <h2 className="font-playfair text-ivory font-normal" style={{ fontSize: 'clamp(32px, 4vw, 52px)', lineHeight: 1.15, letterSpacing: '-0.01em' }}>
             Guides for UK landlords and investors.
           </h2>
-          <p className="font-inter mx-auto mt-6" style={{ color: 'rgba(248,246,242,0.72)', fontSize: 15, lineHeight: 1.7, maxWidth: '60ch' }}>
+          <p className="font-inter mt-6 max-w-2xl mx-auto text-center" style={{ color: 'rgba(248,246,242,0.72)', fontSize: 15, lineHeight: 1.7 }}>
             Practical articles on letting strategies, regulation, and market trends — written for property owners thinking about what to do next.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((a) => (
             <article
               key={a.slug}
-              className="flex flex-col rounded-lg p-7 transition-all duration-300"
+              className="flex flex-col min-h-[300px] p-6 rounded-lg transition-all duration-300"
               style={{
                 background: 'rgba(255,255,255,0.02)',
                 border: '1px solid rgba(198,169,107,0.18)',
-                minHeight: 280,
               }}
             >
-              <div className="font-inter text-[10px] tracking-[0.22em] text-gold uppercase mb-4">{a.tag}</div>
-              <h3 className="font-playfair text-ivory" style={{ fontSize: 20, lineHeight: 1.3, letterSpacing: '-0.01em' }}>
+              <div className="font-inter text-[10px] tracking-[0.22em] text-gold uppercase mb-2">{a.tag}</div>
+              <h3 className="font-playfair text-ivory mb-3" style={{ fontSize: 20, lineHeight: 1.3, letterSpacing: '-0.01em' }}>
                 {a.title}
               </h3>
-              <p className="font-inter mt-4 flex-1" style={{ color: 'rgba(248,246,242,0.65)', fontSize: 14, lineHeight: 1.65 }}>
+              <p className="font-inter flex-grow" style={{ color: 'rgba(248,246,242,0.65)', fontSize: 14, lineHeight: 1.65 }}>
                 {a.excerpt}
               </p>
-              <div className="font-inter text-[12px] mt-5" style={{ color: 'rgba(198,169,107,0.7)' }}>
+              <div className="font-inter text-[12px] mt-auto pt-5" style={{ color: 'rgba(198,169,107,0.7)' }}>
                 Coming soon
               </div>
             </article>
