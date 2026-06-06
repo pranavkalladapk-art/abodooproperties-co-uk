@@ -1,4 +1,6 @@
 import { Link } from '@tanstack/react-router';
+import { motion } from 'framer-motion';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const articles = [
   {
@@ -22,44 +24,72 @@ const articles = [
 ];
 
 export default function InsightsSection() {
+  const { ref, inView } = useScrollReveal({ threshold: 0.12 });
   return (
-    <section id="insights" className="section section--deep" style={{ paddingTop: 120, paddingBottom: 120 }}>
+    <section id="insights" ref={ref} className="section section--blue section--divider">
       <div className="section-inner">
-        <div className="text-center mb-16">
-          <div className="font-inter text-[11px] tracking-[0.28em] text-gold uppercase mb-4">PROPERTY INSIGHTS</div>
-          <h2 className="font-playfair text-ivory font-normal" style={{ fontSize: 'clamp(32px, 4vw, 52px)', lineHeight: 1.15, letterSpacing: '-0.01em' }}>
-            Guides for UK landlords and investors.
-          </h2>
-          <p className="font-inter mt-6 max-w-2xl mx-auto text-center" style={{ color: 'rgba(248,246,242,0.72)', fontSize: 15, lineHeight: 1.7 }}>
+        <div className="section-head">
+          <span className="section-label">PROPERTY INSIGHTS</span>
+          <h2 className="section-h2">Guides for UK landlords and investors.</h2>
+          <p className="section-sub">
             Practical articles on letting strategies, regulation, and market trends — written for property owners thinking about what to do next.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {articles.map((a) => (
-            <article
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 mx-auto"
+          style={{ gap: 28, maxWidth: 1200, width: '100%' }}
+        >
+          {articles.map((a, i) => (
+            <motion.article
               key={a.slug}
-              className="relative flex flex-col min-h-[280px] p-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="group flex flex-col text-left"
               style={{
-                background: 'rgba(20,28,46,0.7)',
-                border: '1px solid rgba(198,169,107,0.08)',
+                padding: '40px 32px',
+                background: 'rgba(255,255,255,0.02)',
+                border: '1px solid rgba(198,169,107,0.18)',
                 borderRadius: 14,
+                transition: 'all 400ms cubic-bezier(0.22,1,0.36,1)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(198,169,107,0.55)';
+                e.currentTarget.style.background = 'rgba(198,169,107,0.04)';
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 24px 60px -28px rgba(198,169,107,0.35)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(198,169,107,0.18)';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              <div className="font-inter text-[10px] tracking-[0.22em] text-gold uppercase mb-2">{a.tag}</div>
-              <h3 className="font-playfair text-[19px] text-ivory" style={{ marginBottom: 12, lineHeight: 1.3 }}>
+              <div
+                style={{
+                  width: 36,
+                  height: 1,
+                  background: '#C6A96B',
+                  marginBottom: 22,
+                }}
+              />
+              <div className="font-inter text-[10px] tracking-[0.22em] text-gold uppercase" style={{ marginBottom: 12 }}>
+                {a.tag}
+              </div>
+              <h3 className="font-playfair text-[22px] text-ivory" style={{ marginBottom: 14, lineHeight: 1.3 }}>
                 {a.title}
               </h3>
-              <p className="font-inter text-[14.5px]" style={{ color: 'rgba(248,246,242,0.82)', lineHeight: 1.7 }}>
+              <p
+                className="font-inter text-[15px]"
+                style={{ color: 'rgba(248,246,242,0.85)', lineHeight: 1.75 }}
+              >
                 {a.excerpt}
               </p>
-              <span
-                className="absolute bottom-4 left-6 font-inter text-[11px] tracking-[0.18em] uppercase"
-                style={{ color: 'rgba(248,246,242,0.45)' }}
-              >
+              <div className="font-inter text-[12px]" style={{ color: 'rgba(198,169,107,0.7)', marginTop: 20 }}>
                 Coming soon
-              </span>
-            </article>
+              </div>
+            </motion.article>
           ))}
         </div>
 
