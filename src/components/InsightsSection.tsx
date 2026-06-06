@@ -39,22 +39,26 @@ export default function InsightsSection() {
           {articles.map((a) => (
             <article
               key={a.slug}
-              className="flex flex-col min-h-[300px] p-6 rounded-lg transition-all duration-300"
+              className="relative flex flex-col min-h-[280px] p-6"
               style={{
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(198,169,107,0.18)',
+                background: 'rgba(20,28,46,0.7)',
+                border: '1px solid rgba(198,169,107,0.08)',
+                borderRadius: 14,
               }}
             >
               <div className="font-inter text-[10px] tracking-[0.22em] text-gold uppercase mb-2">{a.tag}</div>
-              <h3 className="font-playfair text-ivory mb-3" style={{ fontSize: 20, lineHeight: 1.3, letterSpacing: '-0.01em' }}>
+              <h3 className="font-playfair text-[19px] text-ivory" style={{ marginBottom: 12, lineHeight: 1.3 }}>
                 {a.title}
               </h3>
-              <p className="font-inter flex-grow" style={{ color: 'rgba(248,246,242,0.65)', fontSize: 14, lineHeight: 1.65 }}>
+              <p className="font-inter text-[14.5px]" style={{ color: 'rgba(248,246,242,0.82)', lineHeight: 1.7 }}>
                 {a.excerpt}
               </p>
-              <div className="font-inter text-[12px] mt-auto pt-5" style={{ color: 'rgba(198,169,107,0.7)' }}>
+              <span
+                className="absolute bottom-4 left-6 font-inter text-[11px] tracking-[0.18em] uppercase"
+                style={{ color: 'rgba(248,246,242,0.45)' }}
+              >
                 Coming soon
-              </div>
+              </span>
             </article>
           ))}
         </div>
