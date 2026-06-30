@@ -7,26 +7,26 @@ const URL = "https://abodooproperties.co.uk/blog";
 
 const articles = [
   {
-    slug: 'rent-to-serviced-accommodation-explained',
+    to: '/blog/rent-to-serviced-accommodation',
     tag: 'R2SA',
     title: 'What is Rent-to-Serviced Accommodation and is it right for your property?',
     excerpt: 'A plain-English breakdown of how R2SA agreements work, what landlords gain, and the property types best suited to the model.',
   },
   {
-    slug: 'hmo-vs-serviced-accommodation-2026',
+    to: '/blog/hmo-vs-serviced-accommodation',
     tag: 'Strategy',
     title: 'HMO vs Serviced Accommodation: Which earns more in 2026?',
     excerpt: 'We compare gross yields, operating costs, void risk, and compliance burden across HMO and SA in the current UK market.',
   },
   {
-    slug: 'brrrr-strategy-uk-investors',
+    to: '/blog/brrrr-strategy-uk',
     tag: 'BRRRR',
     title: 'The BRRRR Strategy Explained for UK Property Investors',
     excerpt: 'Buy, Refurbish, Rent, Refinance, Repeat — how the strategy works in the UK and where investors most often get it wrong.',
   },
-];
+] as const;
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Property Insights & Blog | Abodoo Properties" },
@@ -58,13 +58,26 @@ function BlogPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {articles.map((a) => (
-              <article
-                key={a.slug}
-                className="flex flex-col rounded-lg p-7"
+              <Link
+                key={a.to}
+                to={a.to}
+                className="group flex flex-col rounded-lg p-7 transition-all duration-300"
                 style={{
                   background: 'rgba(255,255,255,0.02)',
                   border: '1px solid rgba(198,169,107,0.18)',
                   minHeight: 300,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(198,169,107,0.55)';
+                  e.currentTarget.style.background = 'rgba(198,169,107,0.04)';
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 24px 60px -28px rgba(198,169,107,0.35)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(198,169,107,0.18)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
                 <div className="font-inter text-[10px] tracking-[0.22em] text-gold uppercase mb-4">{a.tag}</div>
@@ -74,10 +87,10 @@ function BlogPage() {
                 <p className="font-inter mt-4 flex-1" style={{ color: 'rgba(248,246,242,0.65)', fontSize: 14, lineHeight: 1.65 }}>
                   {a.excerpt}
                 </p>
-                <div className="font-inter text-[12px] mt-5" style={{ color: 'rgba(198,169,107,0.7)' }}>
-                  Coming soon
+                <div className="font-inter text-[12px] mt-5 text-gold inline-flex items-center gap-2">
+                  Read article <span aria-hidden style={{ transition: 'transform 300ms' }} className="group-hover:translate-x-1">→</span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
