@@ -19,8 +19,8 @@ import { Route as HomeRouteImport } from './routes/home'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as StrategiesRentToHmoRouteImport } from './routes/strategies_.rent-to-hmo'
 import { Route as StrategiesSlugRouteImport } from './routes/strategies_.$slug'
 import { Route as BlogRentToServicedAccommodationRouteImport } from './routes/blog.rent-to-serviced-accommodation'
@@ -78,14 +78,14 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StrategiesRentToHmoRoute = StrategiesRentToHmoRouteImport.update({
@@ -100,20 +100,20 @@ const StrategiesSlugRoute = StrategiesSlugRouteImport.update({
 } as any)
 const BlogRentToServicedAccommodationRoute =
   BlogRentToServicedAccommodationRouteImport.update({
-    id: '/rent-to-serviced-accommodation',
-    path: '/rent-to-serviced-accommodation',
-    getParentRoute: () => BlogRoute,
+    id: '/blog/rent-to-serviced-accommodation',
+    path: '/blog/rent-to-serviced-accommodation',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const BlogHmoVsServicedAccommodationRoute =
   BlogHmoVsServicedAccommodationRouteImport.update({
-    id: '/hmo-vs-serviced-accommodation',
-    path: '/hmo-vs-serviced-accommodation',
-    getParentRoute: () => BlogRoute,
+    id: '/blog/hmo-vs-serviced-accommodation',
+    path: '/blog/hmo-vs-serviced-accommodation',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const BlogBrrrrStrategyUkRoute = BlogBrrrrStrategyUkRouteImport.update({
-  id: '/brrrr-strategy-uk',
-  path: '/brrrr-strategy-uk',
-  getParentRoute: () => BlogRoute,
+  id: '/blog/brrrr-strategy-uk',
+  path: '/blog/brrrr-strategy-uk',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicContactEnquiryRoute = ApiPublicContactEnquiryRouteImport.update({
   id: '/api/public/contact-enquiry',
@@ -123,7 +123,6 @@ const ApiPublicContactEnquiryRoute = ApiPublicContactEnquiryRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/faq': typeof FaqRoute
@@ -139,11 +138,11 @@ export interface FileRoutesByFullPath {
   '/blog/rent-to-serviced-accommodation': typeof BlogRentToServicedAccommodationRoute
   '/strategies/$slug': typeof StrategiesSlugRoute
   '/strategies/rent-to-hmo': typeof StrategiesRentToHmoRoute
+  '/blog/': typeof BlogIndexRoute
   '/api/public/contact-enquiry': typeof ApiPublicContactEnquiryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/faq': typeof FaqRoute
@@ -159,12 +158,12 @@ export interface FileRoutesByTo {
   '/blog/rent-to-serviced-accommodation': typeof BlogRentToServicedAccommodationRoute
   '/strategies/$slug': typeof StrategiesSlugRoute
   '/strategies/rent-to-hmo': typeof StrategiesRentToHmoRoute
+  '/blog': typeof BlogIndexRoute
   '/api/public/contact-enquiry': typeof ApiPublicContactEnquiryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/faq': typeof FaqRoute
@@ -180,13 +179,13 @@ export interface FileRoutesById {
   '/blog/rent-to-serviced-accommodation': typeof BlogRentToServicedAccommodationRoute
   '/strategies_/$slug': typeof StrategiesSlugRoute
   '/strategies_/rent-to-hmo': typeof StrategiesRentToHmoRoute
+  '/blog/': typeof BlogIndexRoute
   '/api/public/contact-enquiry': typeof ApiPublicContactEnquiryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/blog'
     | '/contact'
     | '/cookies'
     | '/faq'
@@ -202,11 +201,11 @@ export interface FileRouteTypes {
     | '/blog/rent-to-serviced-accommodation'
     | '/strategies/$slug'
     | '/strategies/rent-to-hmo'
+    | '/blog/'
     | '/api/public/contact-enquiry'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/blog'
     | '/contact'
     | '/cookies'
     | '/faq'
@@ -222,11 +221,11 @@ export interface FileRouteTypes {
     | '/blog/rent-to-serviced-accommodation'
     | '/strategies/$slug'
     | '/strategies/rent-to-hmo'
+    | '/blog'
     | '/api/public/contact-enquiry'
   id:
     | '__root__'
     | '/'
-    | '/blog'
     | '/contact'
     | '/cookies'
     | '/faq'
@@ -242,12 +241,12 @@ export interface FileRouteTypes {
     | '/blog/rent-to-serviced-accommodation'
     | '/strategies_/$slug'
     | '/strategies_/rent-to-hmo'
+    | '/blog/'
     | '/api/public/contact-enquiry'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   FaqRoute: typeof FaqRoute
@@ -258,8 +257,12 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StrategiesRoute: typeof StrategiesRoute
   TermsRoute: typeof TermsRoute
+  BlogBrrrrStrategyUkRoute: typeof BlogBrrrrStrategyUkRoute
+  BlogHmoVsServicedAccommodationRoute: typeof BlogHmoVsServicedAccommodationRoute
+  BlogRentToServicedAccommodationRoute: typeof BlogRentToServicedAccommodationRoute
   StrategiesSlugRoute: typeof StrategiesSlugRoute
   StrategiesRentToHmoRoute: typeof StrategiesRentToHmoRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   ApiPublicContactEnquiryRoute: typeof ApiPublicContactEnquiryRoute
 }
 
@@ -335,18 +338,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/strategies_/rent-to-hmo': {
@@ -365,24 +368,24 @@ declare module '@tanstack/react-router' {
     }
     '/blog/rent-to-serviced-accommodation': {
       id: '/blog/rent-to-serviced-accommodation'
-      path: '/rent-to-serviced-accommodation'
+      path: '/blog/rent-to-serviced-accommodation'
       fullPath: '/blog/rent-to-serviced-accommodation'
       preLoaderRoute: typeof BlogRentToServicedAccommodationRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/blog/hmo-vs-serviced-accommodation': {
       id: '/blog/hmo-vs-serviced-accommodation'
-      path: '/hmo-vs-serviced-accommodation'
+      path: '/blog/hmo-vs-serviced-accommodation'
       fullPath: '/blog/hmo-vs-serviced-accommodation'
       preLoaderRoute: typeof BlogHmoVsServicedAccommodationRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/blog/brrrr-strategy-uk': {
       id: '/blog/brrrr-strategy-uk'
-      path: '/brrrr-strategy-uk'
+      path: '/blog/brrrr-strategy-uk'
       fullPath: '/blog/brrrr-strategy-uk'
       preLoaderRoute: typeof BlogBrrrrStrategyUkRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/api/public/contact-enquiry': {
       id: '/api/public/contact-enquiry'
@@ -394,23 +397,8 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface BlogRouteChildren {
-  BlogBrrrrStrategyUkRoute: typeof BlogBrrrrStrategyUkRoute
-  BlogHmoVsServicedAccommodationRoute: typeof BlogHmoVsServicedAccommodationRoute
-  BlogRentToServicedAccommodationRoute: typeof BlogRentToServicedAccommodationRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogBrrrrStrategyUkRoute: BlogBrrrrStrategyUkRoute,
-  BlogHmoVsServicedAccommodationRoute: BlogHmoVsServicedAccommodationRoute,
-  BlogRentToServicedAccommodationRoute: BlogRentToServicedAccommodationRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   FaqRoute: FaqRoute,
@@ -421,8 +409,12 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StrategiesRoute: StrategiesRoute,
   TermsRoute: TermsRoute,
+  BlogBrrrrStrategyUkRoute: BlogBrrrrStrategyUkRoute,
+  BlogHmoVsServicedAccommodationRoute: BlogHmoVsServicedAccommodationRoute,
+  BlogRentToServicedAccommodationRoute: BlogRentToServicedAccommodationRoute,
   StrategiesSlugRoute: StrategiesSlugRoute,
   StrategiesRentToHmoRoute: StrategiesRentToHmoRoute,
+  BlogIndexRoute: BlogIndexRoute,
   ApiPublicContactEnquiryRoute: ApiPublicContactEnquiryRoute,
 }
 export const routeTree = rootRouteImport

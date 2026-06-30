@@ -26,7 +26,7 @@ const articles = [
   },
 ];
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Property Insights & Blog | Abodoo Properties" },
