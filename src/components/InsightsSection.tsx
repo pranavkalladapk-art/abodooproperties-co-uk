@@ -4,24 +4,24 @@ import useScrollReveal from '../hooks/useScrollReveal';
 
 const articles = [
   {
-    slug: 'rent-to-serviced-accommodation-explained',
+    to: '/blog/rent-to-serviced-accommodation',
     tag: 'R2SA',
     title: 'What is Rent-to-Serviced Accommodation and is it right for your property?',
     excerpt: 'A plain-English breakdown of how R2SA agreements work, what landlords gain, and the property types best suited to the model.',
   },
   {
-    slug: 'hmo-vs-serviced-accommodation-2026',
+    to: '/blog/hmo-vs-serviced-accommodation',
     tag: 'Strategy',
     title: 'HMO vs Serviced Accommodation: Which earns more in 2026?',
     excerpt: 'We compare gross yields, operating costs, void risk, and compliance burden across HMO and SA in the current UK market.',
   },
   {
-    slug: 'brrrr-strategy-uk-investors',
+    to: '/blog/brrrr-strategy-uk',
     tag: 'BRRRR',
     title: 'The BRRRR Strategy Explained for UK Property Investors',
     excerpt: 'Buy, Refurbish, Rent, Refinance, Repeat — how the strategy works in the UK and where investors most often get it wrong.',
   },
-];
+] as const;
 
 export default function InsightsSection() {
   const { ref, inView } = useScrollReveal({ threshold: 0.12 });
