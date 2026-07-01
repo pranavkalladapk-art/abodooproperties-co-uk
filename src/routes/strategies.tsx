@@ -307,7 +307,7 @@ function StrategiesPage() {
         className="font-inter text-[13px]"
       >
         <span style={{ color: 'rgba(248,246,242,0.7)' }}>
-          © 2025 Abodoo Properties · London, United Kingdom
+          © 2026 Abodoo Properties · London, United Kingdom
         </span>
       </footer>
     </main>

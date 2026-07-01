@@ -540,7 +540,7 @@ function ServicesPage() {
         className="font-inter text-[13px]"
       >
         <span style={{ color: 'rgba(248,246,242,0.7)' }}>
-          &copy; 2025 Abodoo Properties &middot; London, United Kingdom
+          &copy; 2026 Abodoo Properties &middot; London, United Kingdom
         </span>
       </footer>
     </main>
