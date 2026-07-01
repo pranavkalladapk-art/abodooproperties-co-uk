@@ -51,8 +51,8 @@ function BlogPage() {
             <h1 className="font-playfair text-ivory font-normal" style={{ fontSize: 'clamp(36px, 5vw, 64px)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               Property Insights
             </h1>
-            <p className="font-inter text-center mx-auto mt-8" style={{ color: 'rgba(248,246,242,0.82)', fontSize: 16, lineHeight: 1.7, maxWidth: '58ch' }}>
-              Practical articles on UK letting strategies, regulation, and market trends — written for property owners and investors.
+            <p className="font-inter mx-auto mt-8" style={{ color: 'rgba(248,246,242,0.82)', fontSize: 16, lineHeight: 1.7, textAlign: 'center', maxWidth: 560, margin: '0 auto' }}>
+              Practical articles on UK letting strategies, regulation, and market trends{'\u00A0'}—{'\u00A0'}written for property owners and investors.
             </p>
           </div>
 
