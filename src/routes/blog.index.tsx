@@ -51,17 +51,17 @@ function BlogPage() {
             <h1 className="font-playfair text-ivory font-normal" style={{ fontSize: 'clamp(36px, 5vw, 64px)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               Property Insights
             </h1>
-            <p className="font-inter text-center mx-auto mt-8" style={{ color: 'rgba(248,246,242,0.82)', fontSize: 16, lineHeight: 1.7, maxWidth: '58ch' }}>
-              Practical articles on UK letting strategies, regulation, and market trends — written for property owners and investors.
+            <p className="font-inter mx-auto mt-8" style={{ color: 'rgba(248,246,242,0.82)', fontSize: 16, lineHeight: 1.7, textAlign: 'center', maxWidth: 560, margin: '0 auto' }}>
+              Practical articles on UK letting strategies, regulation, and market trends{'\u00A0'}—{'\u00A0'}written for property owners and investors.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {articles.map((a) => (
               <Link
                 key={a.to}
                 to={a.to}
-                className="group flex flex-col rounded-lg p-7 transition-all duration-300"
+                className="group flex flex-col h-full rounded-lg p-7 transition-all duration-300"
                 style={{
                   background: 'rgba(255,255,255,0.02)',
                   border: '1px solid rgba(198,169,107,0.18)',
@@ -81,13 +81,15 @@ function BlogPage() {
                 }}
               >
                 <div className="font-inter text-[10px] tracking-[0.22em] text-gold uppercase mb-4">{a.tag}</div>
-                <h2 className="font-playfair text-ivory" style={{ fontSize: 22, lineHeight: 1.3, letterSpacing: '-0.01em' }}>
-                  {a.title}
-                </h2>
-                <p className="font-inter mt-4 flex-1" style={{ color: 'rgba(248,246,242,0.65)', fontSize: 14, lineHeight: 1.65 }}>
-                  {a.excerpt}
-                </p>
-                <div className="font-inter text-[12px] mt-5 text-gold inline-flex items-center gap-2">
+                <div className="flex-1 flex flex-col">
+                  <h2 className="font-playfair text-ivory" style={{ fontSize: 22, lineHeight: 1.3, letterSpacing: '-0.01em' }}>
+                    {a.title}
+                  </h2>
+                  <p className="font-inter mt-4 flex-1" style={{ color: 'rgba(248,246,242,0.65)', fontSize: 14, lineHeight: 1.65 }}>
+                    {a.excerpt}
+                  </p>
+                </div>
+                <div className="font-inter text-[12px] mt-auto text-gold inline-flex items-center gap-2">
                   Read article <span aria-hidden style={{ transition: 'transform 300ms' }} className="group-hover:translate-x-1">→</span>
                 </div>
               </Link>
