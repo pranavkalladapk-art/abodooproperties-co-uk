@@ -134,6 +134,20 @@ export default function Footer() {
         <p className="font-inter text-[11px] mt-4" style={{ color: 'rgba(248,246,242,0.82)', lineHeight: 1.7, maxWidth: '90ch' }}>
           Images, example properties, and figures shown on this site are illustrative. Abodoo Properties is a trading name; company registration details available on request.
         </p>
+        <div className="mt-5 pt-5" style={{ borderTop: '1px solid rgba(198,169,107,0.08)' }}>
+          <p className="font-inter text-[12px]" style={{ color: 'rgba(248,246,242,0.55)' }}>
+            SEO & Web Design by{' '}
+            <a
+              href="https://dravonixmedia.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-gold"
+              style={{ color: 'rgba(248,246,242,0.75)' }}
+            >
+              Dravonix Media Pvt. Ltd.
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
